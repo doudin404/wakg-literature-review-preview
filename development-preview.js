@@ -1,6 +1,6 @@
 /* Explicit development mode for the existing comparison surface, not acceptance. */
 window.WakgDevelopment = {
-  templates: Object.freeze({DEV_SCRIPT:'脚本提取（未正式验收）',DEV_DIRECT:'Agent 原文数值候选',DEV_ESTIMATE:'Agent 图读估值候选（近似）',DEV_UNKNOWN:'本轮尚未确定',DEV_UNLOCATED:'提取候选（暂无可公开定位）'}),
+  templates: Object.freeze({DEV_SCRIPT:'提取值',DEV_DIRECT:'原文数值',DEV_ESTIMATE:'图读估算',DEV_UNKNOWN:'待补充',DEV_UNLOCATED:'来源待补充'}),
   accept(queue) {
     if (queue.reviewReadiness !== 'DEVELOPMENT_PREVIEW') return false;
     if (queue.formalAcceptance !== false || queue.preHumanAgentReview || queue.papers?.length !== 10) throw new Error('Invalid development queue');
@@ -26,7 +26,8 @@ window.WakgDevelopment = {
     sourceExplanation=field=>templates[field.sourceExplanationCode];
     const originalCell=comparisonCell;
     comparisonCell=function(record,label){
-      const html=originalCell(record,label),f=record.fields.find(field=>field.label===label);
+      let html=originalCell(record,label);const f=record.fields.find(field=>field.label===label);
+      if(f && (f.value===null||f.value===undefined||f.value===''))html=html.replace('<strong>无数值</strong>','<strong>待补充</strong>');
       if(!f || !(f.sourceBasis||f.sourceFormula||f.observationContext||f.estimateRange?.some(v=>v!==null)))return html;
       const range=f.estimateRange?.some(v=>v!==null)?`估读范围：${f.estimateRange.map(v=>v===null?'未确定':v).join(' 至 ')} ${f.unit||''}；不是实验误差。`:'';
       return html.replace('</td>',`<details><summary>条件与提取依据</summary><p>${esc(f.observationContext||'')}</p><p>${esc(f.sourceBasis||'')}</p><p>${esc(f.sourceFormula||'')}</p><p>${esc(range)}</p></details></td>`);
@@ -34,20 +35,18 @@ window.WakgDevelopment = {
     const originalRender=render;
     render=function(options={}){
       originalRender(options);
-      document.title='WAKG 十篇论文提取 · 开发预览';
-      $('.brand h1').textContent='论文提取结果 · 开发预览';
-      $('.paper-index small').textContent='本次十篇 · 未正式验收';
-      $('.top-actions').textContent='开发预览，不是最终审核队列';
+      document.title='WAKG 提取结果预览';
+      $('.brand h1').textContent='提取结果预览';
+      $('.paper-index small').textContent='';
+      $('.top-actions').textContent='';
       document.querySelectorAll('.paper-meta .tag').forEach(el=>el.remove());
-      $('.data-head h2').textContent='本次提取结果';
-      $('.integrity').textContent='未进行正式独立验收';
-      $('.integrity').removeAttribute('title');
-      $('.review-guide').innerHTML='<strong>来源说明：</strong>脚本值、Agent 原文数值候选和“≈”图读估值分别标注；均未正式验收。空值表示本轮尚未确定，不代表论文没有数据。<br><strong>查看：</strong>切换 MAT/MIX，左右滚动查看养护、性能和图表提取项；点击“定位原文”。估值红框标出原图区域，不是精确数值词元。';
+      $('.data-head h2').textContent='提取数据';
+      $('.integrity').remove();
+      $('.review-guide').textContent='MAT：原材料；MIX：配比、养护与性能。点击“定位原文”查看来源；“约”表示图读估算。';
       $('.matrix-help span')?.remove();
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
       $('.legend').textContent='红框：所选数值或估读图形的来源';
-      const s=paper().devSummary;
-      $('.review').innerHTML=`<p><strong>本篇开发结果：</strong>脚本值 ${s.scriptValues}；原文数值候选 ${s.directCandidates}；图读估值 ${s.visualCandidates}。</p><p>尚未确定字段 ${s.unknownFields}；未解决项 ${s.unresolvedItems}；拒收候选 ${s.rejectedCandidates}；失败模块 ${s.failedModules}。数量不代表完整性。</p><p>此版本仅供查看本次结果，不记录正式接受或拒绝决定。</p>`;
+      $('.review').remove();
       document.querySelectorAll('.evidence').forEach(el=>el.setAttribute('aria-label','所选候选的原文来源区域'));
     };
     decide=()=>{};
