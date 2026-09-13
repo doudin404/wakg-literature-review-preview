@@ -13,3 +13,9 @@
 .curve-detail .curve-preview{max-width:100%}
 .matrix-value .source-line{gap:3px;font-size:8px;line-height:1.3;flex-wrap:nowrap;font-weight:400}
 .matrix-value .source-kind,.matrix-value .source-action{color:#b74a42;font-weight:400}
+.comparison-table td.matrix-cell{position:relative;isolation:isolate}
+.matrix-cell[data-cell-evidence]:not([data-cell-evidence=""]){cursor:pointer}
+.matrix-cell[data-cell-evidence]:not([data-cell-evidence=""]):not(.matrix-cell--active):hover{background:#f5f8fc}
+.matrix-cell .matrix-value.linked:hover{background:transparent}
+.comparison-table .matrix-cell--active,.comparison-table .matrix-cell--active:hover{background:#fff1ef;box-shadow:none}
+.matrix-cell--active::after{content:"";position:absolute;inset:0;border:2px solid #d53c33;box-sizing:border-box;pointer-events:none;z-index:2}
