@@ -26,5 +26,8 @@
 .source-basis{font:400 12px/1.5 sans-serif;max-width:320px;overflow-wrap:anywhere;margin:6px 10px}
 .source-basis summary{cursor:pointer;color:#64748b}
 .source-basis p{white-space:pre-line}
+.observation-age{display:block;margin:0 10px 8px;padding:3px 0;border:0;background:transparent;color:#64748b;font:400 12px/1.5 sans-serif;cursor:pointer}
+.observation-age:disabled{cursor:default;opacity:1}
+.unit-conversion{margin:8px 10px;color:#526175;font:400 12px/1.5 sans-serif;white-space:normal}
 .matrix-value strong{white-space:normal;overflow-wrap:anywhere}
 .matrix-value .curing-text{white-space:pre-line;font-weight:400;line-height:1.6}
