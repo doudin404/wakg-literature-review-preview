@@ -14,10 +14,15 @@ window.WakgDevelopment={
     const baseCell=comparisonCell;
     comparisonCell=function(record,label){
       const fields=record.fields.filter(f=>(f.displayLabel||f.label)===label);
-      if(fields.length>1)return `<td class="matrix-cell">${fields.map(f=>`<div class="observation-item">${comparisonCell({...record,fields:[f]},label).replace(/^<td[^>]*>/,'').replace(/<\/td>$/,'')}</div>`).join('')}</td>`;
+      if(fields.length>1)return `<td class="matrix-cell">${fields.map(f=>`<div class="observation-item matrix-cell ${f.evidenceKey&&f.evidenceKey===state.activeEvidence?'matrix-cell--active':''}" data-cell-evidence="${esc(f.evidenceKey||'')}">${comparisonCell({...record,fields:[f]},label).replace(/^<td[^>]*>/,'').replace(/<\/td>$/,'')}</div>`).join('')}</td>`;
       let html=baseCell(record,label);const f=fields[0];
       if(!f)return html;
-      const notes=[f.observationContext,f.sourceBasis,f.sourceFormula].filter(Boolean);
+      if(f.displayText!==undefined)html=html.replace(`<strong>${esc(f.value)}</strong>`,`<strong>${esc(f.displayText)}</strong>`);
+      if(f.displayUnit!==undefined&&f.unit)html=html.replace(`<small>${esc(f.unit)}</small>`,`<small>${esc(f.displayUnit)}</small>`);
+      if(f.displayPrefix)html=html.replace('<strong>',`<strong><span class="value-prefix">${esc(f.displayPrefix)}</span>`);
+      if(f.label==='养护条件')html=html.replace('<strong>','<strong class="curing-text">');
+      if(f.sourceBasis)html=html.replace('</button>',`<span class="comparison-basis">${esc(f.sourceBasis)}</span></button>`);
+      const notes=[f.observationContext,f.sourceFormula].filter(Boolean);
       return notes.length?html.replace('</td>',`<details class="source-basis"><summary>条件与计算依据</summary>${notes.map(n=>`<p>${esc(n)}</p>`).join('')}</details></td>`):html;
     };
     const baseRender=render;
@@ -26,8 +31,8 @@ window.WakgDevelopment={
       document.title='WAKG 论文数据人工审核台';
       document.querySelectorAll('.paper-meta .tag').forEach(el=>el.remove());
       $('.integrity')?.remove();
-      $('.review-guide').textContent='核对原材料和配比数据，点击“定位原文”查看来源。原表无值显示“无数值”；“约”表示估读。曲线可展开对照原图并下载点集。';
-      document.querySelectorAll('.matrix-help span').forEach(el=>el.remove());
+      $('.review-guide').textContent='点击数据单元格查看来源；展开条件与计算依据可核对试件和方法。曲线可展开对照原图并下载点集。';
+      $('.matrix-help').textContent='每条记录一行。同一性能的不同条件逐项列出，分别保留来源。';
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
     };
     render();return true;
