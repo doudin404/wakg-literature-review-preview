@@ -1,4 +1,14 @@
 /* Original paper/table review surface, using the current extraction only. */
+// Optional derived summaries stay in the stored result, not in the main table.
+// Keep primary measured proportions, spectra, mixture ratios and required PSD metrics.
+const reviewDerivedExtensionLabels=new Set([
+  '碳排放下限','碳排放上限','材料成本','碳排放指数下限','碳排放指数上限',
+  '综合成本指数','基体评价指数','CO₂ 总排放量','总价格','CO₂ 排放量','成本','CO₂ 减排量',
+  '断裂韧性相对变化','抗压强度增幅','流动直径增幅','坍落度降幅','坍落度减少量',
+  '初凝时间降幅','终凝时间降幅','抗压强度比','比表面积增幅','黏度降幅',
+  '抗折强度与 28 d 值之比','抗压强度增量','孔隙率降幅','抗压强度降幅','相对 M1 的抗压强度降幅'
+]);
+function mainReviewFields(record){return record.fields.filter(f=>!reviewDerivedExtensionLabels.has(f.displayLabel||f.label))}
 window.WakgDevelopment={
   accept(queue){
     if(!['RESTORED_PREVIEW','EXTRACTION_PREVIEW'].includes(queue.reviewReadiness))return false;
@@ -11,6 +21,8 @@ window.WakgDevelopment={
       }
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
+    const baseTable=recordsTableHtml;
+    recordsTableHtml=records=>baseTable(records.map(r=>({...r,fields:mainReviewFields(r)})));
     const baseTitle=reviewerRecordTitle;
     reviewerRecordTitle=function(record,index){
       return baseTitle({...record,fields:record.fields.map(f=>f.label==='试样'?{...f,value:f.displayText??f.value}:f)},index);
