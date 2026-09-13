@@ -6,9 +6,31 @@ const reviewDerivedExtensionLabels=new Set([
   '综合成本指数','基体评价指数','CO₂ 总排放量','总价格','CO₂ 排放量','成本','CO₂ 减排量',
   '断裂韧性相对变化','抗压强度增幅','流动直径增幅','坍落度降幅','坍落度减少量',
   '初凝时间降幅','终凝时间降幅','抗压强度比','比表面积增幅','黏度降幅',
-  '抗折强度与 28 d 值之比','抗压强度增量','孔隙率降幅','抗压强度降幅','相对 M1 的抗压强度降幅'
+  '抗折强度与 28 d 值之比','抗压强度增量','孔隙率降幅','抗压强度降幅','相对 M1 的抗压强度降幅',
+  '均值','最小值','第一四分位数','中位数','第三四分位数','最大值','Tukey 检验分组',
+  '立方聚类准则','得分均值差','差值标准误','Z 统计量','p 值','Hodges–Lehmann 估计量','置信下限','置信上限'
 ]);
-function mainReviewFields(record){return record.fields.filter(f=>!reviewDerivedExtensionLabels.has(f.displayLabel||f.label))}
+function mainReviewFields(record){
+  const seen=new Set();
+  return record.fields.filter(f=>{
+    if(reviewDerivedExtensionLabels.has(f.displayLabel||f.label))return false;
+    if(!f._observationIdentity)return true;
+    const key=f._observationIdentity+'|'+f.semanticRole;
+    if(seen.has(key))return false;seen.add(key);return true;
+  });
+}
+function mainReviewRecords(records){
+  const groups=new Map();
+  const ordinary=records.map(r=>({...r,fields:mainReviewFields(r).filter(f=>{
+    if(!f._collectiveKey)return true;
+    if(!groups.has(f._collectiveKey))groups.set(f._collectiveKey,{kind:r.kind,_groupTitle:true,fields:[],owners:new Set()});
+    const g=groups.get(f._collectiveKey);
+    g.owners.add(r.fields.find(x=>x.label==='试样')?.displayText||r.fields.find(x=>x.label==='试样')?.value||r.label);
+    if(!g.fields.some(x=>x.semanticRole===f.semanticRole))g.fields.push(f);
+    return false;
+  })}));
+  return [...ordinary,...[...groups.values()].map(g=>({...g,label:'组级范围 · '+[...g.owners].join('、')}))];
+}
 window.WakgDevelopment={
   accept(queue){
     if(!['RESTORED_PREVIEW','EXTRACTION_PREVIEW'].includes(queue.reviewReadiness))return false;
@@ -22,9 +44,10 @@ window.WakgDevelopment={
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
     const baseTable=recordsTableHtml;
-    recordsTableHtml=records=>baseTable(records.map(r=>({...r,fields:mainReviewFields(r)})));
+    recordsTableHtml=records=>baseTable(mainReviewRecords(records));
     const baseTitle=reviewerRecordTitle;
     reviewerRecordTitle=function(record,index){
+      if(record._groupTitle)return record.label;
       return baseTitle({...record,fields:record.fields.map(f=>f.label==='试样'?{...f,value:f.displayText??f.value}:f)},index);
     };
     const baseCurve=curveHtml;
