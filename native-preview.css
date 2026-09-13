@@ -1,0 +1,13 @@
+.observation-item + .observation-item{border-top:1px dashed #ded9d0}
+.curve-detail{min-width:320px;max-width:680px;padding:12px;font-size:13px;white-space:normal}
+.curve-detail summary{cursor:pointer;color:#175b83;font-weight:600}
+.curve-detail p{line-height:1.5;margin:8px 0}
+.curve-toggle{display:flex;align-items:center;gap:8px;margin:8px 0}
+.curve-toggle input{width:18px;height:18px}
+.curve-preview{display:block;width:100%;min-width:300px;background:white;border:1px solid #ddd;margin:10px 0}
+.curve-detail a{color:#175b83;text-decoration:underline}
+.development-mode .matrix-cell details.curve-detail{max-width:680px;font-size:13px}
+.addition-block>summary{cursor:pointer;font-weight:600;padding:10px}
+.comparison-table td:has(.curve-detail){min-width:360px;max-width:700px}
+.curve-detail{box-sizing:border-box}
+.curve-detail .curve-preview{max-width:100%}
