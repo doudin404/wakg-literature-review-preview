@@ -1,74 +1,35 @@
-/* Restore historical records with their original source vocabulary, without re-acceptance. */
-window.WakgDevelopment = {
-  accept(queue) {
-    if (queue.reviewReadiness !== 'RESTORED_PREVIEW') return false;
-    if (queue.formalAcceptance !== false || queue.preHumanAgentReview || queue.papers?.length !== 10) throw new Error('Invalid restored queue');
-    if(!validSourceExplanationContract(queue.sourceExplanationContract))throw new Error('Original source contract missing');
+/* Original paper/table review surface, using the current extraction only. */
+window.WakgDevelopment={
+  accept(queue){
+    if(!['RESTORED_PREVIEW','EXTRACTION_PREVIEW'].includes(queue.reviewReadiness))return false;
+    if(!validSourceExplanationContract(queue.sourceExplanationContract))throw Error('Source vocabulary missing');
     for(const p of queue.papers){
-      if(!p.pages?.length || p.pages.length!==p.pageCount) throw new Error('Missing source pages');
       const keys=new Set(p.pages.flatMap(pg=>pg.evidence.map(e=>e.evidenceKey)));
-      const records=[...p.records.mats,...p.records.mixes,...p.additionalExtraction.mats,...p.additionalExtraction.mixes,...(p.previousExtraction?.mats||[]),...(p.previousExtraction?.mixes||[])];
-      for(const record of records){
-        const labels=new Set();
-        for(const field of record.fields){
-          const displayLabel=field.displayLabel||field.label;
-          labels.add(displayLabel);
-          if(!validSourceExplanation(field)) throw new Error('Original source explanation mismatch');
-          if(field.evidenceKey && !keys.has(field.evidenceKey)) throw new Error('Missing source locator');
-          for(const entry of [...(field.corroboratingExtractions||[]),...(field.newlyExtractedValues||[]),...(field.conflictingExtractions||[]),...(field.developmentNoValue||[])]){
-            if(!validSourceExplanation(entry)) throw new Error('Merged source explanation mismatch');
-            if(entry.evidenceKey && !keys.has(entry.evidenceKey)) throw new Error('Missing merged source locator');
-          }
-        }
+      for(const r of [...p.records.mats,...p.records.mixes])for(const f of r.fields){
+        if(!validSourceExplanation(f))throw Error('Source vocabulary mismatch');
+        if(f.evidenceKey&&!keys.has(f.evidenceKey))throw Error('Source locator missing');
       }
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
-    document.body.classList.add('development-mode');
-    const style=document.createElement('style');
-    style.textContent='@media(max-width:1050px){.development-mode .topbar{height:auto;min-height:110px;grid-template-columns:1fr auto;padding-block:10px}.development-mode .paper-nav{display:flex;grid-column:1/-1;justify-content:center;grid-row:2}}.development-mode .matrix-cell details{padding:5px 10px;font-size:10px;max-width:240px;border-top:1px dashed #e5e1da}.development-mode .matrix-cell details p{margin:4px 0;line-height:1.4}.development-mode .merge-ok{color:#26704a}.development-mode .merge-conflict{color:#a13d34}.development-mode .evidence-jump{border:0;background:transparent;color:#b93831;font-size:10px;font-weight:700;cursor:pointer;padding:0}.development-mode .addition-block{margin:6px 14px 18px;padding-top:10px;border-top:2px solid #d8d3c9}.development-mode .addition-head{position:sticky;left:0;margin:0 0 8px}.development-mode .addition-head h3{margin:0 0 4px;font-size:14px}.development-mode .addition-head p{margin:0;color:#697381;font-size:10px}.development-mode .addition-block .matrix-wrap{padding:0}.development-mode .review{font-size:12px}.development-mode .review p{margin:4px 0}';
-    document.head.appendChild(style);
-    comparisonColumns=function(records){const seen=new Set(),columns=[];records.forEach(record=>record.fields.forEach(field=>{const label=field.displayLabel||field.label;if(!seen.has(label)){seen.add(label);columns.push(label)}}));return columns};
-    const originalCell=comparisonCell;
+    const baseCell=comparisonCell;
     comparisonCell=function(record,label){
-      const group=record.fields.filter(field=>(field.displayLabel||field.label)===label);
-      if(group.length>1)return `<td class="matrix-cell">${group.map(field=>`<div class="observation-item">${comparisonCell({...record,fields:[field]},label).replace(/^<td[^>]*>/,'').replace(/<\/td>$/,'')}</div>`).join('')}</td>`;
-      const f=record.fields.find(field=>(field.displayLabel||field.label)===label);
-      const displayRecord=f?.displayLabel?{...record,fields:record.fields.map(field=>field===f?{...field,label:f.displayLabel}:field)}:record;
-      let html=originalCell(displayRecord,label);
+      const fields=record.fields.filter(f=>(f.displayLabel||f.label)===label);
+      if(fields.length>1)return `<td class="matrix-cell">${fields.map(f=>`<div class="observation-item">${comparisonCell({...record,fields:[f]},label).replace(/^<td[^>]*>/,'').replace(/<\/td>$/,'')}</div>`).join('')}</td>`;
+      let html=baseCell(record,label);const f=fields[0];
       if(!f)return html;
-      const range=f.estimateRange?.some(v=>v!==null)?`估读范围：${f.estimateRange.map(v=>v===null?'未确定':v).join(' 至 ')} ${f.unit||''}；不是实验误差。`:'';
-      const basis=[f.extractionMethod?`提取方式：${f.extractionMethod}`:'',f.observationContext||'',f.sourceBasis||'',f.sourceFormula||'',range].filter(Boolean).map(v=>`<p>${esc(v)}</p>`).join('');
-      const evidenceButton=entry=>entry.evidenceKey?` <button class="evidence-jump" data-evidence="${esc(entry.evidenceKey)}">定位本轮依据</button>`:'';
-      const corroborating=(f.corroboratingExtractions||[]).map(entry=>`<p class="merge-ok"><strong>本轮复核一致：</strong>${esc(entry.value)} ${esc(entry.unit||'')}；来源含义：${esc(entry.sourceExplanation)}；提取方式：${esc(entry.extractionMethod)}${evidenceButton(entry)}</p>`).join('');
-      const newlyExtracted=(f.newlyExtractedValues||[]).map(entry=>`<p class="merge-ok"><strong>本轮补充：</strong>${esc(entry.value)} ${esc(entry.unit||'')}；旧表此处无值；来源含义：${esc(entry.sourceExplanation)}；提取方式：${esc(entry.extractionMethod)}${evidenceButton(entry)}</p>`).join('');
-      const conflicts=(f.conflictingExtractions||[]).map(entry=>`<p class="merge-conflict"><strong>本轮结果不同，双方保留：</strong>旧值 ${esc(f.value)} ${esc(f.unit||'')}；本轮值 ${esc(entry.value)} ${esc(entry.unit||'')}；来源含义：${esc(entry.sourceExplanation)}；提取方式：${esc(entry.extractionMethod)}${evidenceButton(entry)}</p>`).join('');
-      const noValue=(f.developmentNoValue||[]).map(entry=>`<p><strong>本轮状态：</strong>${esc(entry.extractionMethod)}；旧值继续保留。</p>`).join('');
-      if(!(basis||corroborating||newlyExtracted||conflicts||noValue))return html;
-      return html.replace('</td>',`<details><summary>条件、提取方式与依据</summary>${basis}${corroborating}${newlyExtracted}${conflicts}${noValue}</details></td>`);
+      const notes=[f.observationContext,f.sourceBasis,f.sourceFormula].filter(Boolean);
+      return notes.length?html.replace('</td>',`<details class="source-basis"><summary>条件与计算依据</summary>${notes.map(n=>`<p>${esc(n)}</p>`).join('')}</details></td>`):html;
     };
-    const originalRecordsHtml=recordsHtml;
-    recordsHtml=function(){
-      const p=paper(),kind=state.tab==='mat'?'mats':'mixes',previous=p.previousExtraction?.[kind];
-      const main=originalRecordsHtml()+(previous?`<details class="addition-block"><summary>此前提取结果（保留对照） · ${previous.length} 条记录</summary>${recordsTableHtml(previous)}</details>`:''),extras=p.additionalExtraction[kind];
-      if(!extras.length)return main;
-      return `${main}<section class="addition-block"><div class="addition-head"><h3>新增提取</h3><p>这些字段或记录暂不能与旧表按材料/试样、属性、单位、龄期及条件可靠对应，因此单独保留，不覆盖旧值。</p></div>${recordsTableHtml(extras)}</section>`;
-    };
-    const originalRender=render;
+    const baseRender=render;
     render=function(options={}){
-      originalRender(options);
-      document.title='WAKG 提取结果预览';
-      $('.brand h1').textContent='提取结果预览';
-      $('.paper-index small').textContent='';
+      baseRender(options);
+      document.title='WAKG 论文数据人工审核台';
       document.querySelectorAll('.paper-meta .tag').forEach(el=>el.remove());
-      $('.data-head h2').textContent='提取数据';
-      $('.integrity').remove();
-      $('.review-guide').textContent=paper().latestExtractionLabel?'本次重跑结果。相同字段的多条观测逐项显示；点击“定位原文”查看来源，展开曲线可对照轨迹并下载点集。此前结果保留在下方。':'MAT：原材料；MIX：配比、养护与性能。点击“定位原文”查看来源；“约”表示图中估读。';
-      $('.matrix-help span')?.remove();
+      $('.integrity')?.remove();
+      $('.review-guide').textContent='核对原材料和配比数据，点击“定位原文”查看来源。原表无值显示“无数值”；“约”表示估读。曲线可展开对照原图并下载点集。';
+      document.querySelectorAll('.matrix-help span').forEach(el=>el.remove());
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
-      $('.legend').textContent='红框：所选数值或估读图形的来源';
-      document.querySelectorAll('.evidence').forEach(el=>el.setAttribute('aria-label','所选数据的原文来源区域'));
     };
-    render();
-    return true;
+    render();return true;
   }
 };
