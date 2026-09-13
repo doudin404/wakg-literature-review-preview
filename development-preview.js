@@ -11,6 +11,15 @@ window.WakgDevelopment={
       }
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
+    const baseTitle=reviewerRecordTitle;
+    reviewerRecordTitle=function(record,index){
+      return baseTitle({...record,fields:record.fields.map(f=>f.label==='试样'?{...f,value:f.displayText??f.value}:f)},index);
+    };
+    const baseCurve=curveHtml;
+    curveHtml=function(field){
+      const html=baseCurve(field),curve=paper().curves?.[field.curveKey];
+      return curve?.displayLabel?html.replace(`aria-label="${esc(curve.label)}：`,`aria-label="${esc(curve.displayLabel)}：`):html;
+    };
     const baseCell=comparisonCell;
     comparisonCell=function(record,label){
       const fields=record.fields.filter(f=>(f.displayLabel||f.label)===label);
@@ -22,7 +31,7 @@ window.WakgDevelopment={
       if(f.displayPrefix)html=html.replace('<strong>',`<strong><span class="value-prefix">${esc(f.displayPrefix)}</span>`);
       if(f.label==='养护条件')html=html.replace('<strong>','<strong class="curing-text">');
       if(f.sourceBasis)html=html.replace('</button>',`<span class="comparison-basis">${esc(f.sourceBasis)}</span></button>`);
-      const notes=[f.observationContext,f.sourceFormula].filter(Boolean);
+      const notes=[f.observationContext,f.displayFormula||f.sourceFormula].filter(Boolean);
       return notes.length?html.replace('</td>',`<details class="source-basis"><summary>条件与计算依据</summary>${notes.map(n=>`<p>${esc(n)}</p>`).join('')}</details></td>`):html;
     };
     const baseRender=render;
@@ -34,6 +43,7 @@ window.WakgDevelopment={
       $('.review-guide').textContent='点击数据单元格查看来源；展开条件与计算依据可核对试件和方法。曲线可展开对照原图并下载点集。';
       $('.matrix-help').textContent='每条记录一行。同一性能的不同条件逐项列出，分别保留来源。';
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
+      const hint=$('.doc-foot span');if(hint)hint.textContent=hint.textContent.replace('点击右侧“定位原文”','点击右侧数据单元格');
     };
     render();return true;
   }
