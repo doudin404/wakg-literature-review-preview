@@ -67,7 +67,8 @@ window.WakgDevelopment={
       const condition=(f,name)=>{const text=f.observationContext||'';const match=text.match(new RegExp(name+'[：:]([^\\n]*?)(?=[；\\n](?:试件|方法)[：:]|$)'));return match?.[1]||'—'};
       const scalar=f=>f?`${esc(f.displayText??f.value??'无数值')}${(f.displayUnit??f.unit)?' '+esc(f.displayUnit??f.unit):''}`:'—';
       const ageCell=age=>age?.evidenceKey?`<button class="matrix-value linked" data-evidence="${esc(age.evidenceKey)}">${scalar(age)}</button>`:scalar(age);
-      const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th><th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(condition(value,'试件'))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
+      const hasCategory=observations.some(o=>o.value.observationCategory);
+      const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th>${hasCategory?'<th>系列 / 类别</th>':''}<th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${hasCategory?`<td>${esc(value.observationCategory||'—')}</td>`:''}${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(condition(value,'试件'))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
       return (basic.length?baseTable(basic):'')+observationTable;
     };
     const baseTitle=reviewerRecordTitle;
@@ -108,12 +109,16 @@ window.WakgDevelopment={
       document.title='WAKG 论文数据人工审核台';
       document.querySelectorAll('.paper-meta .tag').forEach(el=>el.remove());
       $('.integrity')?.remove();
+      const resultTitle=$('.data-head h2');if(resultTitle)resultTitle.textContent='提取结果预览';
       $('.review-guide').textContent='点击数值查看原文与详情。测量结果按试样、指标和测试条件逐行列出。';
       const help=$('.matrix-help');if(help)help.textContent='基础信息与配比。空格表示该记录没有此字段。';
       const selected=state.activeEvidence&&[...paper().records.mats,...paper().records.mixes].flatMap(r=>r.fields).find(f=>f.evidenceKey===state.activeEvidence);
       if(selected){
         const panel=document.createElement('section');panel.className='selected-field-details';
-        panel.innerHTML=`<details open><summary>${esc(selected.displayLabel||selected.label)} · 来源详情</summary>${selected.sourceBasis?`<p>${esc(selected.sourceBasis)}</p>`:''}${selected.observationContext?`<p>${esc(selected.observationContext)}</p>`:''}${conversion(selected)?`<p>单位换算：${esc(conversion(selected))}</p>`:''}${curveHtml(selected)}</details>`;
+        const xrf=selected.xrfReview;
+        const candidate=xrf?.normalisation_candidate;
+        const composition=xrf?`<p>XRF 原始合计：${esc(xrf.original_total??'未计算')} wt.%</p>${candidate?`<p>归一化候选：各项原值 ÷ ${esc(xrf.original_total)} × 100；原值保留。</p><table><thead><tr><th>组分</th><th>原值 / wt.%</th><th>候选 / wt.%</th></tr></thead><tbody>${xrf.rows.map((r,i)=>`<tr><td>${esc(r.component)}</td><td>${esc(r.original_value)}</td><td>${Number(candidate.rows[i]?.value).toFixed(3)}</td></tr>`).join('')}</tbody></table>`:''}`:'';
+        panel.innerHTML=`<details open><summary>${esc(selected.displayLabel||selected.label)} · 来源详情</summary>${composition}${selected.sourceBasis?`<p>${esc(selected.sourceBasis)}</p>`:''}${selected.observationContext?`<p>${esc(selected.observationContext)}</p>`:''}${conversion(selected)?`<p>单位换算：${esc(conversion(selected))}</p>`:''}${curveHtml(selected)}</details>`;
         $('.record-scroll').before(panel);
       }
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
