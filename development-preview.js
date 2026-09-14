@@ -118,7 +118,7 @@ window.WakgDevelopment={
       html=html.replace(/<path class="curve-overlay"[^>]*\/>/,`<g class="curve-overlay">${curvePointMarks(curve)}</g>`)
         .replace('叠加提取轨迹（绿色）','叠加读取点（绿色）');
       html=html.replace('<details class="curve-detail">','<details class="curve-detail" open>');
-      html=html.replace('</details>',`<details class="point-table" data-url="${esc(curve.pointsUrl)}"><summary>查看数据点</summary><div class="point-table-scroll"><table><thead><tr><th>横坐标 (${esc(curve.xAxis?.unit||'—')})</th><th>纵坐标 (${esc(curve.yAxis?.unit||'—')})</th></tr></thead><tbody></tbody></table></div></details></details>`);
+      html=html.replace('</details>',`<details class="point-table" data-url="${esc(curve.pointsUrl)}"><summary>查看数据点</summary><div class="point-table-scroll"><table><thead><tr><th>横坐标 (${esc(curve.xAxis?.displayUnit||curve.xAxis?.unit||'—')})</th><th>纵坐标 (${esc(curve.yAxis?.displayUnit||curve.yAxis?.unit||'—')})</th></tr></thead><tbody></tbody></table></div></details></details>`);
       return curve?.displayLabel?html.replace(`aria-label="${esc(curve.label)}：`,`aria-label="${esc(curve.displayLabel)}：`):html;
     };
     function conversion(field){
