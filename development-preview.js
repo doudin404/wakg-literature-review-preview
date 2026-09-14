@@ -19,6 +19,22 @@ function mainReviewFields(record){
     if(seen.has(key))return false;seen.add(key);return true;
   });
 }
+function isFigureRead(field){
+  return Boolean(field.curveKey||field.digitization||
+    (field.approximate && /(?:ev-chart|figure|chart)/i.test(field.evidenceKey||'')));
+}
+function relatedCurve(field){
+  if(field.curveKey)return field;
+  if(!isFigureRead(field)||!/粒径 D(?:10|50|90)/.test(field.displayLabel||field.label))return null;
+  const owner=[...paper().records.mats,...paper().records.mixes].find(r=>r.fields.includes(field));
+  const matches=owner?.fields.filter(f=>f.curveKey&&/cumulative|累计/i.test(f.label+' '+f.displayLabel)&&
+    (!field.observationCategory||f.observationCategory===field.observationCategory))||[];
+  return matches.length===1?matches[0]:null;
+}
+function curvePointMarks(curve){
+  return [...(curve.overlayPath||'').matchAll(/[ML]\s*(-?[\d.]+),\s*(-?[\d.]+)/g)]
+    .map(m=>`<circle cx="${m[1]}" cy="${m[2]}" r="1.8" fill="#078947" stroke="white" stroke-width="0.5"/>`).join('');
+}
 function mainReviewRecords(records){
   const groups=new Map();
   const ordinary=records.map(r=>({...r,fields:mainReviewFields(r).filter(f=>{
@@ -43,6 +59,8 @@ window.WakgDevelopment={
       }
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
+    const originalSourceExplanation=sourceExplanation;
+    sourceExplanation=field=>isFigureRead(field)?'图中估读':originalSourceExplanation(field);
     const baseTable=recordsTableHtml;
     recordsTableHtml=records=>{
       const rows=mainReviewRecords(records),basic=[],observations=[];
@@ -79,15 +97,22 @@ window.WakgDevelopment={
     };
     const baseCurve=curveHtml;
     curveHtml=function(field){
-      const html=baseCurve(field),curve=paper().curves?.[field.curveKey];
+      const linked=relatedCurve(field);
+      if(!linked)return '';
+      const curve=paper().curves?.[linked.curveKey];
+      let html=baseCurve(linked);
+      html=html.replace(/<path class="curve-overlay"[^>]*\/>/,`<g class="curve-overlay">${curvePointMarks(curve)}</g>`)
+        .replace('叠加提取轨迹（绿色）','叠加读取点（绿色）');
       return curve?.displayLabel?html.replace(`aria-label="${esc(curve.label)}：`,`aria-label="${esc(curve.displayLabel)}：`):html;
     };
     function conversion(field){
       if(!field)return '';
       const value=field.displayText??field.value,unit=field.displayUnit??field.unit;
       const original=field.originalValue,originalUnit=field.originalUnit;
-      const canonical=u=>String(u||'').replace('µ','μ').replace(/^(days?|天)$/,'d').replace(/^hours?$/,'h').replace(/^minutes?$/,'min').replace(/^seconds?$/,'s');
+      const canonical=u=>String(u||'').replace('µ','μ').replace(/^um$/,'μm').replace(/^(days?|天)$/,'d').replace(/^hours?$/,'h').replace(/^minutes?$/,'min').replace(/^seconds?$/,'s');
       if(original===null||original===undefined||!originalUnit)return '';
+      const numeric=v=>Number(String(v).replace(/^(?:约|≈)\s*/,''));
+      if(numeric(original)===numeric(value)&&canonical(originalUnit)===canonical(unit))return '';
       if(String(original)===String(value)&&canonical(originalUnit)===canonical(unit))return '';
       if(Number(original)===Number(value)&&canonical(originalUnit)===canonical(unit))return '';
       if(!field.sourceFormula)return '';
@@ -120,6 +145,21 @@ window.WakgDevelopment={
         const composition=xrf?`<p>XRF 原始合计：${esc(xrf.original_total??'未计算')} wt.%</p>${candidate?`<p>归一化候选：各项原值 ÷ ${esc(xrf.original_total)} × 100；原值保留。</p><table><thead><tr><th>组分</th><th>原值 / wt.%</th><th>候选 / wt.%</th></tr></thead><tbody>${xrf.rows.map((r,i)=>`<tr><td>${esc(r.component)}</td><td>${esc(r.original_value)}</td><td>${Number(candidate.rows[i]?.value).toFixed(3)}</td></tr>`).join('')}</tbody></table>`:''}`:'';
         panel.innerHTML=`<details open><summary>${esc(selected.displayLabel||selected.label)} · 来源详情</summary>${composition}${selected.sourceBasis?`<p>${esc(selected.sourceBasis)}</p>`:''}${selected.observationContext?`<p>${esc(selected.observationContext)}</p>`:''}${conversion(selected)?`<p>单位换算：${esc(conversion(selected))}</p>`:''}${curveHtml(selected)}</details>`;
         $('.record-scroll').before(panel);
+        const linked=relatedCurve(selected),curve=paper().curves?.[linked?.curveKey];
+        if(curve){
+          const detail=panel.querySelector('.curve-detail');if(detail)detail.open=true;
+          const percentile=(selected.displayLabel||selected.label).match(/粒径 D(10|50|90)/)?.[1];
+          if(percentile){const note=document.createElement('p');note.textContent=`图中估读：累计分布 ${percentile}% 对应的粒径。`;panel.firstChild.insertBefore(note,panel.firstChild.children[1]||null)}
+          const size=curve.sourceImageSize;
+          const curvePage=paper().pages.find(pg=>pg.evidence.some(e=>e.evidenceKey===linked.evidenceKey));
+          if(size&&curvePage?.number===state.page){
+            const overlay=document.createElementNS('http://www.w3.org/2000/svg','svg');
+            overlay.setAttribute('viewBox',`0 0 ${size[0]} ${size[1]}`);
+            overlay.setAttribute('aria-label','原图上的读取点');
+            overlay.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2';
+            overlay.innerHTML=curvePointMarks(curve);$('.pdf-page').append(overlay);
+          }
+        }
       }
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
       const hint=$('.doc-foot span');if(hint)hint.textContent=hint.textContent.replace('点击右侧“定位原文”','点击右侧数据单元格');
