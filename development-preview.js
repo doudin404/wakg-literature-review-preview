@@ -44,9 +44,35 @@ window.WakgDevelopment={
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
     const baseTable=recordsTableHtml;
-    recordsTableHtml=records=>baseTable(mainReviewRecords(records));
+    recordsTableHtml=records=>{
+      const rows=mainReviewRecords(records),basic=[],observations=[];
+      rows.forEach((record,index)=>{
+        const groups=new Map(),plain=[];
+        for(const f of record.fields){
+          const root=f._fieldPath?.match(/^(\/modules\/(?:performance|characterizations)\/\d+)\//)?.[1];
+          if(root||f.observationContext||f.curveKey){
+            const key=root||f._fieldPath||String(groups.size);
+            if(!groups.has(key))groups.set(key,[]);groups.get(key).push(f);
+          }else plain.push(f);
+        }
+        // Repeated properties occupy separate rows, never nested cells.
+        const lanes=[];
+        for(const f of plain){const label=f.displayLabel||f.label;let lane=lanes.find(r=>!r.fields.some(x=>(x.displayLabel||x.label)===label));if(!lane){lane={...record,fields:[]};lanes.push(lane)}lane.fields.push(f)}
+        lanes.forEach(r=>{r._tableTitle=reviewerRecordTitle(record,index);basic.push(r)});
+        for(const fields of groups.values()){
+          const age=fields.find(f=>f.semanticRole==='performance_age');
+          for(const value of fields.filter(f=>f!==age))observations.push({record,index,value,age});
+        }
+      });
+      const condition=(f,name)=>{const text=f.observationContext||'';const match=text.match(new RegExp(name+'[：:]([^\\n]*?)(?=[；\\n](?:试件|方法)[：:]|$)'));return match?.[1]||'—'};
+      const scalar=f=>f?`${esc(f.displayText??f.value??'无数值')}${(f.displayUnit??f.unit)?' '+esc(f.displayUnit??f.unit):''}`:'—';
+      const ageCell=age=>age?.evidenceKey?`<button class="matrix-value linked" data-evidence="${esc(age.evidenceKey)}">${scalar(age)}</button>`:scalar(age);
+      const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th><th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(condition(value,'试件'))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
+      return (basic.length?baseTable(basic):'')+observationTable;
+    };
     const baseTitle=reviewerRecordTitle;
     reviewerRecordTitle=function(record,index){
+      if(record._tableTitle)return record._tableTitle;
       if(record._groupTitle)return record.label;
       return baseTitle({...record,fields:record.fields.map(f=>f.label==='试样'?{...f,value:f.displayText??f.value}:f)},index);
     };
@@ -69,30 +95,12 @@ window.WakgDevelopment={
     const baseCell=comparisonCell;
     comparisonCell=function(record,label){
       const fields=record.fields.filter(f=>(f.displayLabel||f.label)===label);
-      if(fields.length>1){
-        const groups=new Map();
-        fields.forEach((f,i)=>{const root=f._fieldPath?.match(/^(\/modules\/(?:performance|characterizations)\/\d+)\/(?:value|age_seconds)$/)?.[1];const key=root||`field-${i}`;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(f)});
-        return `<td class="matrix-cell">${[...groups.values()].map(group=>{
-          const age=group.find(f=>f.semanticRole==='performance_age'),values=group.filter(f=>f!==age);
-          const shown=age&&values.length===1?[{...values[0],_joinedAge:age}]:group;
-          return shown.map(f=>`<div class="observation-item matrix-cell ${[f.evidenceKey,f._joinedAge?.evidenceKey].filter(Boolean).includes(state.activeEvidence)?'matrix-cell--active':''}" data-cell-evidence="${esc(f.evidenceKey||'')}">${comparisonCell({...record,fields:[f]},label).replace(/^<td[^>]*>/,'').replace(/<\/td>$/,'')}</div>`).join('');
-        }).join('')}</td>`;
-      }
-      let html=baseCell(record,label);const f=fields[0];
-      if(!f)return html;
-      if(f.displayText!==undefined)html=html.replace(`<strong>${esc(f.value)}</strong>`,`<strong>${esc(f.displayText)}</strong>`);
-      if(f.displayUnit!==undefined&&f.unit)html=html.replace(`<small>${esc(f.unit)}</small>`,`<small>${esc(f.displayUnit)}</small>`);
-      if(f.displayPrefix)html=html.replace('<strong>',`<strong><span class="value-prefix">${esc(f.displayPrefix)}</span>`);
-      if(f.label==='养护条件')html=html.replace('<strong>','<strong class="curing-text">');
-      if(f.sourceBasis)html=html.replace('</button>',`<span class="comparison-basis">${esc(f.sourceBasis)}</span></button>`);
-      const age=f._joinedAge;
-      if(age){const linked=age.evidenceKey&&!age.evidenceBlocked;
-        html=html.replace('</button>',`</button><button class="observation-age" ${linked?`data-evidence="${esc(age.evidenceKey)}"`:'disabled'} title="龄期来源">龄期：${esc(age.displayText??age.value)} ${esc(age.displayUnit??age.unit??'')}${linked?' · ⌖':''}</button>`);
-      }
-      const context=f.observationContext||age?.observationContext;
-      const conversions=[conversion(f),conversion(age)].filter(Boolean);
-      const detail=(context?`<details class="source-basis"><summary>测试条件</summary><p>${esc(context)}</p></details>`:'')+conversions.map(c=>`<p class="unit-conversion">单位换算：${esc(c)}</p>`).join('');
-      return html.replace('</td>',`${detail}</td>`);
+      const compact=fields[0];
+      if(!compact)return '<td class="matrix-cell matrix-cell--missing">—</td>';
+      const shown={...compact,value:compact.displayText??compact.value,unit:compact.displayUnit??compact.unit};
+      let cell=baseCell({...record,fields:[shown]},label);
+      cell=cell.replace(/<details class="curve-detail">[\s\S]*?<\/details>/g,'').replace(/<small class="digitization-note"[\s\S]*?<\/small>/g,'');
+      return cell;
     };
     const baseRender=render;
     render=function(options={}){
@@ -100,8 +108,14 @@ window.WakgDevelopment={
       document.title='WAKG 论文数据人工审核台';
       document.querySelectorAll('.paper-meta .tag').forEach(el=>el.remove());
       $('.integrity')?.remove();
-      $('.review-guide').textContent='点击数值或龄期查看各自来源；展开测试条件可核对试件和方法。曲线可展开对照原图并下载点集。';
-      $('.matrix-help').textContent='每条记录一行。同一性能的不同条件逐项列出，分别保留来源。';
+      $('.review-guide').textContent='点击数值查看原文与详情。测量结果按试样、指标和测试条件逐行列出。';
+      const help=$('.matrix-help');if(help)help.textContent='基础信息与配比。空格表示该记录没有此字段。';
+      const selected=state.activeEvidence&&[...paper().records.mats,...paper().records.mixes].flatMap(r=>r.fields).find(f=>f.evidenceKey===state.activeEvidence);
+      if(selected){
+        const panel=document.createElement('section');panel.className='selected-field-details';
+        panel.innerHTML=`<details open><summary>${esc(selected.displayLabel||selected.label)} · 来源详情</summary>${selected.sourceBasis?`<p>${esc(selected.sourceBasis)}</p>`:''}${selected.observationContext?`<p>${esc(selected.observationContext)}</p>`:''}${conversion(selected)?`<p>单位换算：${esc(conversion(selected))}</p>`:''}${curveHtml(selected)}</details>`;
+        $('.record-scroll').before(panel);
+      }
       $('.doc-foot a').textContent='打开论文来源（DOI） ↗';
       const hint=$('.doc-foot span');if(hint)hint.textContent=hint.textContent.replace('点击右侧“定位原文”','点击右侧数据单元格');
     };
