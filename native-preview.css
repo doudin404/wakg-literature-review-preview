@@ -32,7 +32,14 @@
 .matrix-value strong{white-space:normal;overflow-wrap:anywhere}
 .matrix-value .curing-text{white-space:pre-line;font-weight:400;line-height:1.6}
 .data:has(.selected-field-details){grid-template-rows:64px auto 42px auto minmax(0,1fr) auto}
-.selected-field-details{padding:8px 16px;background:#f7f9fb;border-bottom:1px solid #ddd;max-height:150px;overflow:auto}
+.selected-field-details{padding:8px 16px;background:#f7f9fb;border-bottom:1px solid #ddd;max-height:55vh;overflow:auto}
+.curve-list{display:grid;gap:16px;padding:12px 16px}
+.curve-card{border:1px solid #ddd;border-radius:6px;padding:12px;background:#fff}
+.curve-card h4{margin:0 0 10px;font-size:14px}
+.point-table-scroll{max-height:320px;overflow:auto}
+.point-table table{width:100%;border-collapse:collapse}
+.point-table td,.point-table th{padding:6px;border-bottom:1px solid #ddd;text-align:right}
+.curve-card .curve-detail{min-width:0;max-width:none;padding:0}
 .selected-field-details p{white-space:pre-line;font-size:13px}
 .observation-heading{padding:12px 16px;font-size:15px}
 .observation-table td,.observation-table th{padding:8px 12px;vertical-align:top}

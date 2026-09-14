@@ -25,6 +25,7 @@ function isFigureRead(field){
 }
 function relatedCurve(field){
   if(field.curveKey)return field;
+  if(field.relatedCurveKey)return {...field,curveKey:field.relatedCurveKey,evidenceKey:[...paper().records.mats,...paper().records.mixes].flatMap(r=>r.fields).find(f=>f.curveKey===field.relatedCurveKey)?.evidenceKey};
   if(!isFigureRead(field)||!/粒径 D(?:10|50|90)/.test(field.displayLabel||field.label))return null;
   const owner=[...paper().records.mats,...paper().records.mixes].find(r=>r.fields.includes(field));
   const matches=owner?.fields.filter(f=>f.curveKey&&/cumulative|累计/i.test(f.label+' '+f.displayLabel)&&
@@ -59,14 +60,24 @@ window.WakgDevelopment={
       }
     }
     state.queue=queue;loadDecisions();state.note=decision()?.note||'';
-    const originalSourceExplanation=sourceExplanation;
-    sourceExplanation=field=>isFigureRead(field)?'图中估读':originalSourceExplanation(field);
+    document.addEventListener('toggle',async event=>{
+      const el=event.target;
+      if(!el.matches?.('.point-table')||!el.open||el.dataset.loaded)return;
+      const body=el.querySelector('tbody');
+      try{
+        const response=await fetch(el.dataset.url);if(!response.ok)throw Error(response.status);
+        const lines=(await response.text()).trim().split(/\r?\n/),headers=lines.shift().split(',');
+        const xi=headers.indexOf('x'),yi=headers.indexOf('y');
+        body.innerHTML=lines.map(line=>{const row=line.split(',');return `<tr><td>${esc(row[xi])}</td><td>${esc(row[yi])}</td></tr>`}).join('');el.dataset.loaded='1';
+      }catch{body.innerHTML='<tr><td colspan="2">读取失败，请重新展开重试。</td></tr>'}
+    },true);
     const baseTable=recordsTableHtml;
     recordsTableHtml=records=>{
-      const rows=mainReviewRecords(records),basic=[],observations=[];
+      const rows=mainReviewRecords(records),basic=[],observations=[],curveRows=[];
       rows.forEach((record,index)=>{
         const groups=new Map(),plain=[];
         for(const f of record.fields){
+          if(f.curveKey){curveRows.push({record,index,field:f});continue}
           const root=f._fieldPath?.match(/^(\/modules\/(?:performance|characterizations)\/\d+)\//)?.[1];
           if(root||f.observationContext||f.curveKey){
             const key=root||f._fieldPath||String(groups.size);
@@ -87,22 +98,27 @@ window.WakgDevelopment={
       const ageCell=age=>age?.evidenceKey?`<button class="matrix-value linked" data-evidence="${esc(age.evidenceKey)}">${scalar(age)}</button>`:scalar(age);
       const hasCategory=observations.some(o=>o.value.observationCategory);
       const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th>${hasCategory?'<th>系列 / 类别</th>':''}<th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${hasCategory?`<td>${esc(value.observationCategory||'—')}</td>`:''}${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(condition(value,'试件'))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
-      return (basic.length?baseTable(basic):'')+observationTable;
+      const curves=curveRows.length?`<h3 class="observation-heading">曲线与光谱</h3><div class="curve-list">${curveRows.map(({record,index,field})=>`<article class="curve-card"><h4>${esc(reviewerRecordTitle(record,index))} · ${esc(field.displayLabel||field.label)}</h4><button class="btn" data-evidence="${esc(field.evidenceKey)}">查看原图读取点</button>${curveHtml(field)}</article>`).join('')}</div>`:'';
+      return (basic.length?baseTable(basic):'')+observationTable+curves;
     };
     const baseTitle=reviewerRecordTitle;
     reviewerRecordTitle=function(record,index){
       if(record._tableTitle)return record._tableTitle;
       if(record._groupTitle)return record.label;
+      if(record.displayName)return record.displayName;
       return baseTitle({...record,fields:record.fields.map(f=>f.label==='试样'?{...f,value:f.displayText??f.value}:f)},index);
     };
     const baseCurve=curveHtml;
     curveHtml=function(field){
+      if(field._suppressCurve)return '';
       const linked=relatedCurve(field);
       if(!linked)return '';
       const curve=paper().curves?.[linked.curveKey];
       let html=baseCurve(linked);
       html=html.replace(/<path class="curve-overlay"[^>]*\/>/,`<g class="curve-overlay">${curvePointMarks(curve)}</g>`)
         .replace('叠加提取轨迹（绿色）','叠加读取点（绿色）');
+      html=html.replace('<details class="curve-detail">','<details class="curve-detail" open>');
+      html=html.replace('</details>',`<details class="point-table" data-url="${esc(curve.pointsUrl)}"><summary>查看数据点</summary><div class="point-table-scroll"><table><thead><tr><th>横坐标 (${esc(curve.xAxis?.unit||'—')})</th><th>纵坐标 (${esc(curve.yAxis?.unit||'—')})</th></tr></thead><tbody></tbody></table></div></details></details>`);
       return curve?.displayLabel?html.replace(`aria-label="${esc(curve.label)}：`,`aria-label="${esc(curve.displayLabel)}：`):html;
     };
     function conversion(field){
@@ -123,9 +139,9 @@ window.WakgDevelopment={
       const fields=record.fields.filter(f=>(f.displayLabel||f.label)===label);
       const compact=fields[0];
       if(!compact)return '<td class="matrix-cell matrix-cell--missing">—</td>';
-      const shown={...compact,value:compact.displayText??compact.value,unit:compact.displayUnit??compact.unit};
+      const shown={...compact,_suppressCurve:true,value:compact.displayText??compact.value,unit:compact.displayUnit??compact.unit};
       let cell=baseCell({...record,fields:[shown]},label);
-      cell=cell.replace(/<details class="curve-detail">[\s\S]*?<\/details>/g,'').replace(/<small class="digitization-note"[\s\S]*?<\/small>/g,'');
+      cell=cell.replace(/<details class="curve-detail"[^>]*>[\s\S]*?<\/details>/g,'').replace(/<small class="digitization-note"[\s\S]*?<\/small>/g,'');
       return cell;
     };
     const baseRender=render;
@@ -158,6 +174,7 @@ window.WakgDevelopment={
             overlay.setAttribute('aria-label','原图上的读取点');
             overlay.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2';
             overlay.innerHTML=curvePointMarks(curve);$('.pdf-page').append(overlay);
+            panel.querySelector('.curve-toggle input')?.addEventListener('input',event=>{overlay.style.display=event.target.checked?'':'none'});
           }
         }
       }
