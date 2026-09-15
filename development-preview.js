@@ -94,10 +94,28 @@ window.WakgDevelopment={
         }
       });
       const condition=(f,name)=>{const text=f.observationContext||'';const match=text.match(new RegExp(name+'[：:]([^\\n]*?)(?=[；\\n](?:试件|方法)[：:]|$)'));return match?.[1]||'—'};
+      const category=(value,age)=>{
+        const raw=String(value.observationCategory||'').trim();
+        if(!raw)return '—';
+        const compact=s=>String(s||'').replace(/\s+/g,'').toLowerCase();
+        const ageText=age?.displayText??age?.value;
+        if(/^\d+(?:\.\d+)?\s*(?:d|day|days)$/i.test(raw)||compact(raw)===compact(ageText))return '—';
+        if(compact(raw)===compact(value.displayLabel||value.label))return '—';
+        return raw;
+      };
+      const specimen=(value,age)=>{
+        let text=condition(value,'试件');
+        if(text==='—')return text;
+        const ageText=String(age?.displayText??age?.value??'').trim();
+        const candidates=[ageText,ageText.replace(/\s+/g,''),ageText.replace(/\s*d(?:ay)?s?$/i,'')];
+        for(const candidate of candidates.filter(Boolean))text=text.replace(new RegExp('^\\s*'+candidate.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s*','i'),'');
+        text=text.replace(/^\s*\d+(?:\.\d+)?\s*(?:d|day(?:s)?)\s*(?=[\u4e00-\u9fffA-Za-z])/i,'');
+        return text.trim()||'—';
+      };
       const scalar=f=>f?`${esc(f.displayText??f.value??'无数值')}${(f.displayUnit??f.unit)?' '+esc(f.displayUnit??f.unit):''}`:'—';
       const ageCell=age=>age?.evidenceKey?`<button class="matrix-value linked" data-evidence="${esc(age.evidenceKey)}">${scalar(age)}</button>`:scalar(age);
       const hasCategory=observations.some(o=>o.value.observationCategory);
-      const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th>${hasCategory?'<th>系列 / 类别</th>':''}<th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${hasCategory?`<td>${esc(value.observationCategory||'—')}</td>`:''}${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(condition(value,'试件'))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
+      const observationTable=observations.length?`<h3 class="observation-heading">测量与表征结果</h3><div class="matrix-wrap"><table class="comparison-table observation-table"><thead><tr><th>试样 / 材料</th><th>指标</th>${hasCategory?'<th>系列 / 类别</th>':''}<th>数值</th><th>单位</th><th>龄期</th><th>试件</th><th>方法</th></tr></thead><tbody>${observations.map(({record,index,value,age})=>`<tr><th scope="row">${esc(reviewerRecordTitle(record,index))}</th><td>${esc(value.displayLabel||value.label)}</td>${hasCategory?`<td>${esc(category(value,age))}</td>`:''}${comparisonCell({...record,fields:[{...value,unit:null,displayUnit:null}]},value.displayLabel||value.label)}<td>${esc(value.displayUnit??value.unit??'—')}</td><td>${ageCell(age)}</td><td>${esc(specimen(value,age))}</td><td>${esc(condition(value,'方法'))}</td></tr>`).join('')}</tbody></table></div>`:'';
       const curves=curveRows.length?`<h3 class="observation-heading">曲线与光谱</h3><div class="curve-list">${curveRows.map(({record,index,field})=>`<article class="curve-card"><h4>${esc(reviewerRecordTitle(record,index))} · ${esc(field.displayLabel||field.label)}</h4><button class="btn" data-evidence="${esc(field.evidenceKey)}">查看原图读取点</button>${curveHtml(field)}</article>`).join('')}</div>`:'';
       return (basic.length?baseTable(basic):'')+observationTable+curves;
     };
