@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_CALIBRATION_NOT_ACCEPTED",
+  "calibration_review_message_id": "raster-axis-bounds-20260907-01",
+  "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+  "panels": [{
+    "figure": "Fig. 1", "panel_label": "a", "page": 2,
+    "image_xref": 4, "native_size": [1800,1601],
+    "curve_type": "cumulative_finer",
+    "trace_mode": "uppermost_saturated_cumulative_stroke",
+    "plot_bbox_px": [114,20,844,714],
+    "exclude_boxes_px": [[114,80,365,266]],
+    "pixel_uncertainty": 3, "max_percentile_gap_px": 45,
+    "x_axis": {"anchors": [[166.7,1],[718.8,1000]],"anchor_pixel_intervals":[[165.0,168.5],[717.0,721.0]],"unit":"um","scale":"log10"},
+    "y_axis": {"anchors": [[716.7,0],[18.8,100]],"anchor_pixel_intervals":[[716.0,719.0],[18.0,21.0]],"unit":"%","scale":"linear"},
+    "series": [
+      {"label":"GGBS","rgb":[5,90,170],"color_distance":55},
+      {"label":"FA","rgb":[45,125,75],"color_distance":55},
+      {"label":"QS#1","rgb":[250,200,25],"color_distance":45},
+      {"label":"QS#2","rgb":[240,130,30],"color_distance":45}
+    ]
+  }]
+}

@@ -1,0 +1,24 @@
+{
+ "pdf_sha256":"1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+ "mapping_message_id":"raw-material-gap-review-p01-p02",
+ "items":[
+  {"key":"anhydrous-silicate-ms1","role":"activator","parameter_key":"Na2O-SiO2",
+   "custom_material_id":{"page":3,"clause":"FA Na2O⋅SiO2 Na2O⋅2SiO2","capture":"(Na2O⋅SiO2)"},
+   "material_type":{"page":3,"clause":"The solid activators included anhydrous sodium silicate","capture":"(anhydrous sodium silicate)"}},
+  {"key":"anhydrous-silicate-ms2","role":"activator","parameter_key":"Na2O-2SiO2",
+   "custom_material_id":{"page":3,"clause":"FA Na2O⋅SiO2 Na2O⋅2SiO2","capture":"(Na2O⋅2SiO2)"},
+   "material_type":{"page":3,"clause":"The solid activators included anhydrous sodium silicate","capture":"(anhydrous sodium silicate)"}},
+  {"key":"sodium-carbonate","role":"activator","parameter_key":"Na2CO3",
+   "custom_material_id":{"page":3,"clause":"Na2O⋅2SiO2 Na2CO3 Na2SO4 Borax Water","capture":"(Na2CO3)"},
+   "material_type":{"page":3,"clause":"sodium carbonate \\(NC\\), sodium sulfate \\(NS\\), and borax \\(NB\\)","capture":"(sodium carbonate)"}},
+  {"key":"sodium-sulfate","role":"activator","parameter_key":"Na2SO4",
+   "custom_material_id":{"page":3,"clause":"Na2O⋅2SiO2 Na2CO3 Na2SO4 Borax Water","capture":"(Na2SO4)"},
+   "material_type":{"page":3,"clause":"sodium carbonate \\(NC\\), sodium sulfate \\(NS\\), and borax \\(NB\\)","capture":"(sodium sulfate)"}},
+  {"key":"borax","role":"activator","parameter_key":"Borax",
+   "custom_material_id":{"page":3,"clause":"Na2O⋅2SiO2 Na2CO3 Na2SO4 Borax Water","capture":"(Borax)"},
+   "material_type":{"page":3,"clause":"sodium carbonate \\(NC\\), sodium sulfate \\(NS\\), and borax \\(NB\\)","capture":"(borax)"}},
+  {"key":"tap-water","role":"mixing_water","parameter_key":"Water",
+   "custom_material_id":{"page":3,"clause":"Na2O⋅2SiO2 Na2CO3 Na2SO4 Borax Water","capture":"(Water)"},
+   "material_type":{"page":3,"clause":"Then, tap water was added","capture":"(tap water)"}}
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "status":"UNASSIGNED_STROKE_GEOMETRY_CANDIDATE",
+  "pdf_sha256":"66c1278f6f7c2991f7497f8056ec76ca2cc24dab655b2c02d7ecbdd49f8a45db",
+  "page":4,"figure":"Fig. 2","image_xref":64,"native_size":[1700,1030],
+  "plot_bbox_px":[144,129,1624,862],
+  "exclude_boxes_px":[[1480,140,1685,250]],
+  "threshold":100,"max_run_height":20,
+  "context":"CDW black solid and RHA black dashed differential volume distribution after milling. Seeds and series assignment pending; no percentile conversion authorised.",
+  "axis_calibration_status":"PENDING_INDEPENDENT_OVERLAY_CHECK"
+}

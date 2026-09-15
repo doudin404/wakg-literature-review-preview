@@ -1,0 +1,27 @@
+{
+  "pdf_sha256": "4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+  "mapping_message_id": "prose-triage-group1-protocol-20260907-02",
+  "identity_page": 3,
+  "defaults": {
+    "name": "slump", "unit": "mm", "source_table": "table-3",
+    "age": null, "age_basis": "fresh_state_not_applicable",
+    "specimen": {"page": 3, "clause": "Slump value as described in ASTM C143-15a \\[36\\] was conducted to determine workability of AAFS concrete", "capture": "(AAFS concrete)"},
+    "method": {"page": 3, "clause": "Slump value as described in ASTM C143-15a \\[36\\] was conducted to determine workability of AAFS concrete", "capture": "(ASTM C143-15a)"}
+  },
+  "items": [
+    {"source_id":"B15","source_row":6,"identity_clause":"6 B15 85/15",
+     "value":{"page":3,"clause":"The slump value of B15 \\(\\d+(?:\\.\\d+)? mm\\)","capture":"B15 \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"A15","source_row":2,"identity_clause":"2 A15 85/15",
+     "value":{"page":3,"clause":"compared with that of A15 \\(\\d+(?:\\.\\d+)? mm\\)","capture":"A15 \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"B20","source_row":7,"identity_clause":"7 B20 80/20",
+     "value":{"page":3,"clause":"the slump values of B20 \\(\\d+(?:\\.\\d+)? mm\\) and B25 \\(\\d+(?:\\.\\d+)? mm\\)","capture":"B20 \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"B25","source_row":8,"identity_clause":"8 B25 75/25",
+     "value":{"page":3,"clause":"the slump values of B20 \\(\\d+(?:\\.\\d+)? mm\\) and B25 \\(\\d+(?:\\.\\d+)? mm\\)","capture":"B25 \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"D15","source_row":12,"identity_clause":"12 D15 85/15",
+     "value":{"page":4,"clause":"the slump value of D15 \\(SS/SH ratio of 1.5\\) kept the highest level \\(\\d+(?:\\.\\d+)? mm\\)","capture":"level \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"A25","source_row":4,"identity_clause":"4 A25 75/25",
+     "value":{"page":4,"clause":"the slump value \\(\\d+(?:\\.\\d+)? mm\\) of A25 decreased to \\d+(?:\\.\\d+)? mm \\(D25\\)","capture":"value \\((\\d+(?:\\.\\d+)?) mm"}},
+    {"source_id":"D25","source_row":13,"identity_clause":"13 D25 75/25",
+     "value":{"page":4,"clause":"the slump value \\(\\d+(?:\\.\\d+)? mm\\) of A25 decreased to \\d+(?:\\.\\d+)? mm \\(D25\\)","capture":"to (\\d+(?:\\.\\d+)?) mm"}}
+  ]
+}

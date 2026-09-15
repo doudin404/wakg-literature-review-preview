@@ -1,0 +1,13 @@
+{
+  "message_id": "qxrd-remaining-context-v1", "reviewer": "/root/relations_a",
+  "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+  "page": 3,
+  "material_reviews": {
+    "FA": {
+      "quotes": ["The crystalline and amorphous phase contents account for 57.2 % and 42.8 %, respectively."],
+      "denominator_recommendation": "as_reported_basis_not_explicit",
+      "denominator_status": "reported_material_composition_denominator_not_explicit",
+      "rationale": "Source reports FA amorphous content directly; mass denominator and internal-standard treatment are not explicit. Preserve reported value without rebasing."
+    }
+  }
+}

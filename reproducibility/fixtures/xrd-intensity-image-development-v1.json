@@ -1,0 +1,187 @@
+{
+  "image_sha256": "8bcc17e97deae9c255ac977edf0891600af06a658982e3e0b4be4ad1bad1c1f8",
+  "native_size": [
+    649,
+    584
+  ],
+  "scope": "ANGLE_CALIBRATION_CANDIDATE_NO_INTENSITY_SCALE_OR_MATERIAL_ACCEPTANCE",
+  "panels": [
+    {
+      "trace_mode": "single_stroke_per_column",
+      "curve_type": "intensity",
+      "plot_bbox_px": [
+        17,
+        50,
+        632,
+        179
+      ],
+      "x_axis": {
+        "name": "2theta",
+        "scale": "linear",
+        "ticks": [
+          [
+            16,
+            10
+          ],
+          [
+            93,
+            20
+          ],
+          [
+            170,
+            30
+          ],
+          [
+            247,
+            40
+          ],
+          [
+            325,
+            50
+          ],
+          [
+            402,
+            60
+          ],
+          [
+            479,
+            70
+          ],
+          [
+            556,
+            80
+          ],
+          [
+            632,
+            90
+          ]
+        ],
+        "tick_tolerance_px": 1,
+        "unit": "degree"
+      },
+      "y_axis": {
+        "scale": "linear",
+        "anchors": [
+          [
+            50,
+            50
+          ],
+          [
+            179,
+            179
+          ]
+        ],
+        "unit": "pixel"
+      },
+      "series": [
+        {
+          "label": "red source stroke",
+          "rgb": [
+            225,
+            65,
+            65
+          ],
+          "color_distance": 70,
+          "source_label": {
+            "text": "Calcined soil+ZnO",
+            "bbox_px": [
+              412,
+              183,
+              629,
+              211
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "trace_mode": "single_stroke_per_column",
+      "curve_type": "intensity",
+      "plot_bbox_px": [
+        17,
+        180,
+        632,
+        460
+      ],
+      "x_axis": {
+        "name": "2theta",
+        "scale": "linear",
+        "ticks": [
+          [
+            16,
+            10
+          ],
+          [
+            93,
+            20
+          ],
+          [
+            170,
+            30
+          ],
+          [
+            247,
+            40
+          ],
+          [
+            325,
+            50
+          ],
+          [
+            402,
+            60
+          ],
+          [
+            479,
+            70
+          ],
+          [
+            556,
+            80
+          ],
+          [
+            632,
+            90
+          ]
+        ],
+        "tick_tolerance_px": 1,
+        "unit": "degree"
+      },
+      "y_axis": {
+        "scale": "linear",
+        "anchors": [
+          [
+            180,
+            180
+          ],
+          [
+            460,
+            460
+          ]
+        ],
+        "unit": "pixel"
+      },
+      "series": [
+        {
+          "label": "black source stroke",
+          "rgb": [
+            65,
+            65,
+            65
+          ],
+          "color_distance": 95,
+          "connected_min_span_fraction": 0.8,
+          "source_label": {
+            "text": "Uncalcined soil",
+            "bbox_px": [
+              452,
+              465,
+              624,
+              491
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

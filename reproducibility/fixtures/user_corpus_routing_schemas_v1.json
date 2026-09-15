@@ -1,0 +1,1718 @@
+{
+  "schema_version": 1,
+  "scope": "routing-only PDF locators and layout rules; source tokens are read from frozen PDF bytes at runtime",
+  "papers": [
+    {
+      "run_id": "user10v2-1c116a8946fc",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S095006182504824X-main.pdf",
+      "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+      "tables": [
+        {
+          "table_id": "table-2",
+          "page": 3,
+          "band": [
+            590,
+            710
+          ],
+          "header_band": [
+            560,
+            600
+          ],
+          "row_detector": {
+            "token_regex": "^M[0-9]"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix IDs",
+              "unit": null,
+              "x": [
+                35,
+                100
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "binder_a",
+              "label": "GGBS",
+              "unit": "kg/m3",
+              "x": [
+                100,
+                145
+              ],
+              "carry_forward": true,
+              "required": false,
+              "parameter_keys": [
+                "ggbs"
+              ]
+            },
+            {
+              "key": "binder_b",
+              "label": "FA",
+              "unit": "kg/m3",
+              "x": [
+                145,
+                190
+              ],
+              "carry_forward": true,
+              "required": false,
+              "parameter_keys": [
+                "fa"
+              ]
+            },
+            {
+              "key": "component_01",
+              "label": "Na2O-SiO2",
+              "unit": "kg/m3",
+              "x": [
+                190,
+                235
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "na2o.sio2"
+              ]
+            },
+            {
+              "key": "component_02",
+              "label": "Na2O-2SiO2",
+              "unit": "kg/m3",
+              "x": [
+                235,
+                290
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "na2o.2sio2"
+              ]
+            },
+            {
+              "key": "component_03",
+              "label": "Na2CO3",
+              "unit": "kg/m3",
+              "x": [
+                290,
+                340
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "na2co3"
+              ]
+            },
+            {
+              "key": "component_04",
+              "label": "Na2SO4",
+              "unit": "kg/m3",
+              "x": [
+                340,
+                390
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "na2so4"
+              ]
+            },
+            {
+              "key": "component_05",
+              "label": "Borax",
+              "unit": "kg/m3",
+              "x": [
+                390,
+                440
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "borax"
+              ]
+            },
+            {
+              "key": "water",
+              "label": "Water",
+              "unit": "kg/m3",
+              "x": [
+                440,
+                480
+              ],
+              "carry_forward": false,
+              "required": false,
+              "parameter_keys": [
+                "water"
+              ]
+            },
+            {
+              "key": "aggregate_a",
+              "label": "QS-1",
+              "unit": "kg/m3",
+              "x": [
+                480,
+                525
+              ],
+              "carry_forward": true,
+              "required": false,
+              "parameter_keys": [
+                "qs#1"
+              ]
+            },
+            {
+              "key": "aggregate_b",
+              "label": "QS-2",
+              "unit": "kg/m3",
+              "x": [
+                525,
+                570
+              ],
+              "carry_forward": true,
+              "required": false,
+              "parameter_keys": [
+                "qs#2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-4df39133d239",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0950061818307980-main.pdf",
+      "pdf_sha256": "4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+      "tables": [
+        {
+          "table_id": "table-3",
+          "page": 3,
+          "band": [
+            114,
+            238
+          ],
+          "header_band": [
+            88,
+            114
+          ],
+          "row_detector": {
+            "token_regex": "^[A-D][0-9]+$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "series",
+              "label": "Series",
+              "unit": null,
+              "x": [
+                35,
+                55
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "row_number",
+              "label": "Mix No.",
+              "unit": null,
+              "x": [
+                55,
+                85
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "mix_id",
+              "label": "Labels",
+              "unit": null,
+              "x": [
+                85,
+                120
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "precursor_ratio",
+              "label": "FA/GGBS",
+              "unit": null,
+              "x": [
+                120,
+                155
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "activator_binder",
+              "label": "AL/B",
+              "unit": null,
+              "x": [
+                155,
+                200
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "hydroxide_molarity",
+              "label": "Molarity of SH",
+              "unit": "M",
+              "x": [
+                200,
+                270
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "silicate_hydroxide",
+              "label": "SS/SH",
+              "unit": null,
+              "x": [
+                270,
+                315
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "fly_ash",
+              "label": "FA",
+              "unit": "kg/m3",
+              "x": [
+                315,
+                340
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "ggbs",
+              "label": "GGBS",
+              "unit": "kg/m3",
+              "x": [
+                340,
+                370
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_hydroxide",
+              "label": "SH",
+              "unit": "kg/m3",
+              "x": [
+                370,
+                390
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_silicate",
+              "label": "SS",
+              "unit": "kg/m3",
+              "x": [
+                390,
+                415
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "superplasticizer",
+              "label": "SPs",
+              "unit": "kg/m3",
+              "x": [
+                415,
+                435
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sand",
+              "label": "Sand",
+              "unit": "kg/m3",
+              "x": [
+                435,
+                465
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "aggregate_10mm",
+              "label": "CA 10 mm",
+              "unit": "kg/m3",
+              "x": [
+                465,
+                505
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "aggregate_20mm",
+              "label": "CA 20 mm",
+              "unit": "kg/m3",
+              "x": [
+                505,
+                550
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-55c422590f17",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0169131722002927-main.pdf",
+      "pdf_sha256": "55c422590f1771530c2f2a30489bfdc150809cef2b772c23e0b96e280a5ee670",
+      "tables": [
+        {
+          "table_id": "table-3",
+          "page": 10,
+          "band": [
+            118,
+            330
+          ],
+          "header_band": [
+            80,
+            118
+          ],
+          "row_detector": {
+            "text_regex": "[0-9]+\\.[0-9]+:[0-9]+\\.[0-9]+"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "sample",
+              "label": "Sample",
+              "unit": null,
+              "x": [
+                35,
+                72
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "foaming_agent",
+              "label": "Foaming agent",
+              "unit": null,
+              "x": [
+                72,
+                105
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "alkali_ratio",
+              "label": "Alkali ratio",
+              "unit": null,
+              "x": [
+                105,
+                150
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "x2o_to_sio2",
+                "h2o_to_x2o"
+              ]
+            },
+            {
+              "key": "foaming_share",
+              "label": "Foaming agent share",
+              "unit": "mass-%",
+              "x": [
+                150,
+                195
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "h2o2_mass_percent",
+                "spc_mass_percent"
+              ]
+            },
+            {
+              "key": "volume_change",
+              "label": "Volume increase",
+              "unit": "%",
+              "x": [
+                195,
+                240
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "viscosity",
+              "label": "Viscosity",
+              "unit": "Pa",
+              "x": [
+                240,
+                280
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "observations",
+              "label": "Observed table cells",
+              "unit": null,
+              "x": [
+                280,
+                570
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        },
+        {
+          "table_id": "table-4",
+          "page": 10,
+          "band": [
+            392,
+            570
+          ],
+          "header_band": [
+            352,
+            392
+          ],
+          "row_detector": {
+            "text_regex": "[0-9]+\\.[0-9]+:[0-9]+\\.[0-9]+"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "sample",
+              "label": "Sample",
+              "unit": null,
+              "x": [
+                35,
+                72
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "foaming_agent",
+              "label": "Foaming agent",
+              "unit": null,
+              "x": [
+                72,
+                105
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "alkali_ratio",
+              "label": "Alkali ratio",
+              "unit": null,
+              "x": [
+                105,
+                155
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "x2o_to_sio2",
+                "h2o_to_x2o"
+              ]
+            },
+            {
+              "key": "foaming_share",
+              "label": "Foaming agent share",
+              "unit": "mass-%",
+              "x": [
+                155,
+                200
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "h2o2_mass_percent",
+                "spc_mass_percent"
+              ]
+            },
+            {
+              "key": "volume_change",
+              "label": "Tube volume increase",
+              "unit": "%",
+              "x": [
+                200,
+                245
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "viscosity",
+              "label": "Viscosity",
+              "unit": "Pa",
+              "x": [
+                245,
+                290
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "observations",
+              "label": "Observed table cells",
+              "unit": null,
+              "x": [
+                290,
+                570
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-66c1278f6f7c",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0950061823045440-main.pdf",
+      "pdf_sha256": "66c1278f6f7c2991f7497f8056ec76ca2cc24dab655b2c02d7ecbdd49f8a45db",
+      "tables": [
+        {
+          "table_id": "table-2",
+          "page": 6,
+          "band": [
+            88,
+            169
+          ],
+          "header_band": [
+            52,
+            88
+          ],
+          "row_detector": {
+            "text_regex": "^(?:\\d+CDW )?\\d"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_family",
+              "label": "Mix",
+              "unit": null,
+              "x": [
+                35,
+                85
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "cdw",
+              "label": "CDW",
+              "unit": "g",
+              "x": [
+                85,
+                135
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "rha",
+              "label": "RHA",
+              "unit": "g",
+              "x": [
+                135,
+                190
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water",
+              "label": "H2O",
+              "unit": "g",
+              "x": [
+                190,
+                240
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_hydroxide",
+              "label": "NaOH",
+              "unit": "g",
+              "x": [
+                240,
+                295
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_silicate",
+              "label": "Na2SiO3",
+              "unit": "g",
+              "x": [
+                295,
+                355
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "silicate_share",
+              "label": "Na2SiO3",
+              "unit": "wt%",
+              "x": [
+                355,
+                435
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water_binder",
+              "label": "w/b",
+              "unit": null,
+              "x": [
+                435,
+                490
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "modulus",
+              "label": "Ms",
+              "unit": null,
+              "x": [
+                490,
+                560
+              ],
+              "carry_forward": false,
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7717e4cb8387",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S2352710226018218-main.pdf",
+      "pdf_sha256": "7717e4cb838769578ed8cd30eda2291e60c87b35a931fd7adac78becdbf20830",
+      "tables": [
+        {
+          "table_id": "table-2",
+          "page": 4,
+          "band": [
+            270,
+            302
+          ],
+          "header_band": [
+            235,
+            270
+          ],
+          "row_detector": {
+            "mode": "tokens",
+            "token_regex": "^\\d+(?:\\.\\d+)?$",
+            "token_x": [
+              80,
+              330
+            ],
+            "context_x": [
+              [
+                35,
+                80
+              ]
+            ],
+            "context_from_previous_line": true
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "factor",
+              "label": "Mix ID",
+              "unit": null,
+              "x": [
+                35,
+                80
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "replacement",
+              "label": "GGBS replacement ratio",
+              "unit": "%",
+              "x": [
+                80,
+                330
+              ],
+              "carry_forward": false,
+              "required": true
+            }
+          ]
+        },
+        {
+          "table_id": "table-3",
+          "page": 4,
+          "source_row_offset": 12,
+          "band": [
+            371,
+            452
+          ],
+          "header_band": [
+            322,
+            371
+          ],
+          "row_detector": {
+            "token_regex": "^Z[0-9]+$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix ID",
+              "unit": null,
+              "x": [
+                35,
+                80
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "ggbs",
+              "label": "GGBS",
+              "unit": "wt.%",
+              "x": [
+                80,
+                165
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "lp",
+              "label": "LP",
+              "unit": "wt.%",
+              "x": [
+                165,
+                225
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "ss",
+              "label": "SS",
+              "unit": "wt.%",
+              "x": [
+                225,
+                285
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "ccr",
+              "label": "CCR",
+              "unit": "wt.%",
+              "x": [
+                285,
+                355
+              ],
+              "carry_forward": true,
+              "required": false
+            },
+            {
+              "key": "alkali",
+              "label": "Na2O",
+              "unit": "%",
+              "x": [
+                380,
+                450
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water_binder",
+              "label": "W/B",
+              "unit": null,
+              "x": [
+                450,
+                530
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7c7c47d33379",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0956053X25000856-main.pdf",
+      "pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+      "tables": [
+        {
+          "table_id": "section-2.2",
+          "page": 2,
+          "band": [
+            678,
+            689
+          ],
+          "header_band": [
+            647,
+            678
+          ],
+          "source_row_offset": 0,
+          "row_detector": {
+            "mode": "tokens",
+            "token_regex": "^[A-Z][A-Z0-9.]+,?$",
+            "token_x": [
+              390,
+              560
+            ]
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Trial group",
+              "unit": null,
+              "x": [
+                300,
+                560
+              ],
+              "carry_forward": false,
+              "required": true
+            }
+          ]
+        },
+        {
+          "table_id": "section-2.2",
+          "page": 3,
+          "band": [
+            322,
+            332
+          ],
+          "header_band": [
+            300,
+            322
+          ],
+          "source_row_offset": 4,
+          "row_detector": {
+            "mode": "tokens",
+            "token_regex": "^[A-Z][A-Z0-9.]+,?$",
+            "token_x": [
+              30,
+              150
+            ]
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Trial group",
+              "unit": null,
+              "x": [
+                30,
+                150
+              ],
+              "carry_forward": false,
+              "required": true
+            }
+          ]
+        },
+        {
+          "table_id": "section-2.2",
+          "page": 11,
+          "band": [
+            55,
+            70
+          ],
+          "header_band": [
+            40,
+            55
+          ],
+          "source_row_offset": 6,
+          "row_detector": {
+            "mode": "tokens",
+            "token_regex": "^[A-Z][A-Z0-9.]+,?$",
+            "token_x": [
+              300,
+              370
+            ]
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Selected formulation",
+              "unit": null,
+              "x": [
+                300,
+                370
+              ],
+              "carry_forward": false,
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7f610942ec2f",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0008884621002398-main.pdf",
+      "pdf_sha256": "7f610942ec2f61e2b0347d73e64210b23c0757ea3893d7d327912c3b1386397c",
+      "tables": [
+        {
+          "table_id": "table-2",
+          "page": 3,
+          "band": [
+            599,
+            731
+          ],
+          "header_band": [
+            580,
+            599
+          ],
+          "orientation": "columns",
+          "entity_x": [
+            120,
+            290
+          ],
+          "row_detector": {
+            "token_regex": "^[A-Z][A-Z-]{2,6}$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix",
+              "unit": null,
+              "y": [
+                580,
+                599
+              ],
+              "required": true
+            },
+            {
+              "key": "ggbfs",
+              "label": "GGBFS",
+              "unit": "kg/m3",
+              "y": [
+                599,
+                608
+              ],
+              "required": false
+            },
+            {
+              "key": "fly_ash",
+              "label": "Fly ash",
+              "unit": "kg/m3",
+              "y": [
+                608,
+                617
+              ],
+              "required": false
+            },
+            {
+              "key": "ggbfs_volume",
+              "label": "GGBFS",
+              "unit": "vol.%",
+              "y": [
+                617,
+                625
+              ],
+              "required": false
+            },
+            {
+              "key": "sodium_hydroxide",
+              "label": "NaOH 10 M",
+              "unit": "kg/m3",
+              "y": [
+                625,
+                634
+              ],
+              "required": false
+            },
+            {
+              "key": "commercial_silicate",
+              "label": "Commercial SS",
+              "unit": "kg/m3",
+              "y": [
+                634,
+                643
+              ],
+              "required": false
+            },
+            {
+              "key": "filtered_silicate",
+              "label": "RHA-derived SS filtered",
+              "unit": "kg/m3",
+              "y": [
+                648,
+                657
+              ],
+              "required": false
+            },
+            {
+              "key": "unfiltered_silicate",
+              "label": "RHA-derived SS unfiltered",
+              "unit": "kg/m3",
+              "y": [
+                657,
+                666
+              ],
+              "required": false
+            },
+            {
+              "key": "water",
+              "label": "Additional water",
+              "unit": "kg/m3",
+              "y": [
+                666,
+                676
+              ],
+              "required": false
+            },
+            {
+              "key": "liquid_binder",
+              "label": "Liquid/binder",
+              "unit": "vol.",
+              "y": [
+                676,
+                685
+              ],
+              "required": false
+            },
+            {
+              "key": "water_solid",
+              "label": "w/s",
+              "unit": "wt.",
+              "y": [
+                685,
+                694
+              ],
+              "required": false
+            },
+            {
+              "key": "sio2",
+              "label": "SiO2",
+              "unit": "kg/m3",
+              "y": [
+                694,
+                702
+              ],
+              "required": false
+            },
+            {
+              "key": "na2o",
+              "label": "Na2O",
+              "unit": "kg/m3",
+              "y": [
+                702,
+                711
+              ],
+              "required": false
+            },
+            {
+              "key": "silica_alkali_ratio",
+              "label": "SiO2/Na2O",
+              "unit": "wt.",
+              "y": [
+                711,
+                720
+              ],
+              "required": false
+            },
+            {
+              "key": "alkali_binder",
+              "label": "Na2O/binder",
+              "unit": "wt.",
+              "y": [
+                720,
+                731
+              ],
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-993d666cc40b",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S095006182402542X-main.pdf",
+      "pdf_sha256": "993d666cc40b6eb807176ef8e1c766792c40a0f7ad7560cc7a3e12baf3ce7e14",
+      "tables": [
+        {
+          "table_id": "table-4",
+          "page": 4,
+          "band": [
+            88,
+            212
+          ],
+          "header_band": [
+            50,
+            88
+          ],
+          "row_detector": {
+            "token_regex": "^[A-Z]{3,5}(?:-[A-Z0-9]*)?$"
+          },
+          "continuation": {
+            "next_line_token_regex": "^(?:28C1|56C1)$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mixture ID",
+              "unit": null,
+              "x": [
+                300,
+                355
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "mixture_type",
+              "label": "Mixture Type",
+              "unit": null,
+              "x": [
+                355,
+                560
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-b7acfcbaf503",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S0959652623007552-main.pdf",
+      "pdf_sha256": "b7acfcbaf50338961c68db74f1baf1c64299ab58a4f30926394843c8c380cc03",
+      "tables": [
+        {
+          "table_id": "table-2",
+          "page": 3,
+          "band": [
+            520,
+            580
+          ],
+          "header_band": [
+            480,
+            520
+          ],
+          "row_detector": {
+            "token_regex": "^FGR-$"
+          },
+          "continuation": {
+            "next_line_token_regex": "^[0-9]+\\.[0-9]+$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix ID",
+              "unit": null,
+              "x": [
+                35,
+                70
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "precursor_ratio",
+              "label": "Slag-FGR-FA",
+              "unit": null,
+              "x": [
+                70,
+                103
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "slag_fraction",
+                "fly_ash_fraction"
+              ]
+            },
+            {
+              "key": "fgr_solution",
+              "label": "FGR-activator solution",
+              "unit": null,
+              "x": [
+                103,
+                140
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "fgr_to_precursor"
+              ]
+            },
+            {
+              "key": "solution_ratio",
+              "label": "Activator-precursor",
+              "unit": null,
+              "x": [
+                140,
+                190
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "activator_solution_to_precursor"
+              ]
+            },
+            {
+              "key": "alkali_share",
+              "label": "Na2O-precursor",
+              "unit": "%",
+              "x": [
+                190,
+                260
+              ],
+              "carry_forward": false,
+              "required": true,
+              "parameter_keys": [
+                "na2o_to_precursor_percent"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-f15f24af118a",
+      "pdf_relative_path": "internal_assets/review_test_corpus/71d4c8457dfcb307cbec15234f3f0731af83f96b6ba665dba532f36388cf37a3/1-s2.0-S095894652400057X-main.pdf",
+      "pdf_sha256": "f15f24af118a5a8156f00837d15a7f493f19e0cd63a7fbb1d72842b3dd45cfde",
+      "tables": [
+        {
+          "table_id": "table-3",
+          "page": 4,
+          "band": [
+            519,
+            566
+          ],
+          "header_band": [
+            470,
+            519
+          ],
+          "row_detector": {
+            "token_regex": "^(?:A[1-4]|B)$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix",
+              "unit": null,
+              "x": [
+                35,
+                70
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "bfs",
+              "label": "BFS",
+              "unit": "g",
+              "x": [
+                70,
+                115
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "pc",
+              "label": "PC",
+              "unit": "g",
+              "x": [
+                115,
+                150
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "efs",
+              "label": "EFS",
+              "unit": "g",
+              "x": [
+                150,
+                195
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_hydroxide",
+              "label": "NaOH",
+              "unit": "g",
+              "x": [
+                195,
+                240
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_silicate",
+              "label": "Sodium silicate solution",
+              "unit": "g",
+              "x": [
+                240,
+                335
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water",
+              "label": "Extra water",
+              "unit": "g",
+              "x": [
+                335,
+                410
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "pns",
+              "label": "PNS",
+              "unit": "g",
+              "x": [
+                410,
+                465
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sand",
+              "label": "Sand",
+              "unit": "g",
+              "x": [
+                465,
+                520
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water_binder",
+              "label": "w/b",
+              "unit": null,
+              "x": [
+                520,
+                560
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        },
+        {
+          "table_id": "table-4",
+          "page": 4,
+          "band": [
+            664,
+            703
+          ],
+          "header_band": [
+            615,
+            664
+          ],
+          "row_detector": {
+            "token_regex": "^M[1-4]$"
+          },
+          "dash_rules": {
+            "tokens": [
+              "/",
+              "-",
+              "–",
+              "—"
+            ],
+            "typed_state": "null"
+          },
+          "columns": [
+            {
+              "key": "mix_id",
+              "label": "Mix",
+              "unit": null,
+              "x": [
+                35,
+                85
+              ],
+              "carry_forward": false,
+              "required": true
+            },
+            {
+              "key": "bfs",
+              "label": "BFS",
+              "unit": "g",
+              "x": [
+                85,
+                110
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "efs",
+              "label": "EFS",
+              "unit": "g",
+              "x": [
+                110,
+                135
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "pc",
+              "label": "PC",
+              "unit": "g",
+              "x": [
+                135,
+                160
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "precursor_total",
+              "label": "Total",
+              "unit": "g",
+              "x": [
+                160,
+                190
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_hydroxide",
+              "label": "NaOH",
+              "unit": "g",
+              "x": [
+                190,
+                230
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sodium_silicate",
+              "label": "Sodium silicate solution",
+              "unit": "g",
+              "x": [
+                230,
+                320
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water",
+              "label": "Water",
+              "unit": "g",
+              "x": [
+                320,
+                365
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "alkali_share",
+              "label": "Na2O content",
+              "unit": "%",
+              "x": [
+                365,
+                425
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "modulus",
+              "label": "Ms",
+              "unit": null,
+              "x": [
+                425,
+                450
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "pns",
+              "label": "PNS",
+              "unit": "g",
+              "x": [
+                450,
+                490
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "water_binder",
+              "label": "w/b",
+              "unit": null,
+              "x": [
+                490,
+                520
+              ],
+              "carry_forward": false,
+              "required": false
+            },
+            {
+              "key": "sand",
+              "label": "Sand",
+              "unit": "g",
+              "x": [
+                520,
+                560
+              ],
+              "carry_forward": false,
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"schema_version":1,"sources":[{"pdf_sha256":"7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb","binding":"fixtures/main-marker-p06-fig1-v1.json","prose":"fixtures/prose-performance-p06-endpoints-v1.json"}],"reviews":[{"acceptance":"fixtures/main-marker-p06-merge-acceptance-v6.json","coverage":"fixtures/main-marker-p06-coverage-review-v6.json"}]}

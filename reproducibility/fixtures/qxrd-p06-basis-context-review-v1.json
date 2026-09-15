@@ -1,0 +1,20 @@
+{
+  "message_id": "qxrd-basis-review-20260908-01",
+  "reviewer": "/root/qxrd_basis_review",
+  "run_id": "user10v2-7c7c47d33379",
+  "pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+  "page": 2,
+  "section": "2.1 Materials",
+  "quotes": [
+    "XRD analysis revealed that uncalcined soil primarily consisted of 42.1 % quartz (SiO2) and 57.9 % kaolinite (Al2Si2O5(OH)4)",
+    "whereas the calcined soil contained 47.1 % quartz and 52.9 % amorphous phases",
+    "determined using zinc oxide (ZnO) as an internal standard with a ZnO-to-soil mass ratio of 1:4"
+  ],
+  "materials": ["uncalcined soil", "calcined soil"],
+  "denominator_recommendation": "sample_excluding_added_standard",
+  "denominator_status": "textual_scope_inference_not_explicit_denominator_label",
+  "rationale": "Phase statements describe soil; ZnO is separately an internal standard. Each reported soil composition sums to 100. No phase values are recomputed.",
+  "standard_spiked_mixture_formula": "1/(1+4)*100",
+  "standard_relative_to_soil_formula": "1/4*100",
+  "scope": "source interpretation only, not full corpus acceptance"
+}

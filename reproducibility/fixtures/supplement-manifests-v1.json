@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "papers": [
+    {
+      "run_id": "user10v2-66c1278f6f7c",
+      "members": [
+        {
+          "kind": "docx",
+          "label": "Elsevier supplementary material mmc1",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0950061823045440-mmc1.docx",
+          "relative_path": "internal_assets/supplements/user10v2-66c1278f6f7c/1-s2.0-S0950061823045440-mmc1.docx",
+          "sha256": "97afa6d2682c1dc5a73e99dfe995a88c6577ba4cb6d6c8ac63574eb6d8085093",
+          "bytes": 864290
+        }
+      ],
+      "semantic_bindings": {
+        "profile": "physical-properties-v1",
+        "Fig. S1": {
+          "metric": "water_absorption",
+          "unit": "%",
+          "age_seconds": 2419200,
+          "source": "native_chart_cache"
+        },
+        "Fig. S2": {
+          "metric": "real_density",
+          "unit": "kg/m3",
+          "age_seconds": 2419200,
+          "source": "embedded_workbook",
+          "workbook_member": "word/embeddings/Hoja_de_c_lculo_de_Microsoft_Excel.xlsx",
+          "workbook_sha256": "d9a5f3a909bc06ef562caef174c2a360dd2a91104c8645cec361938c3f877209",
+          "sheet": "Propiedades 28d (2)",
+          "series_rows": [
+            {
+              "name_cell": "C76",
+              "value_cells": [
+                "D76",
+                "F76",
+                "H76"
+              ],
+              "error_cells": [
+                "E76",
+                "G76",
+                "I76"
+              ]
+            },
+            {
+              "name_cell": "C77",
+              "value_cells": [
+                "D77",
+                "F77",
+                "H77"
+              ],
+              "error_cells": [
+                "E77",
+                "G77",
+                "I77"
+              ]
+            },
+            {
+              "name_cell": "C78",
+              "value_cells": [
+                "D78",
+                "F78",
+                "H78"
+              ],
+              "error_cells": [
+                "E78",
+                "G78",
+                "I78"
+              ]
+            }
+          ],
+          "categories": [
+            "100CDW",
+            "80CDW",
+            "60CDW"
+          ],
+          "bar_centers_px": [
+            [
+              164,
+              211,
+              255
+            ],
+            [
+              414,
+              459,
+              505
+            ],
+            [
+              664,
+              709,
+              755
+            ]
+          ],
+          "plot": {
+            "top": 29,
+            "bottom": 257,
+            "y_min": 0,
+            "y_max": 3000,
+            "bar_half_width": 18
+          }
+        }
+      }
+    },
+    {
+      "run_id": "user10v2-7c7c47d33379",
+      "members": [
+        {
+          "kind": "docx",
+          "label": "Elsevier supplementary material mmc1",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0956053X25000856-mmc1.docx",
+          "relative_path": "internal_assets/supplements/user10v2-7c7c47d33379/1-s2.0-S0956053X25000856-mmc1.docx",
+          "sha256": "d1ea04f5682d3faf03852c5fd069bed0ad86dff3ac573ee5ded0582d43c21ff7",
+          "bytes": 488412
+        }
+      ],
+      "semantic_bindings": {
+        "profile": "soil-multimodal-v1",
+        "Fig. S1": {
+          "source": "xrd_curve_image",
+          "image_sha256": "8bcc17e97deae9c255ac977edf0891600af06a658982e3e0b4be4ad1bad1c1f8",
+          "intensity_specification": {
+            "image_sha256": "8bcc17e97deae9c255ac977edf0891600af06a658982e3e0b4be4ad1bad1c1f8",
+            "native_size": [
+              649,
+              584
+            ],
+            "scope": "ANGLE_CALIBRATION_CANDIDATE_NO_INTENSITY_SCALE_OR_MATERIAL_ACCEPTANCE",
+            "panels": [
+              {
+                "trace_mode": "single_stroke_per_column",
+                "curve_type": "intensity",
+                "plot_bbox_px": [
+                  17,
+                  50,
+                  632,
+                  179
+                ],
+                "x_axis": {
+                  "name": "2theta",
+                  "scale": "linear",
+                  "ticks": [
+                    [
+                      16,
+                      10
+                    ],
+                    [
+                      93,
+                      20
+                    ],
+                    [
+                      170,
+                      30
+                    ],
+                    [
+                      247,
+                      40
+                    ],
+                    [
+                      325,
+                      50
+                    ],
+                    [
+                      402,
+                      60
+                    ],
+                    [
+                      479,
+                      70
+                    ],
+                    [
+                      556,
+                      80
+                    ],
+                    [
+                      632,
+                      90
+                    ]
+                  ],
+                  "tick_tolerance_px": 1,
+                  "unit": "degree"
+                },
+                "y_axis": {
+                  "scale": "linear",
+                  "anchors": [
+                    [
+                      50,
+                      50
+                    ],
+                    [
+                      179,
+                      179
+                    ]
+                  ],
+                  "unit": "pixel"
+                },
+                "series": [
+                  {
+                    "label": "red source stroke",
+                    "rgb": [
+                      225,
+                      65,
+                      65
+                    ],
+                    "color_distance": 70,
+                    "source_label": {
+                      "text": "Calcined soil+ZnO",
+                      "bbox_px": [
+                        412,
+                        183,
+                        629,
+                        211
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "trace_mode": "single_stroke_per_column",
+                "curve_type": "intensity",
+                "plot_bbox_px": [
+                  17,
+                  180,
+                  632,
+                  460
+                ],
+                "x_axis": {
+                  "name": "2theta",
+                  "scale": "linear",
+                  "ticks": [
+                    [
+                      16,
+                      10
+                    ],
+                    [
+                      93,
+                      20
+                    ],
+                    [
+                      170,
+                      30
+                    ],
+                    [
+                      247,
+                      40
+                    ],
+                    [
+                      325,
+                      50
+                    ],
+                    [
+                      402,
+                      60
+                    ],
+                    [
+                      479,
+                      70
+                    ],
+                    [
+                      556,
+                      80
+                    ],
+                    [
+                      632,
+                      90
+                    ]
+                  ],
+                  "tick_tolerance_px": 1,
+                  "unit": "degree"
+                },
+                "y_axis": {
+                  "scale": "linear",
+                  "anchors": [
+                    [
+                      180,
+                      180
+                    ],
+                    [
+                      460,
+                      460
+                    ]
+                  ],
+                  "unit": "pixel"
+                },
+                "series": [
+                  {
+                    "label": "black source stroke",
+                    "rgb": [
+                      65,
+                      65,
+                      65
+                    ],
+                    "color_distance": 95,
+                    "connected_min_span_fraction": 0.8,
+                    "source_label": {
+                      "text": "Uncalcined soil",
+                      "bbox_px": [
+                        452,
+                        465,
+                        624,
+                        491
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "recipe_row_review_file": "fixtures/recipe-row-roles-review-v1.json",
+        "object_scope_review": "fixtures/supplement-p06-object-scope-review-v1.json",
+        "reference_scope_reviews": [
+          "fixtures/reference-formulation-p06-scope-review-v1.json"
+        ],
+        "Fig. S2": {
+          "image_sha256": "ae4ccfe004c7c80fd472e58f5defcc352771908dc8f50f8aa1686fac2c97556e",
+          "source": "psd_curve_image",
+          "axis_calibration": {
+            "pixel_bounds": [
+              159,
+              663,
+              30,
+              428
+            ],
+            "x_log10_bounds": [
+              -1,
+              2
+            ],
+            "y_percent_bounds": [
+              0,
+              100
+            ]
+          },
+          "excluded_regions": [
+            {
+              "role": "legend",
+              "bbox": [
+                170,
+                40,
+                447,
+                151
+              ]
+            }
+          ],
+          "reference_curves": [
+            {
+              "color": "blue",
+              "material_label": "Cement",
+              "role": "reference_material_unresolved"
+            }
+          ],
+          "review_method": "agent-reviewed legend binding with deterministic pixel extraction",
+          "curves": [
+            {
+              "color": "black",
+              "material_label": "uncalcined soil"
+            },
+            {
+              "color": "red",
+              "material_label": "calcined soil"
+            }
+          ]
+        },
+        "Fig. S4": {
+          "source": "mortar_marker_image",
+          "image_sha256": "62eb7cc1623931edf3516ef59efa519cca75da1e07d750d467d373e0c264954b",
+          "review_method": "agent-reviewed axes and series binding with deterministic marker extraction",
+          "panels": [
+            {
+              "label": "flow diameter",
+              "pixel_bounds": [
+                66,
+                311,
+                40,
+                301
+              ],
+              "x_axis": {
+                "name": "GGBS content",
+                "unit": "%",
+                "min": -2.5,
+                "max": 32.5
+              },
+              "x_values": [
+                0,
+                10,
+                20,
+                30
+              ],
+              "series": [
+                {
+                  "name": "flow_diameter",
+                  "color": "black",
+                  "y_axis": {
+                    "unit": "mm",
+                    "min": 155,
+                    "max": 205
+                  }
+                }
+              ]
+            },
+            {
+              "label": "setting time",
+              "pixel_bounds": [
+                375,
+                620,
+                40,
+                301
+              ],
+              "x_axis": {
+                "name": "GGBS content",
+                "unit": "%",
+                "min": -2.5,
+                "max": 32.5
+              },
+              "x_values": [
+                0,
+                10,
+                20,
+                30
+              ],
+              "series": [
+                {
+                  "name": "setting_time",
+                  "color": "black",
+                  "y_axis": {
+                    "unit": "min",
+                    "min": 0,
+                    "max": 450
+                  }
+                }
+              ]
+            },
+            {
+              "label": "one-day strength",
+              "pixel_bounds": [
+                677,
+                924,
+                40,
+                301
+              ],
+              "excluded_regions": [
+                [
+                  681,
+                  42,
+                  912,
+                  82
+                ]
+              ],
+              "x_axis": {
+                "name": "GGBS content",
+                "unit": "%",
+                "min": -2.5,
+                "max": 32.5
+              },
+              "x_values": [
+                0,
+                10,
+                20,
+                30
+              ],
+              "series": [
+                {
+                  "name": "compressive_strength",
+                  "color": "black",
+                  "age_seconds": 86400,
+                  "y_axis": {
+                    "unit": "MPa",
+                    "min": 0,
+                    "max": 60
+                  }
+                },
+                {
+                  "name": "flexural_strength",
+                  "color": "blue",
+                  "age_seconds": 86400,
+                  "y_axis": {
+                    "unit": "MPa",
+                    "min": 0,
+                    "max": 15
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "Fig. S5": {
+          "source": "concrete_marker_image",
+          "image_sha256": "b0a32a3852571644275d2f4f9450d6a9c2621bd96a6d0057ed58333e21535c1e",
+          "review_method": "agent-reviewed axes and series binding with deterministic marker extraction",
+          "panels": [
+            {
+              "label": "slump",
+              "pixel_bounds": [
+                81,
+                647,
+                15,
+                472
+              ],
+              "x_axis": {
+                "name": "uncalcined soil content",
+                "unit": "%",
+                "min": -5,
+                "max": 75
+              },
+              "x_values": [
+                0,
+                17.5,
+                35,
+                52.5,
+                70
+              ],
+              "series": [
+                {
+                  "name": "slump",
+                  "color": "black",
+                  "y_axis": {
+                    "unit": "mm",
+                    "min": 20,
+                    "max": 40
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "mix_identity_aliases": {
+          "C70G30U0": "C70G30",
+          "C52.5G30R17.5": "C52.5G30U17.5"
+        }
+      }
+    }
+  ]
+}

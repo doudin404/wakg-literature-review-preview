@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_CALIBRATION_NOT_ACCEPTED",
+  "calibration_review_message_id": "p7717-psd-calibration-v1",
+  "pdf_sha256": "7717e4cb838769578ed8cd30eda2291e60c87b35a931fd7adac78becdbf20830",
+  "panels": [
+    {
+      "figure": "Fig. 1",
+      "panel_label": "whole",
+      "page": 4,
+      "image_xref": 44,
+      "native_size": [
+        829,
+        614
+      ],
+      "curve_type": "cumulative_finer",
+      "trace_mode": "uppermost_saturated_cumulative_stroke",
+      "plot_bbox_px": [
+        93,
+        9,
+        792,
+        528
+      ],
+      "exclude_boxes_px": [
+        [
+          105,
+          22,
+          295,
+          172
+        ]
+      ],
+      "pixel_uncertainty": 3,
+      "max_percentile_gap_px": 12,
+      "x_axis": {
+        "anchors": [
+          [
+            89,
+            0.1
+          ],
+          [
+            795,
+            1000
+          ]
+        ],
+        "anchor_pixel_intervals": [
+          [
+            88,
+            90
+          ],
+          [
+            794,
+            796
+          ]
+        ],
+        "unit": "um",
+        "scale": "log10"
+      },
+      "y_axis": {
+        "anchors": [
+          [
+            488,
+            0
+          ],
+          [
+            48,
+            100
+          ]
+        ],
+        "anchor_pixel_intervals": [
+          [
+            487,
+            489
+          ],
+          [
+            47,
+            49
+          ]
+        ],
+        "unit": "%",
+        "scale": "linear"
+      },
+      "series": [
+        {
+          "label": "GGBS",
+          "source_legend_label": "GGBS",
+          "mat_key": "mat-7717e4cb8387-ggbs",
+          "rgb": [
+            100,
+            130,
+            160
+          ],
+          "color_distance": 85,
+          "min_vertical_pixels": 2
+        },
+        {
+          "label": "LP",
+          "source_legend_label": "LP",
+          "mat_key": "mat-7717e4cb8387-lp",
+          "rgb": [
+            250,
+            205,
+            145
+          ],
+          "color_distance": 28,
+          "min_vertical_pixels": 2
+        },
+        {
+          "label": "SS",
+          "source_legend_label": "SS",
+          "mat_key": "mat-7717e4cb8387-ss",
+          "rgb": [
+            247,
+            194,
+            194
+          ],
+          "color_distance": 24,
+          "min_vertical_pixels": 2
+        },
+        {
+          "label": "CCR",
+          "source_legend_label": "CCR",
+          "mat_key": "mat-7717e4cb8387-ccr",
+          "rgb": [
+            175,
+            216,
+            212
+          ],
+          "color_distance": 32,
+          "min_vertical_pixels": 2
+        }
+      ]
+    }
+  ],
+  "calibration_uncertainties": [
+    "Printed y-axis plot extends below zero and above one hundred; anchors use labelled zero and one hundred ticks, not frame edges.",
+    "SS overshoots the upper labelled cumulative limit slightly; preserve raw pixels and do not normalize or force monotonicity beyond candidate tracer audit.",
+    "Near-zero and upper plateau curves overlap; colors may be occluded and no hidden segments may be invented.",
+    "Pale thin strokes may fail conservative two-pixel threshold; candidates require overlay validation before any promotion."
+  ]
+}

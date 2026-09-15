@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "scope": "semantic roles, source locators, units, and relationships only; no scientific row answers",
+  "papers": [
+    {
+      "run_id": "user10v2-55c422590f17",
+      "mats": [
+        {"key": "precursor", "label": "alkali-activated precursor", "role": "binder"}
+      ],
+      "tables": {
+        "table-3": {
+          "mix_id_columns": ["sample", "foaming_agent", "alkali_ratio", "foaming_share"],
+          "material_columns": ["alkali_ratio"],
+          "observation_columns": ["foaming_share", "volume_change", "viscosity", "observations"],
+          "observation_semantics": "source_column_pending_header_adjudication"
+        },
+        "table-4": {
+          "mix_id_columns": ["sample", "foaming_agent", "alkali_ratio", "foaming_share"],
+          "material_columns": ["foaming_share"],
+          "observation_columns": ["volume_change", "viscosity", "observations"],
+          "observation_semantics": "source_column_pending_header_adjudication"
+        }
+      }
+    },
+    {
+      "run_id": "user10v2-7f610942ec2f",
+      "mats": [
+        {"key": "ggbfs", "label": "GGBFS", "role": "binder"},
+        {"key": "fly_ash", "label": "fly ash", "role": "binder"}
+      ],
+      "tables": {
+        "table-2": {
+          "mix_id_columns": ["mix_id"],
+          "material_columns": ["ggbfs", "fly_ash", "ggbfs_volume", "sodium_hydroxide", "commercial_silicate", "filtered_silicate", "unfiltered_silicate", "water", "liquid_binder", "water_solid", "sio2", "na2o", "silica_alkali_ratio", "alkali_binder"],
+          "mat_reference_columns": {"ggbfs": "ggbfs", "fly_ash": "fly_ash"},
+          "observation_columns": []
+        }
+      }
+    },
+    {
+      "run_id": "user10v2-f15f24af118a",
+      "mats": [
+        {"key": "bfs", "label": "BFS", "role": "binder"},
+        {"key": "efs", "label": "EFS", "role": "binder"},
+        {"key": "pc", "label": "PC", "role": "binder"},
+        {"key": "sand", "label": "sand", "role": "aggregate"}
+      ],
+      "tables": {
+        "table-3": {
+          "mix_id_columns": ["mix_id"],
+          "material_columns": ["bfs", "pc", "efs", "sodium_hydroxide", "sodium_silicate", "water", "pns", "sand", "water_binder"],
+          "mat_reference_columns": {"bfs": "bfs", "efs": "efs", "pc": "pc", "sand": "sand"},
+          "dash_recovery_columns": ["sodium_hydroxide", "sodium_silicate", "pns"],
+          "observation_columns": []
+        },
+        "table-4": {
+          "mix_id_columns": ["mix_id"],
+          "material_columns": ["bfs", "efs", "pc", "precursor_total", "sodium_hydroxide", "sodium_silicate", "water", "alkali_share", "modulus", "pns", "water_binder", "sand"],
+          "mat_reference_columns": {"bfs": "bfs", "efs": "efs", "pc": "pc", "sand": "sand"},
+          "dash_recovery_columns": ["sodium_hydroxide", "sodium_silicate", "pns"],
+          "observation_columns": []
+        }
+      },
+      "extra_observation_tables": [
+        {
+          "table_id": "table-5",
+          "page": 7,
+          "header_y": [316, 329],
+          "row_y": [329, 347],
+          "entity_headers_regex": "^(?:A[1-4]|B)$",
+          "measurement_rows": [
+            {"label_regex": "^Dynamic yield stress", "unit": "Pa", "kind": "dynamic_yield_stress"},
+            {"label_regex": "^Plastic viscosity", "unit": "Pa*s", "kind": "plastic_viscosity"}
+          ],
+          "target_table": "table-3"
+        },
+        {
+          "table_id": "table-9",
+          "page": 11,
+          "header_y": [568, 582],
+          "row_y": [582, 596],
+          "select_header": "Average",
+          "measurement_rows": [
+            {"label_regex": "^Discharging time", "unit": "s", "kind": "discharging_time"}
+          ],
+          "target_table": "table-4",
+          "target_source_row": 1
+        }
+      ]
+    }
+  ]
+}

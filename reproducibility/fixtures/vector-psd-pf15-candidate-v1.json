@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_CALIBRATION_NOT_ACCEPTED",
+  "calibration_review_message_id": "pf15-vector-psd-calibration-v1",
+  "pdf_sha256": "f15f24af118a5a8156f00837d15a7f493f19e0cd63a7fbb1d72842b3dd45cfde",
+  "page": 3,
+  "figure": "Fig. 3",
+  "coordinate_system": "PDF_POINTS",
+  "curve_type": "cumulative_finer",
+  "plot_bbox": [
+    93.8521,
+    349.1137,
+    250.3821,
+    492.0517
+  ],
+  "exclude_boxes": [
+    [
+      96.8,
+      353,
+      148.4,
+      386
+    ]
+  ],
+  "x_axis": {
+    "anchors": [
+      [
+        93.8521,
+        0.1
+      ],
+      [
+        250.3821,
+        10000
+      ]
+    ],
+    "anchor_pixel_intervals": [
+      [
+        93.65,
+        94.05
+      ],
+      [
+        250.18,
+        250.58
+      ]
+    ],
+    "unit": "um",
+    "scale": "log10"
+  },
+  "y_axis": {
+    "anchors": [
+      [
+        492.0517,
+        0
+      ],
+      [
+        349.1137,
+        100
+      ]
+    ],
+    "anchor_pixel_intervals": [
+      [
+        491.85,
+        492.25
+      ],
+      [
+        348.91,
+        349.31
+      ]
+    ],
+    "unit": "%",
+    "scale": "linear"
+  },
+  "coordinate_uncertainty_points": 0.5,
+  "max_percentile_gap_points": 3,
+  "geometry_hash_encoding": "SHA256 of UTF-8 json.dumps(items,separators=(',',':'),ensure_ascii=True); each drawing item is a list with command string and every fitz.Point converted to [x,y], preserving source order and full floating precision",
+  "series": [
+    {
+      "label": "BFS",
+      "mat_key": "mat-f15f24af118a-bfs",
+      "drawing_index": 157,
+      "path_type": "s",
+      "path_geometry_sha256": "bdb45087e8dca36a6358edce045de43c9269452f84f1e1b0214ed77d70bc7d9e",
+      "source_legend_style": "solid",
+      "identity_reason": "Single continuous stroked curve matches BFS solid legend and the central solid trace.",
+      "centerline_rule": "source_stroke_path"
+    },
+    {
+      "label": "EFS",
+      "mat_key": "mat-f15f24af118a-efs",
+      "drawing_index": 158,
+      "path_type": "f",
+      "path_geometry_sha256": "15019cbcdb9d805453ea4230a376ff7844f2164fbe7c2a89fea4461a88ffd05b",
+      "source_legend_style": "dashed",
+      "identity_reason": "Filled separated dash footprints match EFS dashed legend and leftmost main rise.",
+      "centerline_rule": "REQUIRES_NEW_FILLED_STROKE_CENTERLINE_IMPLEMENTATION"
+    },
+    {
+      "label": "PC",
+      "mat_key": "mat-f15f24af118a-pc",
+      "drawing_index": 159,
+      "path_type": "f",
+      "path_geometry_sha256": "756e41a6185f04b012f1bf1b676a5667cc55ad50783a1d903da6e3d9ba0e67d6",
+      "source_legend_style": "dash-dot",
+      "identity_reason": "More numerous alternating filled fragments match PC dash-dot legend and trace between EFS and BFS over the main rise.",
+      "centerline_rule": "REQUIRES_NEW_FILLED_STROKE_CENTERLINE_IMPLEMENTATION"
+    },
+    {
+      "label": "sand",
+      "source_legend_label": "Sand",
+      "mat_key": "mat-f15f24af118a-sand",
+      "drawing_index": 160,
+      "path_type": "f",
+      "path_geometry_sha256": "316896c71432195bd9672266e68c207ee9301f11963946111b4b62755ec3d1a2",
+      "source_legend_style": "dotted_with_circle_markers",
+      "identity_reason": "Right-hand dotted trace with circular sample markers matches Sand legend; path restricted to right-hand size range.",
+      "centerline_rule": "REQUIRES_NEW_FILLED_STROKE_AND_MARKER_CENTERLINE_IMPLEMENTATION"
+    }
+  ],
+  "uncertainties": [
+    "Filled polygon vertices are stroke boundaries, not scientific points. Do not feed directly to old vector percentile extractor.",
+    "Separate stroke fragments from circular marker contours; do not connect arbitrary polygon endpoints.",
+    "Overlapping plateau curves remain source geometry, not justification for invented hidden points.",
+    "Axis interval key is retained for existing coordinate conventions, but units here are PDF points, not raster pixels."
+  ]
+}

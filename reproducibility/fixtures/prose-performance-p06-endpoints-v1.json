@@ -1,0 +1,22 @@
+{
+  "pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+  "mapping_message_id": "p06-fig1-source-merge-material-mapping-review-20260908",
+  "identity_page": 2,
+  "scope": "Source-replayed directly reported 28-day mortar strength endpoints; Figure 1 digits are corroboration, not preferred values",
+  "defaults": {
+    "unit": "MPa", "source_table": "Section 2.2", "owner_specimen": "mortar",
+    "age": {"page": 5, "clause": "28-day strength of alkali-activated calcined soil-GGBS mortar", "capture": "(\\d+)-day"},
+    "specimen": {"page": 5, "clause": "28-day strength of alkali-activated calcined soil-GGBS mortar", "capture": "(mortar)"},
+    "method": {"page": 3, "clause": "standard GB/T 17671-2021, equivalent to the European standard", "capture": "(GB/T 17671-2021)"}
+  },
+  "items": [
+    {"name": "compressive_strength", "source_id": "C100G0", "source_row": 0,
+     "value": {"page": 5, "clause": "pure calcined soil mortar sample exhibited the lowest compressive and flexural strengths of \\d+(?:\\.\\d+)? MPa and \\d+(?:\\.\\d+)? MPa, respectively", "capture": "strengths of (\\d+(?:\\.\\d+)?)"}},
+    {"name": "flexural_strength", "source_id": "C100G0", "source_row": 0,
+     "value": {"page": 5, "clause": "pure calcined soil mortar sample exhibited the lowest compressive and flexural strengths of \\d+(?:\\.\\d+)? MPa and \\d+(?:\\.\\d+)? MPa, respectively", "capture": "MPa and (\\d+(?:\\.\\d+)?)"}},
+    {"name": "compressive_strength", "source_id": "C70G30", "source_row": 3,
+     "value": {"page": 5, "clause": "mortar sample with 30 % of GGBS showed the highest compressive and flexural strengths of \\d+(?:\\.\\d+)? MPa and \\d+(?:\\.\\d+)? MPa, respectively", "capture": "strengths of (\\d+(?:\\.\\d+)?)"}},
+    {"name": "flexural_strength", "source_id": "C70G30", "source_row": 3,
+     "value": {"page": 5, "clause": "mortar sample with 30 % of GGBS showed the highest compressive and flexural strengths of \\d+(?:\\.\\d+)? MPa and \\d+(?:\\.\\d+)? MPa, respectively", "capture": "MPa and (\\d+(?:\\.\\d+)?)"}}
+  ]
+}

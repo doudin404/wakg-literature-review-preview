@@ -1,0 +1,1468 @@
+{
+  "schema_version": 2,
+  "scope": "source-grounded semantic roles, closed curing normalisation profiles, source locators, and relationships for the frozen ten-paper corpus",
+  "papers": [
+    {
+      "run_id": "user10v2-1c116a8946fc",
+      "mats": [
+        {
+          "key": "ggbs",
+          "label": "GGBS",
+          "role": "slag"
+        },
+        {
+          "key": "fa",
+          "label": "FA",
+          "role": "fly ash"
+        }
+      ],
+      "tables": {
+        "table-2": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "binder_a",
+            "binder_b",
+            "component_01",
+            "component_02",
+            "component_03",
+            "component_04",
+            "component_05",
+            "water",
+            "aggregate_a",
+            "aggregate_b"
+          ],
+          "default_mat_refs": [
+            "ggbs",
+            "fa"
+          ],
+          "ambiguous_null_columns": {
+            "component_03": "source slash is not evidence of numerical zero",
+            "component_04": "source slash is not evidence of numerical zero"
+          }
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-2"
+          ],
+          "source": {
+            "page": 3,
+            "x": [
+              306.5,
+              560.1
+            ],
+            "y": [
+              409.7,
+              517.1
+            ],
+            "section": "preparation and curing procedures",
+            "required_terms": [
+            "conditions for 24 h",
+              "After demolding",
+              "standard conditions until the testing ages"
+            ],
+            "formula": "duration_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after 24 h",
+              "time_after_mixing_seconds": 86400.0
+            },
+            "curing_stages": [
+              {
+                "method": "laboratory conditions",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "standard conditions after demoulding",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": null,
+                "extensions": {
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-4df39133d239",
+      "mats": [
+        {
+          "key": "fly_ash",
+          "label": "fly ash",
+          "role": "binder"
+        },
+        {
+          "key": "ggbs",
+          "label": "GGBS",
+          "role": "binder"
+        }
+      ],
+      "tables": {
+        "table-3": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "precursor_ratio",
+            "activator_binder",
+            "hydroxide_molarity",
+            "silicate_hydroxide",
+            "fly_ash",
+            "ggbs",
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "superplasticizer",
+            "sand",
+            "aggregate_10mm",
+            "aggregate_20mm"
+          ],
+          "mat_reference_columns": {
+            "fly_ash": "fly_ash",
+            "ggbs": "ggbs"
+          }
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-3"
+          ],
+          "source": {
+            "page": 3,
+            "x": [
+              32.6,
+              283.9
+            ],
+            "y": [
+              288.9,
+              381.2
+            ],
+            "section": "2.3 Specimen preparation",
+            "required_terms": [
+              "curing room",
+              "After 24 h",
+              "de-moulded",
+              "until the day of testing"
+            ],
+            "formula": "duration_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after 24 h",
+              "time_after_mixing_seconds": 86400.0
+            },
+            "curing_stages": [
+              {
+                "method": "模具内置于养护室",
+                "temperature_C": 20.0,
+                "humidity_percent": 60.0,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 5.0,
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "脱模后在相同养护室条件下",
+                "temperature_C": 20.0,
+                "humidity_percent": 60.0,
+                "duration_seconds": null,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 5.0,
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-55c422590f17",
+      "mats": [
+        {
+          "key": "precursor",
+          "label": "Calcined kaolin",
+          "identity_source_checks": [
+            {"page": 2, "quote": "metakaolin (i.e., calcined kaolin)."},
+            {"page": 3, "quote": "Calcined metakaolin powder was added gradually into the alkali solution"}
+          ],
+          "role": "binder"
+        }
+      ],
+      "tables": {
+        "table-3": {
+          "identity_columns": [
+            "sample"
+          ],
+          "identity_groups": [
+            {
+              "rows": [1, 6],
+              "source_label": "K-AAM H2O2",
+              "bbox": [43.6, 124.639, 64.374, 143.861]
+            },
+            {
+              "rows": [7, 12],
+              "source_label": "Na-AAM H2O2",
+              "bbox": [43.597, 176.059, 64.374, 203.842]
+            },
+            {
+              "rows": [13, 18],
+              "source_label": "K-AAM SPC",
+              "bbox": [43.597, 227.422, 63.886, 246.464]
+            },
+            {
+              "rows": [19, 24],
+              "source_label": "Na-AAM SPC",
+              "bbox": [43.597, 278.842, 63.73, 306.388]
+            }
+          ],
+          "material_columns": [
+            "foaming_agent",
+            "alkali_ratio"
+          ],
+          "parameter_semantics": {
+            "foaming_agent": "split_alkali_ratio",
+            "alkali_ratio": "foaming_agent_mass_percent"
+          },
+          "header_band": [
+            85,
+            116
+          ],
+          "observation_x_bands": [
+            [
+              150,
+              195
+            ],
+            [
+              195,
+              240
+            ],
+            [
+              240,
+              280
+            ],
+            [
+              280,
+              320
+            ],
+            [
+              320,
+              356
+            ],
+            [
+              356,
+              393
+            ],
+            [
+              393,
+              435
+            ],
+            [
+              435,
+              478
+            ],
+            [
+              478,
+              520
+            ],
+            [
+              520,
+              570
+            ]
+          ]
+        },
+        "table-4": {
+          "identity_columns": [
+            "sample",
+            "foaming_agent"
+          ],
+          "identity_groups": [
+            {
+              "rows": [1, 10],
+              "source_label": "K-AAM H2O2 Modifications",
+              "bbox": [43.599, 434.125, 88.079, 453.111]
+            },
+            {
+              "rows": [11, 20],
+              "source_label": "Na-AAM H2O2 Modifications",
+              "bbox": [43.597, 519.788, 88.079, 538.774]
+            }
+          ],
+          "material_columns": [
+            "alkali_ratio",
+            "foaming_share"
+          ],
+          "parameter_semantics": {
+            "alkali_ratio": "split_alkali_ratio",
+            "foaming_share": "foaming_agent_mass_percent"
+          },
+          "header_band": [
+            377,
+            394
+          ],
+          "observation_x_bands": [
+            [
+              240,
+              290
+            ],
+            [
+              290,
+              330
+            ],
+            [
+              330,
+              390
+            ],
+            [
+              390,
+              450
+            ],
+            [
+              450,
+              505
+            ],
+            [
+              505,
+              570
+            ]
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-3",
+            "table-4"
+          ],
+          "source": {
+            "page": 3,
+            "x": [
+              306.5,
+              560.1
+            ],
+            "y": [
+              364.4,
+              492.7
+            ],
+            "section": "sample preparation",
+            "required_terms": [
+              "Both subsamples were cured",
+              "60",
+              "for 24 h",
+              "cured samples were cut in half",
+              "105",
+              "for 72 h"
+            ],
+            "formula": "stage_1_seconds = 24 h * 3600; stage_2_seconds = 72 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": "open plate mould and air-tight tube specimens",
+            "demoulding": null,
+            "curing_stages": [
+              {
+                "method": "oven",
+                "temperature_C": 60.0,
+                "humidity_percent": null,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "stage_end": "cutting"
+                }
+              },
+              {
+                "method": "oven",
+                "temperature_C": 105.0,
+                "humidity_percent": null,
+                "duration_seconds": 259200.0,
+                "extensions": {}
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-66c1278f6f7c",
+      "mats": [
+        {
+          "key": "cdw",
+          "label": "CDW",
+          "role": "CDW"
+        },
+        {
+          "key": "rha",
+          "label": "RHA",
+          "role": "RHA"
+        }
+      ],
+      "tables": {
+        "table-2": {
+          "identity_columns": [
+            "mix_family"
+          ],
+          "material_columns": [
+            "cdw",
+            "rha",
+            "water",
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "silicate_share",
+            "water_binder",
+            "modulus"
+          ],
+          "default_mat_refs": [
+            "cdw",
+            "rha"
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-2"
+          ],
+          "source": {
+            "page": 6,
+            "x": [
+              37.5,
+              291.1
+            ],
+            "y": [
+              202.1,
+              309.4
+            ],
+            "section": "specimen preparation",
+            "required_terms": [
+              "cured at 60",
+              "for 72 h",
+              "removed from the molds",
+              "kept at room temperature",
+              "at 7 and 28 days"
+            ],
+            "formula": "duration_seconds = 72 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after 72 h",
+              "time_after_mixing_seconds": 259200.0
+            },
+            "curing_stages": [
+              {
+                "method": "wrapped oven curing",
+                "temperature_C": 60.0,
+                "humidity_percent": null,
+                "duration_seconds": 259200.0,
+                "extensions": {
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "room-temperature storage until testing",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": null,
+                "extensions": {
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7717e4cb8387",
+      "mats": [
+        {
+          "key": "ggbs",
+          "label": "GGBS",
+          "role": "GGBS"
+        },
+        {
+          "key": "ss",
+          "label": "SS",
+          "role": "SS"
+        },
+        {
+          "key": "lp",
+          "label": "LP",
+          "role": "LP"
+        },
+        {
+          "key": "ccr",
+          "label": "CCR",
+          "role": "CCR"
+        }
+      ],
+      "tables": {
+        "table-2": {
+          "identity_columns": [
+            "factor",
+            "replacement"
+          ],
+          "material_columns": [
+            "replacement"
+          ],
+          "default_mat_refs": [
+            "ggbs",
+            "ss",
+            "lp",
+            "ccr"
+          ]
+        },
+        "table-3": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "ggbs",
+            "lp",
+            "ss",
+            "ccr",
+            "alkali",
+            "water_binder"
+          ],
+          "default_mat_refs": [
+            "ggbs",
+            "ss",
+            "lp",
+            "ccr"
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-2",
+            "table-3"
+          ],
+          "source": {
+            "page": 4,
+            "x": [
+              38.9,
+              507.7
+            ],
+            "y": [
+              593.2,
+              679.7
+            ],
+            "section": "sample preparation",
+            "required_terms": [
+              "demolded after 24 h",
+              "curing at room temperature",
+              "standard curing chamber",
+              "20",
+              "relative humidity of 95"
+            ],
+            "formula": "duration_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after 24 h",
+              "time_after_mixing_seconds": 86400.0
+            },
+            "curing_stages": [
+              {
+                "method": "room-temperature curing in moulds",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "standard curing after demoulding",
+                "temperature_C": 20.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": null,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7c7c47d33379",
+      "mats": [
+        {
+          "key": "calcined_soil",
+          "label": "calcined soil",
+          "role": "calcined soil"
+        },
+        {
+          "key": "ggbs",
+          "label": "GGBS",
+          "role": "GGBS"
+        },
+        {
+          "key": "uncalcined_soil",
+          "label": "uncalcined soil",
+          "role": "uncalcined soil"
+        }
+      ],
+      "tables": {
+        "section-2.2": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [],
+          "default_mat_refs": [
+            "calcined_soil",
+            "ggbs",
+            "uncalcined_soil"
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "section-2.2"
+          ],
+          "source": {
+            "page": 3,
+            "x": [
+              37.5,
+              291.1
+            ],
+            "y": [
+              155.9,
+              225.0
+            ],
+            "section": "2.2 mixture preparation",
+            "required_terms": [
+              "sealed using plastic films",
+              "After 24 h",
+              "demolded",
+              "standard curing conditions",
+              "relative humidity",
+              "until testing"
+            ],
+            "formula": "duration_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after 24 h",
+              "time_after_mixing_seconds": 86400.0
+            },
+            "curing_stages": [
+              {
+                "method": "sealed mould curing",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "standard curing after demoulding",
+                "temperature_C": 20.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": null,
+                "extensions": {
+                  "humidity_relation": ">",
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ],
+      "text_observations": [
+        {
+          "page": 1,
+          "line_regex": "compressive strength of [0-9.]+ MPa after [A-Za-z]+ day",
+          "value_regex": "strength of ([0-9.]+) MPa",
+          "age_regex": "after ([A-Za-z]+) day",
+          "unit": "MPa",
+          "kind": "compressive_strength",
+          "target_table": "section-2.2",
+          "target_source_row": 6
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-7f610942ec2f",
+      "mats": [
+        {
+          "key": "ggbfs",
+          "label": "GGBFS",
+          "role": "binder"
+        },
+        {
+          "key": "fly_ash",
+          "label": "fly ash",
+          "role": "binder"
+        }
+      ],
+      "tables": {
+        "table-2": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "ggbfs",
+            "fly_ash",
+            "ggbfs_volume",
+            "sodium_hydroxide",
+            "commercial_silicate",
+            "filtered_silicate",
+            "unfiltered_silicate",
+            "water",
+            "liquid_binder",
+            "water_solid",
+            "sio2",
+            "na2o",
+            "silica_alkali_ratio",
+            "alkali_binder"
+          ],
+          "mat_reference_columns": {
+            "ggbfs": "ggbfs",
+            "fly_ash": "fly_ash"
+          }
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-2"
+          ],
+          "source": {
+            "page": 4,
+            "x": [
+              306.5,
+              560.1
+            ],
+            "y": [
+              459.4,
+              504.0
+            ],
+            "section": "compressive strength",
+            "required_terms": [
+              "All specimens were cured",
+              "room temperature",
+            "sealed",
+              "until the moment of testing"
+            ]
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": null,
+            "curing_stages": [
+              {
+                "method": "sealed room-temperature curing",
+                "temperature_C": 23.0,
+                "humidity_percent": null,
+                "duration_seconds": null,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-993d666cc40b",
+      "mats": [
+        {
+          "key": "slag",
+          "label": "slag",
+          "role": "binder"
+        },
+        {
+          "key": "class_f_fly_ash",
+          "label": "Class F fly ash",
+          "role": "binder"
+        },
+        {
+          "key": "mgo",
+          "label": "MgO",
+          "role": "additive"
+        },
+        {
+          "key": "sodium_metasilicate",
+          "label": "sodium metasilicate",
+          "role": "activator"
+        }
+      ],
+      "tables": {
+        "table-4": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "mixture_type"
+          ],
+          "default_mat_refs": [
+            "slag",
+            "sodium_metasilicate"
+          ],
+          "mat_reference_text_terms": {
+            "class_f_fly_ash": [
+              "F",
+              "ash"
+            ],
+            "mgo": [
+              "MgO"
+            ]
+          }
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-4"
+          ],
+          "source_rows": [1, 4, 7, 10],
+          "source": {
+            "page": 4,
+            "x": [
+              37.5,
+              288.8
+            ],
+            "y": [
+              93.0,
+              252.7
+            ],
+            "section": "initial curing",
+            "required_terms": [
+              "Initial curing",
+              "28 days",
+              "24",
+              "relative humidity",
+              "95"
+            ],
+            "formula": "duration_seconds = 28 d * 86400"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": null,
+            "curing_stages": [
+              {
+                "method": "initial chamber curing",
+                "temperature_C": 24.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": 2419200.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 2.0,
+                  "duration_unit": "d"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "mixing_end",
+            "extensions": {}
+          }
+        },
+        {
+          "target_tables": [
+            "table-4"
+          ],
+          "source_rows": [2, 5, 8, 11],
+          "source": {
+            "page": 4,
+            "x": [
+              37.5,
+              288.8
+            ],
+            "y": [
+              93.0,
+              401.7
+            ],
+            "section": "initial and CO2 curing",
+            "required_terms": [
+              "Initial curing",
+              "28 days",
+              "CO2 curing",
+              "1",
+              "65",
+              "three different durations"
+            ],
+            "formula": "stage_1_seconds = 28 d * 86400; stage_2_seconds = 28 d * 86400"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": null,
+            "curing_stages": [
+              {
+                "method": "initial chamber curing",
+                "temperature_C": 24.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": 2419200.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 2.0,
+                  "duration_unit": "d"
+                }
+              },
+              {
+                "method": "co2 incubator curing",
+                "temperature_C": 24.0,
+                "humidity_percent": 65.0,
+                "duration_seconds": 2419200.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 2.0,
+                  "co2_percent": 1.0,
+                  "co2_tolerance_percent": 0.1,
+                  "duration_unit": "d"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "mixing_end",
+            "extensions": {}
+          }
+        },
+        {
+          "target_tables": [
+            "table-4"
+          ],
+          "source_rows": [3, 6, 9, 12],
+          "source": {
+            "page": 4,
+            "x": [
+              37.5,
+              288.8
+            ],
+            "y": [
+              93.0,
+              401.7
+            ],
+            "section": "initial and CO2 curing",
+            "required_terms": [
+              "Initial curing",
+              "28 days",
+              "CO2 curing",
+              "1",
+              "65",
+              "three different durations"
+            ],
+            "formula": "stage_1_seconds = 28 d * 86400; stage_2_seconds = 56 d * 86400"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": null,
+            "curing_stages": [
+              {
+                "method": "initial chamber curing",
+                "temperature_C": 24.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": 2419200.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 2.0,
+                  "duration_unit": "d"
+                }
+              },
+              {
+                "method": "co2 incubator curing",
+                "temperature_C": 24.0,
+                "humidity_percent": 65.0,
+                "duration_seconds": 4838400.0,
+                "extensions": {
+                  "temperature_tolerance_C": 2.0,
+                  "humidity_tolerance_percent": 2.0,
+                  "co2_percent": 1.0,
+                  "co2_tolerance_percent": 0.1,
+                  "duration_unit": "d"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "mixing_end",
+            "extensions": {}
+          }
+        }
+      ],
+      "row_observation_tables": [
+        {
+          "table_id": "table-7",
+          "page": 12,
+          "row_band": [
+            96,
+            204
+          ],
+          "identity_x": [
+            40,
+            115
+          ],
+          "measurements": [
+            {
+              "kind": "elastic_modulus_CNASH_gel",
+              "unit": "GPa",
+              "x": [
+                120,
+                143
+              ]
+            },
+            {
+              "kind": "hardness_CNASH_gel",
+              "unit": "GPa",
+              "x": [
+                230,
+                250
+              ]
+            }
+          ],
+          "target_table": "table-4",
+          "context_x": [
+            37,
+            290
+          ],
+          "context_y": [
+            52,
+            84
+          ],
+          "method_context_page": 10,
+          "method_context_x": [
+            37,
+            557
+          ],
+          "method_context_y": [
+            443,
+            520
+          ],
+          "specimen_template": "(C,N)-A-S-H gel · {id}",
+          "method": "nanoindentation; k-means cluster centroid",
+          "age_status": "not_reported",
+          "age_reason": "paper reports CO2 curing duration, not observation age",
+          "condition_from_parameter": "Mixture Type"
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-b7acfcbaf503",
+      "mats": [
+        {
+          "key": "slag",
+          "label": "slag",
+          "role": "binder"
+        },
+        {
+          "key": "fgr",
+          "label": "flue gas residue",
+          "role": "binder"
+        },
+        {
+          "key": "fa",
+          "label": "fly ash",
+          "role": "binder"
+        }
+      ],
+      "tables": {
+        "table-2": {
+          "identity_columns": [
+            "mix_id"
+          ],
+      "material_columns": [
+        "precursor_ratio",
+        "fgr_solution",
+        "solution_ratio",
+        "alkali_share"
+      ],
+      "parameter_semantics": {
+        "precursor_ratio": "split_ratio",
+        "fgr_solution": "canonical_parameter_key",
+        "solution_ratio": "canonical_parameter_key",
+        "alkali_share": "canonical_parameter_key"
+      },
+      "default_mat_refs": [
+            "slag",
+            "fgr",
+            "fa"
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-2"
+          ],
+          "source": {
+            "page": 3,
+            "x": [
+              37.5,
+              291.1
+            ],
+            "y": [
+              597.2,
+              725.5
+            ],
+            "section": "2.2 specimen preparation",
+            "required_terms": [
+              "wrapped with plastic sheets",
+              "electric oven",
+              "80",
+              "for 72 h",
+              "cooled down to ambient temperature",
+              "for 24 h",
+              "demolded"
+            ],
+            "formula": "stage_1_seconds = 72 h * 3600; stage_2_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "after the 24 h cooling stage; then tested for compressive strength and microstructural properties"
+            },
+            "curing_stages": [
+              {
+                "method": "wrapped moulds in electric oven",
+                "temperature_C": 80.0,
+                "humidity_percent": null,
+                "duration_seconds": 259200.0,
+                "extensions": {}
+              },
+              {
+                "method": "cooled in oven to ambient temperature",
+                "temperature_C": null,
+                "humidity_percent": null,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "stage_end": "demoulding"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "curing_start",
+            "extensions": {}
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "user10v2-f15f24af118a",
+      "mats": [
+        {
+          "key": "bfs",
+          "label": "BFS",
+          "role": "binder"
+        },
+        {
+          "key": "efs",
+          "label": "EFS",
+          "role": "binder"
+        },
+        {
+          "key": "pc",
+          "label": "PC",
+          "role": "binder"
+        },
+        {
+          "key": "sand",
+          "label": "sand",
+          "role": "aggregate"
+        }
+      ],
+      "tables": {
+        "table-3": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "bfs",
+            "pc",
+            "efs",
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "water",
+            "pns",
+            "sand",
+            "water_binder"
+          ],
+          "mat_reference_columns": {
+            "bfs": "bfs",
+            "efs": "efs",
+            "pc": "pc",
+            "sand": "sand"
+          },
+          "dash_recovery_columns": [
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "pns"
+          ]
+        },
+        "table-4": {
+          "identity_columns": [
+            "mix_id"
+          ],
+          "material_columns": [
+            "bfs",
+            "efs",
+            "pc",
+            "precursor_total",
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "water",
+            "alkali_share",
+            "modulus",
+            "pns",
+            "water_binder",
+            "sand"
+          ],
+          "mat_reference_columns": {
+            "bfs": "bfs",
+            "efs": "efs",
+            "pc": "pc",
+            "sand": "sand"
+          },
+          "dash_recovery_columns": [
+            "sodium_hydroxide",
+            "sodium_silicate",
+            "pns"
+          ]
+        }
+      },
+      "curing_profiles": [
+        {
+          "target_tables": [
+            "table-3"
+          ],
+          "source": {
+            "page": 5,
+            "x": [
+              37.5,
+              291.1
+            ],
+            "y": [
+              82.6,
+              420.1
+            ],
+            "section": "3.3.2 fresh individual-stream mortar tests",
+            "required_terms": [
+              "individual streams",
+              "fresh mortar",
+              "flow curve tests",
+              "workability retention"
+            ]
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": null,
+            "curing_stages": [],
+            "curing_route": null,
+            "age_origin": null,
+            "extensions": {
+              "review_status": "not_applicable",
+              "review_reason_code": "fresh_individual_stream_only"
+            }
+          }
+        },
+        {
+          "target_tables": [
+            "table-4"
+          ],
+          "source": {
+            "page": 5,
+            "x": [
+              306.5,
+              560.1
+            ],
+            "y": [
+              168.8,
+              255.3
+            ],
+            "section": "3.3.2 Investigation on mortar levels",
+            "required_terms": [
+              "covered with a plastic sheet",
+              "curing chamber",
+              "demolded after 24 h",
+              "sealed with plastic foils",
+              "until the testing age"
+            ],
+            "formula": "duration_seconds = 24 h * 3600"
+          },
+          "curing": {
+            "mixing": null,
+            "forming": null,
+            "demoulding": {
+              "method": "demoulded after 24 h",
+              "time_after_mixing_seconds": 86400.0
+            },
+            "curing_stages": [
+              {
+                "method": "covered curing chamber",
+                "temperature_C": 20.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": 86400.0,
+                "extensions": {
+                  "temperature_tolerance_C": 0.5,
+                  "stage_end": "demoulding"
+                }
+              },
+              {
+                "method": "sealed curing chamber after demoulding",
+                "temperature_C": 20.0,
+                "humidity_percent": 95.0,
+                "duration_seconds": null,
+                "extensions": {
+                  "temperature_tolerance_C": 0.5,
+                  "duration_label": "until testing"
+                }
+              }
+            ],
+            "curing_route": null,
+            "age_origin": "mixing_end",
+            "extensions": {}
+          }
+        }
+      ],
+      "extra_observation_tables": [
+        {
+          "table_id": "table-5",
+          "page": 7,
+          "header_y": [
+            316,
+            329
+          ],
+          "row_y": [
+            329,
+            347
+          ],
+          "entity_headers_regex": "^(?:A[1-4]|B)$",
+          "measurement_rows": [
+            {
+              "label_regex": "^Dynamic yield stress",
+              "unit": "Pa",
+              "kind": "dynamic_yield_stress"
+            },
+            {
+              "label_regex": "^Plastic viscosity",
+              "unit": "Pa*s",
+              "kind": "plastic_viscosity"
+            }
+          ],
+          "target_table": "table-3",
+          "context_x": [
+            37,
+            557
+          ],
+          "context_y": [
+            286,
+            316
+          ],
+          "method_context_page": 5,
+          "method_context_x": [
+            37,
+            290
+          ],
+          "method_context_y": [
+            320,
+            380
+          ],
+          "specimen_template": "fresh mortar, individual stream {id}",
+          "method": "flow-curve test; Bingham-model fit",
+          "age_status": "not_applicable",
+          "age_reason": "fresh-state measurement before hardening",
+          "reported_conditions": "fresh mortar in individual stream"
+        },
+        {
+          "table_id": "table-9",
+          "page": 11,
+          "header_y": [
+            568,
+            582
+          ],
+          "row_y": [
+            582,
+            596
+          ],
+          "select_header": "Average",
+          "measurement_rows": [
+            {
+              "label_regex": "^Discharging time",
+              "unit": "s",
+              "kind": "discharging_time"
+            }
+          ],
+          "target_table": "table-4",
+          "target_source_row": 1,
+          "context_x": [
+            37,
+            557
+          ],
+          "context_y": [
+            540,
+            568
+          ],
+          "method_context_page": 5,
+          "method_context_x": [
+            306,
+            557
+          ],
+          "method_context_y": [
+            570,
+            630
+          ],
+          "specimen_template": "fresh combined mortar {id}",
+          "method": "V-funnel; EN 12350-9",
+          "age_status": "not_applicable",
+          "age_reason": "fresh-state measurement before hardening",
+          "reported_conditions": "fresh combined mortar"
+        }
+      ]
+    }
+  ]
+}

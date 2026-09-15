@@ -1,0 +1,14 @@
+{
+ "pdf_sha256":"4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+ "property":"compressive_strength", "age_tolerance_days":0.03,
+ "ages":{"page":3,"clause":"compressive strength of AAFS concrete at 1, 7, 14, 28 and 56 d","capture":"at (1, 7, 14, 28 and 56) d"},
+ "specimen":{"page":3,"clause":"cube with size of 100 mm for compressive test","capture":"(cube with size of 100 mm)"},
+ "method":{"page":3,"clause":"According to BS EN 12390-\\s*3:2009","capture":"(BS EN 12390-\\s*3:2009)"},
+ "owners":[
+  {"source_id":"A10","source_table":"table-3","source_row":1,"identity_clause":"1 A10 90/10"},
+  {"source_id":"A15","source_table":"table-3","source_row":2,"identity_clause":"2 A15 85/15"},
+  {"source_id":"A20","source_table":"table-3","source_row":3,"identity_clause":"3 A20 80/20"},
+  {"source_id":"A25","source_table":"table-3","source_row":4,"identity_clause":"4 A25 75/25"},
+  {"source_id":"A30","source_table":"table-3","source_row":5,"identity_clause":"5 A30 70/30"}
+ ]
+}

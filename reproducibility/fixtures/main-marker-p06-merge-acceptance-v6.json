@@ -1,0 +1,18 @@
+{
+  "message_id": "main-context-route-migration-v1",
+  "reviewer": "/root/relations_a",
+  "verdict": "PASS",
+  "plan_sha256": "5e8a24127f0beb7439ad1985fb31c716ec45e6c060efdc13f2f19c068154307b",
+  "implementation_sha256": "afe3a00002c819c6573c0ba642bb1c3fa5dfa7ad7a9a661de15065bd422bc440",
+  "defects": [],
+  "scope": "Narrow source-context routing dependency migration only; not full-paper acceptance",
+  "previous_acceptance": "fixtures/main-marker-p06-merge-acceptance-v5.json",
+  "approved_dependency_changes": {
+    "scripts/main_marker_source_context.py": {
+      "old": "0f249ed738f8f33bc8adf7df5e4d8bfeda8db2c309de5cedc6673bdff0875dd5",
+      "new": "e51ba5c65590fde7c8e496dac4a7714981c484950c43d0308ccc99972daecc28"
+    }
+  },
+  "checks": ["Independent review confirms identical scientific items, owners, geometry and evidence", "Source-context regression tests passed; source statements and values unchanged"],
+  "limitations": ["Methods locator still uses specific normalized prose", "No full-paper acceptance"]
+}

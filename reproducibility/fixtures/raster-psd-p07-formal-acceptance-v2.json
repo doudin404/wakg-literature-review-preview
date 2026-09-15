@@ -1,0 +1,37 @@
+{
+  "scope": "WAKG_RASTER_PSD_FORMAL_PROJECTION",
+  "message_id": "raster-field-coverage-code-review-v1-p07",
+  "verdict": "PASS",
+  "defects": [],
+  "pdf_sha256": "7f610942ec2f61e2b0347d73e64210b23c0757ea3893d7d327912c3b1386397c",
+  "specification_sha256": "8fda8f7d067959763e29781bc03d0e13d25bb60601914b811476127b8461d136",
+  "report_sha256": "e813f95177411a4506cc828f54e56f0bd12ad3854d8684fefffd1e37fd560ab1",
+  "helper_sha256": "5b5ac262f07bd52cffae9723c02127379a611036f8f80a3fb782f075f413ac37",
+  "projection_implementation_sha256": "57ae84db4c076da8e9318260410827e55d3ecdefc16152a2b5a741286e3da980",
+  "dot_adapter_implementation_sha256": "087d60194158c9e837658a0fd18cbdf643036d6e299a85d18fe91930808d9f5f",
+  "dot_derivation_implementation_sha256": "10f563dc36c750d11ef20c03fde311d17eaa170de220aeb73c7a0b7e86ac9493",
+  "overlay_sha256": {
+    "overlay-90319e371108.png": "44a85f5a68e5bf3e1c9d9c3f6780cd987419fe177bbf8b616d20b57a6cd7229a"
+  },
+  "dot_derivations": {
+    "fly ash": "f71049f6797788358be1c7730b39ead12a3b7d0417b6b804f8fd1e93609de03c"
+  },
+  "preserve_reported_percentiles": true,
+  "owners": {
+    "fly ash": "mat-7f610942ec2f-fly_ash",
+    "GGBFS": "mat-7f610942ec2f-ggbfs",
+    "RHA": "mat-9ef60aeb3a66-xrf"
+  },
+  "science_receipt_sha256": "EF097A29BA21FC19DAE787EAC35A52F71B8FE8BE41D80C6D4D11A6EB75544959",
+  "code_receipt_sha256": "ADE097D4E1D2D3325D857FFDCB7C5F3BBD2808CC3A13838778406C3023338965",
+  "whole_paper_accepted": false,
+  "checks": [
+    "Independent scientific review passes the calibrated axes, all three visible legend-owned strokes, and all nine percentile brackets.",
+    "Independent code review passes exact source replay, dot derivation hash binding, atomic mutation, tamper rejection, and P01 no-dot compatibility.",
+    "The fly-ash dot derivation is replayed byte-identically and uses the widened effective uncertainty envelope; no unobserved pixels or manual values are introduced.",
+    "All three owner MAT keys are exact and paper-bound; reported percentiles remain preserved.",
+    "This receipt accepts only offline MAT PSD field projection and does not accept platform import or the whole paper.",
+    "Independent field-coverage implementation compatibility review: default coverage preserves original numerical and curve authority; exact source hashes unchanged; 18 bounded tests PASS."
+  ],
+  "tests": "9 P07/P01 promoter tests passed in 24.33s"
+}

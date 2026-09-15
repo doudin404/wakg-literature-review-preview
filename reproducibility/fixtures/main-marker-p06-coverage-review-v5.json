@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "message_id": "coverage-enum-migration-v1",
+  "reviewer": "/root/multimodal_gap_review",
+  "verdict": "PASS",
+  "plan_sha256": "6231ab42f340ea78d1b15f22477041cdf96cbe1cb6e09a7df45fe7bbf86edb8d",
+  "coverage_scope": "complete_plotted_markers",
+  "panels": {
+    "a": {"figure_type": "PERFORMANCE_CURVE", "series": {"compressive_strength": 4, "flexural_strength": 4}},
+    "b": {"figure_type": "PHYSICAL_PROPERTY", "series": {"open_porosity": 4}}
+  },
+  "error_bars_visible": false,
+  "interpolated_points": 0,
+  "limitations": ["Not original experimental measurements or repeat-level data", "Marker stroke extent is not experimental uncertainty", "Panel c remains independent non-numeric SEM context"],
+  "defects": [],
+  "rebind_proof": {
+    "method": "independently_reviewed_enum_only_plan_migration",
+    "original_coverage_path": "fixtures/main-marker-p06-coverage-review-v4.json",
+    "original_coverage_sha256": "e3b211f9f7f7b66365f4076a6b881b4cb02c27b25f48b6e03cfe92fe9d5eb142",
+    "old_plan_sha256": "635be73187380d712a99d3d0c386b0e8b69bcc95ef1207c343811ff0a7af1088",
+    "migration_reviewer": "/root/relations_b",
+    "migration_review_message_id": "enum-repair-migration-review-v1",
+    "diff_path": "runs/requirements-reset-v1/recipe-merge-review-diff-v1.json",
+    "new_scientific_coverage_review": false
+  }
+}

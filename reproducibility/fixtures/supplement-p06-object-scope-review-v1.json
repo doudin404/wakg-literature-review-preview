@@ -1,0 +1,13 @@
+{
+  "receipt_kind": "WRITER_SUMMARY_OF_INDEPENDENT_SOURCE_REVIEW",
+  "reviewer": "/root/relations_a",
+  "verdict": "PASS_WITH_EXPLICIT_SCOPE",
+  "docx_sha256": "d1ea04f5682d3faf03852c5fd069bed0ad86dff3ac573ee5ded0582d43c21ff7",
+  "items": [
+    {"label":"Table S2","content_sha256":"f3897d0c75b461057c3489501293e295e65770f69eeef182cb5761dcb7dd378a","decision":"EXCLUDE_FROM_FORMAL_MAT_MIX","reason":"Transport, grinding and calcination prices/emissions; LCA process analysis, not experimental recipe or performance","requirements":["FB-01.02","FB-02.05","FB-03.03"]},
+    {"label":"Fig. S3","content_sha256":"861bea1e19a8967b4613aaea6ce2ca83f75d791d722f548fd8a15320e8c3ca32","decision":"EXCLUDE_FROM_FORMAL_MAT_MIX","reason":"System-boundary schematic for CO2 and cost calculations; retain source context","requirements":["FB-01.02","FB-02.01","FB-02.04","FB-03.03"]},
+    {"label":"Table S5","content_sha256":"33d095242a2f72259152b8d8bb248aafff91986a5c89dd4f3165a0b2ed9f42fd","decision":"PRESERVE_QUARANTINED_REFERENCE_CANDIDATE","reason":"Analytical reference concrete; preserve four ingredient masses, do not invent experimental specimen ownership","requirements":["FB-01.02","FB-02.05","FB-03.03"]}
+  ],
+  "limitations": ["Object-scope review only, not whole-paper acceptance", "No PSD review", "Table S5 does not prove experimental testing"],
+  "publication_allowed": false
+}

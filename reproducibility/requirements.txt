@@ -1,0 +1,7 @@
+PyMuPDF==1.28.0
+numpy==2.4.6
+Pillow==12.2.0
+fonttools==4.63.0
+jsonschema==4.26.0
+reportlab==5.0.0
+scipy==1.17.1

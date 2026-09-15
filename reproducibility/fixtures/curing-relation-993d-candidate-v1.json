@@ -1,0 +1,39 @@
+{
+  "run_id": "user10v2-993d666cc40b",
+  "source_packet_sha256": "6d5e019f3c4a4e57e14000d7df5426b21b4274b4e961ab5941af547c0721e3cc",
+  "status": "UNREVIEWED_STRUCTURED_TRANSCRIPTION_OF_AGENT_SOURCE_FINDINGS",
+  "facts": [
+    {"fact_id":"initial","source_id":"source-block-21b3ba35d3d9c7a6f31c2bef","quote":"Initial\ncuring was carried out for a duration of 28 days at a temperature of 24 ±\n2 ◦C and a relative humidity (RH) of 95 ± 2 %."},
+    {"fact_id":"preparation","source_id":"source-block-21b3ba35d3d9c7a6f31c2bef","quote":"After the initial curing, paste specimens were crushed using a mortar\nand pestle."},
+    {"fact_id":"carbonation","source_id":"source-block-106cff657526e2a8656acdd7","quote":"In this study, CO2 curing was conducted in an incubator under\ncontrolled conditions, with a CO2 concentration of 1 ± 0.1 %, a tem-\nperature of 24 ± 2 ◦C, a relative humidity (RH) of 65 ± 2 %, and under\natmospheric pressure."},
+    {"fact_id":"control","source_id":"source-block-106cff657526e2a8656acdd7","quote":"Each binder\nunderwent curing for three different durations: 0, 28, and 56 days. It\nshould be noted that the specimens undergoing 0-day CO2 curing were\ncarefully stored in a controlled chamber with a temperature maintained\nat 24 ± 2 ◦C and a relative humidity (RH) of 95 ± 2 %."}
+  ],
+  "stage_templates": {
+    "initial": {"kind":"INITIAL_CURING","fact_ids":["initial"],"properties":{
+      "duration":{"value":28,"unit":"d","time_origin":"STAGE_START","fact_ids":["initial"]},
+      "temperature":{"value":24,"uncertainty":2,"unit":"degC","fact_ids":["initial"]},
+      "relative_humidity":{"value":95,"uncertainty":2,"unit":"%","fact_ids":["initial"]}}},
+    "preparation": {"kind":"PREPARATION","fact_ids":["preparation"],"properties":{
+      "duration":{"value":null,"unit":"h","time_origin":"STAGE_START","missing_reason":"NOT_REPORTED"}}},
+    "control_storage": {"kind":"STORAGE","fact_ids":["control"],"properties":{
+      "duration":{"value":null,"unit":"d","time_origin":"STAGE_START","missing_reason":"NOT_REPORTED"},
+      "temperature":{"value":24,"uncertainty":2,"unit":"degC","fact_ids":["control"]},
+      "relative_humidity":{"value":95,"uncertainty":2,"unit":"%","fact_ids":["control"]}}},
+    "exposure28": {"kind":"EXPOSURE","fact_ids":["carbonation","control"],"properties":{
+      "duration":{"value":28,"unit":"d","time_origin":"STAGE_START","fact_ids":["control"]},
+      "temperature":{"value":24,"uncertainty":2,"unit":"degC","fact_ids":["carbonation"]},
+      "relative_humidity":{"value":65,"uncertainty":2,"unit":"%","fact_ids":["carbonation"]},
+      "co2_concentration":{"value":1,"uncertainty":0.1,"unit":"%","fact_ids":["carbonation"]}}},
+    "exposure56": {"kind":"EXPOSURE","fact_ids":["carbonation","control"],"properties":{
+      "duration":{"value":56,"unit":"d","time_origin":"STAGE_START","fact_ids":["control"]},
+      "temperature":{"value":24,"uncertainty":2,"unit":"degC","fact_ids":["carbonation"]},
+      "relative_humidity":{"value":65,"uncertainty":2,"unit":"%","fact_ids":["carbonation"]},
+      "co2_concentration":{"value":1,"uncertainty":0.1,"unit":"%","fact_ids":["carbonation"]}}}
+  },
+  "routes": [
+    {"route_id":"route0","source_label":"Control storage after initial curing","specimen_ids":["AAS-C0","AASF-C0","AASM-C0","AASFM-C0"],"stage_template_ids":["initial","preparation","control_storage"],"fact_ids":["initial","preparation","control"],"reasoning":"Candidate inheritance from common preparation and control conditions; Table4 specimen identity binding still required."},
+    {"route_id":"route28","source_label":"28-day CO2 exposure after initial curing","specimen_ids":["AAS-28C1","AASF-28C1","AASM-28C1","AASFM-28C1"],"stage_template_ids":["initial","preparation","exposure28"],"fact_ids":["initial","preparation","carbonation","control"],"reasoning":"Candidate common-condition inheritance; Table4 identity binding still required. Exposure duration is not total age."},
+    {"route_id":"route56","source_label":"56-day CO2 exposure after initial curing","specimen_ids":["AAS-56C1","AASF-56C1","AASM-56C1","AASFM-56C1"],"stage_template_ids":["initial","preparation","exposure56"],"fact_ids":["initial","preparation","carbonation","control"],"reasoning":"Candidate common-condition inheritance; Table4 identity binding still required. No invented split into two 28-day stages."}
+  ],
+  "pending": ["Table4 specimen identity facts", "Preparation sieving parameters", "Qualitative atmospheric pressure", "Independent semantic review", "Formal record assembly"]
+}

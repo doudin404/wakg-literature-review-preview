@@ -1,0 +1,31 @@
+{
+  "protocol": "recipe-row-role-v1",
+  "message_id": "recipe-row-semantic-v1",
+  "supporting_sources": [{"kind": "pdf", "sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb", "pages": [2, 3, 4]}],
+  "reviews": [
+    {
+      "packet_sha256": "bda369d5e4a51b8f46c760db863e44045c191155450b06873a8612f49610d44c",
+      "verdict": "PASS", "reviewer": "/root/relations_a",
+      "rows": [
+        {"row":0,"row_sha256":"650f378197b335b02ea7333a33ddbcd62a5062905e132ce4a413fc2d1b72f36b","role":"HEADER","rationale":"Top-level ingredient and analytical-output headers."},
+        {"row":1,"row_sha256":"0482a107e53cec7d7aa0713e3a88b8a6848592ae225bdb1f34af54fb0c41f170","role":"HEADER","rationale":"Hierarchical subheaders splitting NaOH solution and Water."},
+        {"row":2,"row_sha256":"68184e4fb069c48f9c4c6abaaf69ef0a469ca7711c866abf031cfaa4cdd4f9fd","role":"EXPERIMENTAL_FORMULATION","rationale":"C100G0 is one of the four explicitly described GGBS trial groups (main PDF p.2)."},
+        {"row":3,"row_sha256":"72419d4749e2748b7bd435079582401cee1c9cdfec7bed18c3e902c4d3c458e6","role":"EXPERIMENTAL_FORMULATION","rationale":"C90G10 is explicitly described as a GGBS trial group (main PDF p.2)."},
+        {"row":4,"row_sha256":"b48bcccfcb2db89d935ea65d004f4bf836ed667dee8f8c8178a6cc90acef0f5d","role":"EXPERIMENTAL_FORMULATION","rationale":"C80G20 is explicitly described as a GGBS trial group (main PDF p.2)."},
+        {"row":5,"row_sha256":"0ef1f6718cd6cfd543a80702fda26c6fbe7fd98bba82176348822895635375f6","role":"EXPERIMENTAL_FORMULATION","rationale":"C70G30 is explicitly described as a GGBS trial group and later reference mixture for further experimental comparison (main PDF pp.2-3)."},
+        {"row":6,"row_sha256":"44a044abce30aa3c1a27fe501177de26551e3e5c804445be985b9aed99befa48","role":"EXPERIMENTAL_FORMULATION","rationale":"C52.5G30U17.5 is one of the five explicitly described uncalcined-soil trial groups (main PDF p.3)."},
+        {"row":7,"row_sha256":"78c15beebb92ab9097ff19f1d76749b35bcc9f709369de83aedbd284a208816a","role":"EXPERIMENTAL_FORMULATION","rationale":"C35G30U35 is one of the five explicitly described uncalcined-soil trial groups (main PDF p.3)."},
+        {"row":8,"row_sha256":"3d52a9d0fef4c59d109ab8cf16fdec5e5be3357336c384434388a6eee9ca9599","role":"EXPERIMENTAL_FORMULATION","rationale":"C17.5G30U52.5 is one of the five explicitly described uncalcined-soil trial groups (main PDF p.3)."},
+        {"row":9,"row_sha256":"7128aff83f2f316309c444a02c586853a43cf3f5d05f9c3dc5026ac0f6f10a8b","role":"EXPERIMENTAL_FORMULATION","rationale":"C0G30U70 is one of the five explicitly described uncalcined-soil trial groups (main PDF p.3)."}
+      ]
+    },
+    {
+      "packet_sha256":"e61a1d03603f8dba538f519dcdd5906505bc62b2a8ed1667b22ac3bba82d1a5d",
+      "verdict":"PASS", "reviewer":"/root/relations_a",
+      "rows":[
+        {"row":0,"row_sha256":"6e13d873da7e2eb85327d7856f15e1ec0d0dc1a2c2e0096caa8ea6a31b0477f2","role":"HEADER","rationale":"Material and analytical-output column headers."},
+        {"row":1,"row_sha256":"aa22f9bc36518d75e8e986821e924139388a7cf6fdcc7fd0b59514a41f22332d","role":"REFERENCE","rationale":"Table caption identifies reference cement concrete; main PDF p.4 states it is an assumed blended-cement comparator for carbon/cost analysis, not an experimental AAM formulation."}
+      ]
+    }
+  ]
+}

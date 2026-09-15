@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "message_id": "coverage-rebind-49e66a88f99dbbdb92f1",
+  "reviewer": "/root/multimodal_gap_review",
+  "verdict": "PASS",
+  "plan_sha256": "49e66a88f99dbbdb92f1c01e08629d424c9274cd0c319e2bbcdd880f28782509",
+  "coverage_scope": "complete_plotted_markers",
+  "panels": {
+    "a": {
+      "figure_type": "PERFORMANCE_CURVE",
+      "series": {
+        "compressive_strength": 4,
+        "flexural_strength": 4
+      }
+    },
+    "b": {
+      "figure_type": "PHYSICAL_PROPERTY",
+      "series": {
+        "open_porosity": 4
+      }
+    }
+  },
+  "error_bars_visible": false,
+  "interpolated_points": 0,
+  "limitations": [
+    "Not original experimental measurements or repeat-level data",
+    "Marker stroke extent is not experimental uncertainty",
+    "Panel c remains independent non-numeric SEM context"
+  ],
+  "defects": [],
+  "rebind_proof": {
+    "method": "exact_plan_equality_except_report_sha256",
+    "original_coverage_sha256": "93aa0b3a9e7f71f88c8e3f456641a998aeeda09fad4292ebf0e8579e1125ca54",
+    "old_plan_sha256": "8a3f934153388c0dbce7815b5a0610a139dd8be8069306ef1f98e9250e18304d",
+    "new_acceptance_sha256": "61f46ad78db009f8c234ca8a42f9282abf09164138d0b0c5b2df080e542aefa1",
+    "new_agent_review": false
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "scope": "WAKG_RASTER_PSD_FORMAL_PROJECTION",
+  "message_id": "p7717-percentile-formal-review-v1",
+  "verdict": "PASS",
+  "defects": [],
+  "pdf_sha256": "7717e4cb838769578ed8cd30eda2291e60c87b35a931fd7adac78becdbf20830",
+  "specification_sha256": "cb5f5ebda43e0fb5fb8ca741737a8f921c7cd126cbb7bff89e8859fdd00abbac",
+  "report_sha256": "7020113dc2125b5a4111fafd167caa9ca91456b8559a3ae00456cd2014f06d90",
+  "helper_sha256": "5b5ac262f07bd52cffae9723c02127379a611036f8f80a3fb782f075f413ac37",
+  "projection_implementation_sha256": "57ae84db4c076da8e9318260410827e55d3ecdefc16152a2b5a741286e3da980",
+  "coverage_implementation_sha256": "d159213b08c48bf607ad3645c052228e4b20355d66c89ac577aa013223596433",
+  "overlay_sha256": {
+    "overlay-d044097548a2.png": "083dba897cbdb6be3d9f94a8e6ab77225867ca4049562ca831d70a877581f6c2"
+  },
+  "preserve_reported_percentiles": true,
+  "owners": {
+    "GGBS": "mat-7717e4cb8387-ggbs",
+    "LP": "mat-7717e4cb8387-lp",
+    "SS": "mat-7717e4cb8387-ss",
+    "CCR": "mat-7717e4cb8387-ccr"
+  },
+  "projection_coverage": {
+    "GGBS": {"percentiles": ["d10_um","d50_um","d90_um"], "curve": false},
+    "LP": {"percentiles": ["d10_um","d50_um","d90_um"], "curve": false},
+    "SS": {"percentiles": ["d10_um","d50_um","d90_um"], "curve": false},
+    "CCR": {"percentiles": ["d10_um","d50_um","d90_um"], "curve": false}
+  },
+  "source_review_receipt_sha256": "50cec5d2a13a49c7a4f436dcd020838f00d4b3a615ea362b763e21be0bb0bc43",
+  "whole_paper_accepted": false,
+  "code_review_condition": "Coverage implementation and promoter guards were independently inspected; no separate code-agent receipt is claimed here.",
+  "checks": [
+    "Source proof replays all four CSVs and the overlay with the canonical PDF and specification digest.",
+    "All four owners are exact and paper-bound; all 12 interior percentile candidates have calibrated uncertainty and source brackets.",
+    "Explicit percentile-only coverage projects d10_um, d50_um, and d90_um for every owner while curve=false prevents points_asset_key, curve calibration, and full-curve confirmation.",
+    "Raw CSVs and out-of-domain source pixels remain unchanged candidates; no normalization, clamping, or invented curve completion is accepted.",
+    "Acceptance is limited to offline MAT percentile fields and does not accept whole-curve, whole-paper, or platform import."
+  ]
+}

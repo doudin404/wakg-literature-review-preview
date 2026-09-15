@@ -1,0 +1,25 @@
+{
+  "status": "DEVELOPMENT_SEMANTIC_REVIEW_NOT_FORMAL_ACCEPTANCE",
+  "message_id": "curing-relation-993d-source-review-v1",
+  "source_pdf_sha256": "993d666cc40b6eb807176ef8e1c766792c40a0f7ad7560cc7a3e12baf3ce7e14",
+  "source_page": 4,
+  "scope_findings": [
+    {"route_id": "route0", "meaning": "initial curing, paste preparation, then control storage", "exposure_duration_seconds": null, "control_is_not_measured_zero_exposure": true},
+    {"route_id": "route28", "meaning": "initial curing, paste preparation, then 28-day exposure", "exposure_duration_seconds": 2419200},
+    {"route_id": "route56", "meaning": "initial curing, paste preparation, then 56-day exposure", "exposure_duration_seconds": 4838400}
+  ],
+  "preparation_scope": {
+    "specimen_type": "paste",
+    "source_quote": "After the initial curing, paste specimens were crushed using a mortar and pestle.",
+    "not_authorized_for": ["mortar", "concrete"]
+  },
+  "unresolved_requirements": [
+    "Exact formulation and identity binding to the source table",
+    "Source-reported sieving: passed No. 16 (1.18 mm), retained No. 30 (600 um)",
+    "Preserve qualitative atmospheric pressure without numeric invention",
+    "Keep total specimen age unknown",
+    "Formal record assembly and independent acceptance"
+  ],
+  "formal_values_written": 0,
+  "publication_allowed": false
+}

@@ -1,0 +1,21 @@
+{
+ "pdf_sha256":"4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+ "mapping_message_id":"raw-material-gap-review-p01-p02",
+ "items":[
+  {"key":"sodium-silicate-solution","role":"solution","parameter_key":"SS",
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(SS)"},
+   "material_type":{"page":2,"clause":"with distilled water and sodium silicate solution \\(SS\\)","capture":"(sodium silicate solution)"}},
+  {"key":"polycarboxylate-superplasticizer","role":"admixture","parameter_key":"SPs",
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(SPs)"},
+   "material_type":{"page":2,"clause":"Since the modiﬁed polycarboxylate-based superplasticizers \\(SPs\\)","capture":"(modiﬁed polycarboxylate-based superplasticizers)"}},
+  {"key":"natural-sand","role":"fine_aggregate","parameter_key":"Sand",
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(Sand)"},
+   "material_type":{"page":2,"clause":"Natural sand with a nominal maximum size of 2 mm","capture":"(Natural sand)"}},
+  {"key":"granite-10mm","role":"coarse_aggregate","parameter_key":"CA 10 mm",
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(CA 10 mm)"},
+   "material_type":{"page":2,"clause":"crushed granite with nominal maximum sizes of 10 and 20 mm","capture":"(crushed granite)"}},
+  {"key":"granite-20mm","role":"coarse_aggregate","parameter_key":"CA 20 mm",
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(CA 20 mm)"},
+   "material_type":{"page":2,"clause":"crushed granite with nominal maximum sizes of 10 and 20 mm","capture":"(crushed granite)"}}
+ ]
+}

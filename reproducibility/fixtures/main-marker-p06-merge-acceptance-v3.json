@@ -1,0 +1,10 @@
+{
+ "message_id":"p06-main-merge-rebind-audit-20260908-03",
+ "verdict":"PASS",
+ "plan_sha256":"49e66a88f99dbbdb92f1c01e08629d424c9274cd0c319e2bbcdd880f28782509",
+ "implementation_sha256":"afe3a00002c819c6573c0ba642bb1c3fa5dfa7ad7a9a661de15065bd422bc440",
+ "defects":[],
+ "reviewer":"/root/relations_b",
+ "scope":"Fig.1 merge only; Table S5 candidates not accepted",
+ "checks":["Old acceptance bound to old plan and current merge implementation","Plans equal except report_sha256; reports equal except digitizer_sha256","Current digitizer derivation independently checked; scientific sources, points, owners, units and locators unchanged"]
+}

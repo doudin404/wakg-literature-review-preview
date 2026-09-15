@@ -1,0 +1,14 @@
+{
+ "pdf_sha256":"4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+ "mapping_message_id":"ingredient-p02-common-semantic-20260908-01",
+ "dose_parameter":"SH", "dose_unit":"kg/m3",
+ "selector_parameter":"Molarity of SH", "selector_unit":"M",
+ "items":[
+  {"key":"sodium-hydroxide-solution-10m","role":"solution","parameter_key":"SH","selector_value":10,
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(SH)"},
+   "material_type":{"page":2,"clause":"molarity of sodium hydroxide \\(SH\\) solution and sodium silicate","capture":"(sodium hydroxide \\(SH\\) solution)"}},
+  {"key":"sodium-hydroxide-solution-12m","role":"solution","parameter_key":"SH","selector_value":12,
+   "custom_material_id":{"page":3,"clause":"FA GGBS SH SS SPs Sand CA 10 mm CA 20 mm","capture":"(SH)"},
+   "material_type":{"page":2,"clause":"molarity of sodium hydroxide \\(SH\\) solution and sodium silicate","capture":"(sodium hydroxide \\(SH\\) solution)"}}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+  "pdf_sha256":"1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+  "mapping_message_id":"p01-prose-performance-20260907-01",
+  "identity_page":3,
+  "scope":"source-replayed prose observations with independently reviewed MIX assignment",
+  "items":[
+    {
+      "name":"compressive_strength","unit":"MPa","source_id":"M1.5-B2","source_table":"table-2","source_row":3,
+      "value":{"page":6,"clause":"28-day compressive strength reached the maximum value of \\d+(?:\\.\\d+)? MPa","capture":"value of (\\d+(?:\\.\\d+)?)"},
+      "age":{"page":6,"clause":"28-day compressive strength reached the maximum value of \\d+(?:\\.\\d+)? MPa","capture":"(\\d+)-day"},
+      "specimen":{"page":4,"clause":"Compressive strength tests of mortar cubes","capture":"(cubes)"},
+      "method":{"page":4,"clause":"conducted in accordance with ASTM C109/C109M-2020a","capture":"(C109/C109M-2020a)"}
+    },
+    {
+      "name":"fracture_toughness","unit":"MPa⋅m1/2","source_id":"M1.5-B2-NS1","source_table":"table-2","source_row":10,
+      "value":{"page":8,"clause":"The maximum value of \\d+(?:\\.\\d+)? MPa⋅m1/2","capture":"value of (\\d+(?:\\.\\d+)?)"},
+      "age":{"page":4,"clause":"In addition, \\d+-day prisms were used for three-point bending fracture tests","capture":"(\\d+)-day"},
+      "specimen":{"page":4,"clause":"In addition, \\d+-day prisms were used for three-point bending fracture tests","capture":"(prisms)"},
+      "method":{"page":4,"clause":"In addition, \\d+-day prisms were used for three-point bending fracture tests","capture":"(three-point bending fracture tests)"},
+      "calculation_method":{"page":8,"clause":"calculated according to the formula provided in ASTM E399–19","capture":"(ASTM E399–19)"}
+    }
+  ]
+}

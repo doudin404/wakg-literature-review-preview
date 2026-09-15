@@ -1,0 +1,22 @@
+{
+  "pair_id": "requirements-repair-v1",
+  "message_id": "vector-overlay-20260907-03",
+  "verdict": "PASS",
+  "scope": "17 curve / 9 PSD-percentile candidate readiness only; not whole-paper acceptance",
+  "specification_sha256": "108ea15fd14d16ef050896ce5bd62518f599dd2a1457f2a08288963376204826",
+  "report_sha256": "3cbbfec081dcc9585ed1e696c45d597f003fea3dd285c2c9bd360600c2aa49a3",
+  "inspected_figures": [1, 3, 4],
+  "overlay_sha256": {
+    "fig-1-overlay.png": "85a2a2faf4ae0ed9116e646fdea858b7cdd1e1c86ca46a0b3051cc140a1456f1",
+    "fig-3-overlay.png": "c9099f97e4e4610827bfb62a70d20af1d712242b6d2bd0407bb2ce356501d225",
+    "fig-4-overlay.png": "865237acaa373348995eb70552a4a684f728271f8c1780926c0dc14b4e94bb9c"
+  },
+  "source_proof": {"checked_csvs": 17, "checked_vertices": 19630, "defects": [], "verdict": "PASS"},
+  "defects": [],
+  "observations": [
+    "Fig. 1 reconstructed curves visually coincide with source curves; PSD identities and dashed coverage are consistent.",
+    "D10/D50/D90 red crosses fall on the corresponding cumulative curves; no visible percentile displacement.",
+    "Fig. 3 overlays coincide with FA, GGBFS, and all three FGR-MIX traces; FTIR remains arbitrary absorbance units.",
+    "Fig. 4 overlays coincide with all six XRD traces; no visible legend contamination or trace misassignment. XRD vertical display height remains uncalibrated and is not interpreted as intensity."
+  ]
+}

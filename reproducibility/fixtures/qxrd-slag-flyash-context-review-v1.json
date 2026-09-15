@@ -1,0 +1,19 @@
+{
+  "message_id": "qxrd-remaining-context-v1", "reviewer": "/root/relations_a",
+  "pdf_sha256": "993d666cc40b6eb807176ef8e1c766792c40a0f7ad7560cc7a3e12baf3ce7e14",
+  "page": 2,
+  "material_reviews": {
+    "GGBFS": {
+      "quotes": ["It can be seen that GGBFS is composed of approximately 99 % amorphous phase."],
+      "denominator_recommendation": "as_reported_basis_not_explicit",
+      "denominator_status": "reported_material_composition_denominator_not_explicit",
+      "rationale": "Direct approximate reported content; ASTM material compliance does not establish the XRD denominator. No rebasing."
+    },
+    "fly ash": {
+      "quotes": ["Results show that the fly ash is composed of around 79 % amorphous phase."],
+      "denominator_recommendation": "as_reported_basis_not_explicit",
+      "denominator_status": "reported_material_composition_denominator_not_explicit",
+      "rationale": "Direct approximate reported content; ASTM classification does not establish internal-standard inclusion or denominator. No rebasing."
+    }
+  }
+}

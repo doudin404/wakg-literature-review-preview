@@ -1,0 +1,13 @@
+{
+  "message_id": "p06-main-merge-reaccept-8a3f934153388c0d",
+  "verdict": "PASS",
+  "plan_sha256": "8a3f934153388c0dbce7815b5a0610a139dd8be8069306ef1f98e9250e18304d",
+  "implementation_sha256": "afe3a00002c819c6573c0ba642bb1c3fa5dfa7ad7a9a661de15065bd422bc440",
+  "defects": [],
+  "scope": "P06 Fig. 1 merge only: four digitized strength observations plus eight preferred direct-value corroborations; not full-corpus/UI acceptance.",
+  "checks": ["Independent merge_stamp_review verified old accepted plan and implementation identity", "Plan difference only report_sha256; report difference only digitizer_sha256", "Source hashes, points, owners, values, locators and scientific fields unchanged", "Current digitizer and merge implementation stamps verified; source replay code inspected"],
+  "reviewer": "/root/merge_stamp_review",
+  "reviewer_response_message_id": "p06-main-merge-review-20260908-02",
+  "receipt_note": "Writer assigned unique receipt identity because reviewer reused prior message_id; verdict and bound hashes are unchanged from the independent response.",
+  "supersedes": "main-marker-p06-merge-acceptance-v1.json"
+}

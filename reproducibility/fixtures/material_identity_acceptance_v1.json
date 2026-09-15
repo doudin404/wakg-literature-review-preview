@@ -1,0 +1,437 @@
+{
+  "message_id": "material-identity-20260907-11",
+  "packet_subject_sha256": "ee17604dac7a711018b7e256f7b7719e8dd3b0ef285c9ba6b207d5df0f5a8fe5",
+  "protocol": "reviewed-material-identity-v1",
+  "schema_version": 1,
+  "scope": "material type source recipes only; no whole-paper acceptance",
+  "specifications": [
+    {
+      "custom_material_id": "GGBS",
+      "definition_parts": [],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            84.81183624267578,
+            305.1684875488281,
+            110.85811614990234,
+            318.1995849609375
+          ],
+          "page": 3,
+          "snippet": "(GGBS)"
+        }
+      ],
+      "material_type": "ground granulated blast-furnace slag",
+      "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+      "record_key": "mat-1c116a8946fc-ggbs",
+      "source_parts": [
+        {
+          "bbox": [
+            198.59378051757812,
+            294.73724365234375,
+            288.6822509765625,
+            307.7683410644531
+          ],
+          "page": 3,
+          "snippet": "ground granulated blast-"
+        },
+        {
+          "bbox": [
+            37.587398529052734,
+            305.1684875488281,
+            81.35759735107422,
+            318.1995849609375
+          ],
+          "page": 3,
+          "snippet": "furnace slag"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "fly ash",
+      "definition_parts": [
+        {
+          "bbox": [
+            50.62799072265625,
+            244.2878875732422,
+            58.26295852661133,
+            250.7493133544922
+          ],
+          "page": 3,
+          "snippet": "FA"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            401.8968505859375,
+            188.61729431152344,
+            409.5318298339844,
+            195.07872009277344
+          ],
+          "page": 2,
+          "snippet": "FA"
+        }
+      ],
+      "material_type": "fly ash",
+      "pdf_sha256": "4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+      "record_key": "mat-4df39133d239-fly_ash",
+      "source_parts": [
+        {
+          "bbox": [
+            60.435585021972656,
+            244.2878875732422,
+            89.80728912353516,
+            250.7493133544922
+          ],
+          "page": 3,
+          "snippet": "(Fly Ash);"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "GGBS",
+      "definition_parts": [
+        {
+          "bbox": [
+            91.95700073242188,
+            244.2878875732422,
+            108.58892822265625,
+            250.7493133544922
+          ],
+          "page": 3,
+          "snippet": "GGBS"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            424.0644836425781,
+            188.61729431152344,
+            440.6964111328125,
+            195.07872009277344
+          ],
+          "page": 2,
+          "snippet": "GGBS"
+        }
+      ],
+      "material_type": "ground granulated blast-furnace slag",
+      "pdf_sha256": "4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+      "record_key": "mat-4df39133d239-ggbs",
+      "source_parts": [
+        {
+          "bbox": [
+            110.66595458984375,
+            244.2878875732422,
+            233.14752197265625,
+            250.7493133544922
+          ],
+          "page": 3,
+          "snippet": "(Ground Granulated Blast-furnace Slag);"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "CDW",
+      "definition_parts": [],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            352.4565734863281,
+            114.05789184570312,
+            378.64630126953125,
+            127.08900451660156
+          ],
+          "page": 3,
+          "snippet": "(CDW)."
+        }
+      ],
+      "material_type": "construction and demolition waste",
+      "pdf_sha256": "66c1278f6f7c2991f7497f8056ec76ca2cc24dab655b2c02d7ecbdd49f8a45db",
+      "record_key": "mat-66c1278f6f7c-cdw",
+      "source_parts": [
+        {
+          "bbox": [
+            473.15496826171875,
+            103.62662506103516,
+            557.634033203125,
+            116.6577377319336
+          ],
+          "page": 3,
+          "snippet": "construction and demo­"
+        },
+        {
+          "bbox": [
+            306.5926208496094,
+            114.05789184570312,
+            348.95684814453125,
+            127.08900451660156
+          ],
+          "page": 3,
+          "snippet": "lition waste"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "GGBS",
+      "definition_parts": [
+        {
+          "bbox": [
+            37.58976745605469,
+            323.3107604980469,
+            65.86767578125,
+            336.34185791015625
+          ],
+          "page": 2,
+          "snippet": "(GGBS),"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            306.5950012207031,
+            386.1830139160156,
+            326.6477966308594,
+            399.214111328125
+          ],
+          "page": 2,
+          "snippet": "GGBS"
+        }
+      ],
+      "material_type": "ground granulated blast-furnace slag",
+      "pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+      "record_key": "mat-7c7c47d33379-ggbs",
+      "source_parts": [
+        {
+          "bbox": [
+            159.02459716796875,
+            312.8229064941406,
+            288.6829833984375,
+            325.85400390625
+          ],
+          "page": 2,
+          "snippet": "ground granulated blast-furnace slag"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "RHA",
+      "definition_parts": [
+        {
+          "bbox": [
+            446.45428466796875,
+            279.6480712890625,
+            466.6677551269531,
+            291.3759460449219
+          ],
+          "page": 1,
+          "snippet": "(RHA)"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            255.56964111328125,
+            721.4034423828125,
+            272.0358581542969,
+            734.4345703125
+          ],
+          "page": 2,
+          "snippet": "RHA"
+        }
+      ],
+      "material_type": "rice husk ash",
+      "pdf_sha256": "7f610942ec2f61e2b0347d73e64210b23c0757ea3893d7d327912c3b1386397c",
+      "record_key": "mat-9ef60aeb3a66-xrf",
+      "source_parts": [
+        {
+          "bbox": [
+            399.7960510253906,
+            279.6480712890625,
+            443.357666015625,
+            291.3759460449219
+          ],
+          "page": 1,
+          "snippet": "rice husk ash"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "flue gas residue",
+      "definition_parts": [
+        {
+          "bbox": [
+            261.0135803222656,
+            279.6480712890625,
+            281.9372253417969,
+            291.3759460449219
+          ],
+          "page": 1,
+          "snippet": "(FGR),"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            356.4842529296875,
+            239.74559020996094,
+            373.739501953125,
+            252.77670288085938
+          ],
+          "page": 2,
+          "snippet": "FGR."
+        }
+      ],
+      "material_type": "flue gas residues",
+      "pdf_sha256": "b7acfcbaf50338961c68db74f1baf1c64299ab58a4f30926394843c8c380cc03",
+      "record_key": "mat-b7acfcbaf503-fgr",
+      "source_parts": [
+        {
+          "bbox": [
+            201.9969940185547,
+            279.6480712890625,
+            257.8875732421875,
+            291.3759460449219
+          ],
+          "page": 1,
+          "snippet": "Flue gas residues"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "BFS",
+      "definition_parts": [
+        {
+          "bbox": [
+            428.59564208984375,
+            320.183349609375,
+            445.9471130371094,
+            331.9112243652344
+          ],
+          "page": 1,
+          "snippet": "(BFS)"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            366.40264892578125,
+            291.90191650390625,
+            379.6888122558594,
+            304.9330139160156
+          ],
+          "page": 2,
+          "snippet": "BFS"
+        }
+      ],
+      "material_type": "blast furnace slag",
+      "pdf_sha256": "f15f24af118a5a8156f00837d15a7f493f19e0cd63a7fbb1d72842b3dd45cfde",
+      "record_key": "mat-f15f24af118a-bfs",
+      "source_parts": [
+        {
+          "bbox": [
+            370.59979248046875,
+            320.183349609375,
+            426.3713073730469,
+            331.9112243652344
+          ],
+          "page": 1,
+          "snippet": "blast furnace slag"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "EFS",
+      "definition_parts": [
+        {
+          "bbox": [
+            540.449951171875,
+            320.183349609375,
+            557.6436157226562,
+            331.9112243652344
+          ],
+          "page": 1,
+          "snippet": "(EFS)"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            397.07318115234375,
+            291.90191650390625,
+            410.18402099609375,
+            304.9330139160156
+          ],
+          "page": 2,
+          "snippet": "EFS"
+        }
+      ],
+      "material_type": "electric arc furnace slag",
+      "pdf_sha256": "f15f24af118a5a8156f00837d15a7f493f19e0cd63a7fbb1d72842b3dd45cfde",
+      "record_key": "mat-f15f24af118a-efs",
+      "source_parts": [
+        {
+          "bbox": [
+            462.21478271484375,
+            320.183349609375,
+            538.2255859375,
+            331.9112243652344
+          ],
+          "page": 1,
+          "snippet": "electric arc furnace slag"
+        }
+      ]
+    },
+    {
+      "custom_material_id": "PC",
+      "definition_parts": [
+        {
+          "bbox": [
+            226.7144317626953,
+            396.71783447265625,
+            240.75917053222656,
+            408.4457092285156
+          ],
+          "page": 1,
+          "snippet": "(PC)"
+        }
+      ],
+      "local_identity_parts": [
+        {
+          "bbox": [
+            439.02935791015625,
+            323.311767578125,
+            448.64129638671875,
+            336.3428649902344
+          ],
+          "page": 2,
+          "snippet": "PC"
+        }
+      ],
+      "material_type": "Portland cement",
+      "pdf_sha256": "f15f24af118a5a8156f00837d15a7f493f19e0cd63a7fbb1d72842b3dd45cfde",
+      "record_key": "mat-f15f24af118a-pc",
+      "source_parts": [
+        {
+          "bbox": [
+            530.4723510742188,
+            387.1368408203125,
+            557.6651611328125,
+            398.8647155761719
+          ],
+          "page": 1,
+          "snippet": "Portland"
+        },
+        {
+          "bbox": [
+            201.9969940185547,
+            396.71783447265625,
+            224.97210693359375,
+            408.4457092285156
+          ],
+          "page": 1,
+          "snippet": "cement"
+        }
+      ]
+    }
+  ]
+}

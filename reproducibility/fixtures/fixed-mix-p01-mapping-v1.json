@@ -1,0 +1,18 @@
+{
+  "message_id": "p01-fixed-ratio-mapping-20260907-01",
+  "verdict": "PASS",
+  "scope": "Original reported fixed-ratio field mapping; not mass-conversion acceptance",
+  "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+  "source_page": 3,
+  "source_section": "2.2",
+  "destination": "/modules/materials/platform_ratios",
+  "parameters": {
+    "water-to-binder": {"basis": "source binder definition not resolved", "scope": "fixed mix design"},
+    "precursor mass ratio": {"basis": "GGBS to FA mass ratio", "scope": "fixed precursor composition"},
+    "total alkali": {"basis": "equivalent Na2O mass relative to precursors", "scope": "fixed mix design; not activator mass percentage"},
+    "sand-to-binder": {"basis": "source binder definition not resolved", "scope": "sand-containing mortar only"},
+    "aggregate blend mass ratio": {"basis": "QS#1 to QS#2 mass ratio", "scope": "sand-containing mortar only"}
+  },
+  "conversion_authorized": false,
+  "do_not_infer": ["binder equals GGBS plus FA", "total activator mass", "sand in sand-free paste", "mixed-sand PSD from one sand curve"]
+}

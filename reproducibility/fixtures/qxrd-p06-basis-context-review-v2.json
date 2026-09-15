@@ -1,0 +1,23 @@
+{
+  "message_id": "qxrd-material-scoped-basis-review-v2",
+  "reviewer": "/root/relations_a",
+  "verdict": "PASS",
+  "run_id": "user10v2-7c7c47d33379",
+  "pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+  "page": 2,
+  "scope": "Material-local reported QXRD values, not full paper acceptance or explicit mass-denominator verification",
+  "material_reviews": {
+    "uncalcined soil": {
+      "quotes": ["Using the Rietveld method (Yan et al., 2018), XRD analysis revealed that uncalcined soil primarily consisted of 42.1 % quartz (SiO2) and 57.9 % kaolinite (Al2Si2O5(OH)4),"],
+      "denominator_recommendation": "as_reported_standard_not_reported",
+      "denominator_status": "reported_material_composition_standard_not_reported",
+      "rationale": "The source directly reports uncalcined-soil phases. The following ZnO clause belongs to calcined soil and must not be inherited. Preserve values; internal-standard denominator treatment remains unknown."
+    },
+    "calcined soil": {
+      "quotes": ["whereas the calcined soil contained 47.1 % quartz and 52.9 % amorphous phases, determined using zinc oxide (ZnO) as an internal standard with a ZnO-to-soil mass ratio of 1:4."],
+      "denominator_recommendation": "as_reported_basis_not_explicit",
+      "denominator_status": "reported_material_composition_denominator_not_explicit",
+      "rationale": "ZnO and the 1:4 ZnO-to-soil ratio apply to calcined soil. Preserve reported phase fractions without rebasing. Excluding the standard from the phase denominator is contextual inference only, not an explicitly reported denominator."
+    }
+  }
+}

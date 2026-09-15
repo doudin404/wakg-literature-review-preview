@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "run_id": "user10v2-7c7c47d33379",
+  "figure_number": "Fig. 1",
+  "image_sha256": "879cf5f296c7c6e4824ca88be44299a1d65c0873ffb544f432a9a91d949bf3f4",
+  "panels": [
+    {
+      "label": "a",
+      "pixel_bounds": [86, 377, 8, 241],
+      "excluded_regions": [[90, 10, 290, 51]],
+      "x_axis": {"name": "GGBS content", "unit": "%", "min": -2.5, "max": 32.5},
+      "x_values": [0, 10, 20, 30],
+      "series": [
+        {"name": "compressive_strength", "color": "black", "age_seconds": 2419200, "y_axis": {"min": 0, "max": 60, "unit": "MPa"}},
+        {"name": "flexural_strength", "color": "blue", "erosion_size": 5, "age_seconds": 2419200, "y_axis": {"min": 0, "max": 15, "unit": "MPa"}}
+      ]
+    },
+    {
+      "label": "b",
+      "pixel_bounds": [504, 795, 8, 241],
+      "x_axis": {"name": "GGBS content", "unit": "%", "min": -2.5, "max": 32.5},
+      "x_values": [0, 10, 20, 30],
+      "series": [
+        {"name": "porosity", "color": "black", "age_seconds": null, "y_axis": {"min": 20, "max": 40, "unit": "%"}}
+      ]
+    }
+  ]
+}

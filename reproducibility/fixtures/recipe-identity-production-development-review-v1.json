@@ -1,0 +1,20 @@
+{
+  "packet_sha256": "b8b862c827fd13676feb50f60e0c136e2366641b2a9ce6ec730d9eb0ae0717c4",
+  "reviewer": "/root/source_relation_canary",
+  "decisions": [
+    {
+      "source": "C52.5G30R17.5",
+      "target": "C52.5G30U17.5",
+      "verdict": "UNRESOLVED",
+      "rationale": "已核对的原文没有定义R，也没有明确声明R与U指向同一物理试样及试验范围。排版别名仍属猜测；缺少明确的标签对应及试件范围证据，不能授权合并全部性能与表征。",
+      "source_facts": []
+    },
+    {
+      "source": "C70G30U0",
+      "target": "C70G30",
+      "verdict": "UNRESOLVED",
+      "rationale": "已核对原文支持参考配方等价，但试样范围未证实。正文涉及净浆、砂浆和混凝土以及不同测试用途，现有证据不能证明两个标签下全部物理试样及试验范围相同。当前SAME_SPECIMEN会授权合并全部性能与表征，超出证据支持范围；需要按试件类型、试验系列及观测对象建立明确对应后才能裁决。",
+      "source_facts": []
+    }
+  ]
+}

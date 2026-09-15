@@ -1,0 +1,13 @@
+{
+ "scope":"DEVELOPMENT_VISUAL_TRANSCRIPTION_NOT_FORMAL_ACCEPTANCE",
+ "image_sha256":"8bcc17e97deae9c255ac977edf0891600af06a658982e3e0b4be4ad1bad1c1f8",
+ "native_size":[649,584],
+ "curves":[
+  {"name":"Calcined soil+ZnO","bbox_px":[412,183,629,211]},
+  {"name":"Uncalcined soil","bbox_px":[452,465,624,491]}
+ ],
+ "x_axis":{"title":"2θ (degrees)","tick_candidates":[[16,10],[93,20],[170,30],[247,40],[325,50],[402,60],[479,70],[556,80],[632,90]]},
+ "y_axis":{"visible_numeric_scale":false,"unit":null},
+ "material_association_status":"UNRESOLVED",
+ "correction_note":"Initial agent transcription contained a malformed hash and misplaced lower label bbox; corrected before use. Tick and label geometry remains a development candidate."
+}

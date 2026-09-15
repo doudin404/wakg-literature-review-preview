@@ -1,0 +1,25 @@
+{
+  "pdf_sha256": "4df39133d23950a36a24163eb668c161d10da0ae41fe6d4d977595dc8af13e7f",
+  "mapping_message_id": "prose-triage-group1-20260907-01",
+  "identity_page": 3,
+  "items": [
+    {
+      "source_id": "A10", "source_table": "table-3", "source_row": 1,
+      "identity_clause": "1 A10 90/10",
+      "name": "compressive_strength", "unit": "MPa",
+      "value": {"page": 6, "clause": "when the slag replacement level was increased from 10% to 30%, the 28-d compressive strength was increased from \\d+\\.\\d+ to \\d+\\.\\d+ MPa", "capture": "from (\\d+\\.\\d+) to"},
+      "age": {"page": 6, "clause": "the \\d+-d compressive strength was increased from \\d+\\.\\d+ to \\d+\\.\\d+ MPa", "capture": "(\\d+)-d"},
+      "specimen": {"page": 3, "clause": "cube with size of 100 mm for compressive test", "capture": "(cube with size of 100 mm)"},
+      "method": {"page": 3, "clause": "According to BS EN 12390-\\s*3:2009", "capture": "(BS EN 12390-\\s*3:2009)"}
+    },
+    {
+      "source_id": "A30", "source_table": "table-3", "source_row": 5,
+      "identity_clause": "5 A30 70/30",
+      "name": "compressive_strength", "unit": "MPa",
+      "value": {"page": 6, "clause": "when the slag replacement level was increased from 10% to 30%, the 28-d compressive strength was increased from \\d+\\.\\d+ to \\d+\\.\\d+ MPa", "capture": "to (\\d+\\.\\d+) MPa"},
+      "age": {"page": 6, "clause": "the \\d+-d compressive strength was increased from \\d+\\.\\d+ to \\d+\\.\\d+ MPa", "capture": "(\\d+)-d"},
+      "specimen": {"page": 3, "clause": "cube with size of 100 mm for compressive test", "capture": "(cube with size of 100 mm)"},
+      "method": {"page": 3, "clause": "According to BS EN 12390-\\s*3:2009", "capture": "(BS EN 12390-\\s*3:2009)"}
+    }
+  ]
+}

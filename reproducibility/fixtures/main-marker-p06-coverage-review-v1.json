@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "message_id": "p06-main-marker-coverage-review-20260908-01",
+  "reviewer": "/root/multimodal_gap_review",
+  "verdict": "PASS",
+  "plan_sha256": "00d0408f3335c4c45125fea36e588a6b045529168121285de145576d2962c93a",
+  "coverage_scope": "complete_plotted_markers",
+  "panels": {
+    "a": {"figure_type": "PERFORMANCE_CURVE", "series": {"compressive_strength": 4, "flexural_strength": 4}},
+    "b": {"figure_type": "PHYSICAL_PROPERTY", "series": {"open_porosity": 4}}
+  },
+  "error_bars_visible": false,
+  "interpolated_points": 0,
+  "limitations": ["Not original experimental measurements or repeat-level data", "Marker stroke extent is not experimental uncertainty", "Panel c remains independent non-numeric SEM context"],
+  "defects": []
+}

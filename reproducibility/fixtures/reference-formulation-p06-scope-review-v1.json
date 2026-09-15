@@ -1,0 +1,17 @@
+{
+ "receipt_kind":"WRITER_SUMMARY_OF_AGENT_SOURCE_REVIEW",
+ "reviewer":"/root/relations_a",
+ "run_id":"user10v2-7c7c47d33379",
+ "pdf_sha256":"7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+ "docx_sha256":"d1ea04f5682d3faf03852c5fd069bed0ad86dff3ac573ee5ded0582d43c21ff7",
+ "table_label":"Table S5",
+ "rows_sha256":"33d095242a2f72259152b8d8bb248aafff91986a5c89dd4f3165a0b2ed9f42fd",
+ "decision":"ANALYTICAL_REFERENCE_NOT_EXPERIMENTAL_MIX",
+ "existing_mat_links_permitted":false,
+ "source_support":[
+  {"source":"docx","body_index":20,"text":"Table S5 Mixture proportions of reference cement concrete for carbon emissions and cost analysis"},
+  {"source":"pdf","page":4,"text":"the reference cement concrete was assumed to have a similar strength grade of 55 MPa"}
+ ],
+ "disposition":"PRESERVE_CANDIDATE_NO_APPROVED_ANALYTICAL_REFERENCE_MAPPING",
+ "publication_allowed":false
+}

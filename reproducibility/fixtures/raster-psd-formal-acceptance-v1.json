@@ -1,0 +1,30 @@
+{
+  "scope": "WAKG_RASTER_PSD_FORMAL_PROJECTION",
+  "message_id": "raster-formal-projection-20260907-01",
+  "verdict": "PASS",
+  "defects": [],
+  "pdf_sha256": "1c116a8946fc574d925005f09f098797feb7fa1e3055d5bfa88cb2f326004ea2",
+  "specification_sha256": "e52cf15fc94f982775bb17b53f0e40225febea646acf23f65c67658232adf8c4",
+  "report_sha256": "fca47628177c592a40a11bcea5e5a8fd0defc1870b3a56a5515378ceb97b602e",
+  "helper_sha256": "5b5ac262f07bd52cffae9723c02127379a611036f8f80a3fb782f075f413ac37",
+  "projection_implementation_sha256": "ad7a81cf3847eeed5ce4950a841b0895530a54c48d16140bad43862192e9da03",
+  "overlay_sha256": {
+    "overlay-0285e937b18f.png": "f09ec6ebe63244f8cf09ad6b566b11b789442b551238853d1de548a40c662f6d"
+  },
+  "preserve_reported_percentiles": true,
+  "owners": {
+    "GGBS": "mat-1c116a8946fc-ggbs",
+    "FA": "mat-1c116a8946fc-fa",
+    "QS#1": "mat-1c116a8946fc-aggregate-3047a5fdc9c2",
+    "QS#2": "mat-1c116a8946fc-aggregate-db56cad39c4a"
+  },
+  "checks": [
+    "Replay proof passes for all 4 CSVs and overlay.",
+    "Projection adds reviewed D10/D90 candidates and preserves all 4 directly reported D50 values with exact PDF evidence.",
+    "Calibration-aware uncertainty intervals are required and recorded.",
+    "Owner labels and MAT keys are exact; source image/PDF/page/bbox guards pass.",
+    "Projection is atomic and idempotent; tampering and receipt swaps reject without mutation.",
+    "Whole-paper acceptance remains false."
+  ],
+  "tests": "2 passed"
+}

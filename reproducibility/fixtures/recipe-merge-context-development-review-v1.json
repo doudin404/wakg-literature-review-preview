@@ -1,0 +1,26 @@
+{
+  "status": "DEVELOPMENT_SOURCE_REVIEW_NOT_APPLIED",
+  "packet_sha256": "782db7d4ec059a172e35524044fb3a4d17f6537b32c053479d861330af352105",
+  "review_message_id": "recipe-merge-context-court-v1-curing-revision",
+  "source_pdf_sha256": "7c7c47d33379e8a83d7ea340a444205e5973c5a1b68a09f556536c314634becb",
+  "source_docx_sha256": "d1ea04f5682d3faf03852c5fd069bed0ad86dff3ac573ee5ded0582d43c21ff7",
+  "identity_candidates": [
+    {"source_label": "C70G30U0", "target_label": "C70G30", "agent_verdict": "SAME_SPECIMEN", "application_status": "REQUIRES_IDENTITY_SCOPE_EVIDENCE_VALIDATION"},
+    {"source_label": "C52.5G30R17.5", "target_label": "C52.5G30U17.5", "agent_verdict": "UNRESOLVED", "application_status": "DO_NOT_MERGE"}
+  ],
+  "curing_source_correction": {
+    "page": 3,
+    "root_reopened_source": true,
+    "source_phrases": ["After 24 h", "demolded and cured under standard curing conditions", "relative humidity > 95 %", "until testing"],
+    "pre_demoulding_interval_seconds": 86400,
+    "post_demoulding_duration_seconds": null,
+    "post_demoulding_temperature_C": 20,
+    "post_demoulding_humidity_percent": 95,
+    "post_demoulding_humidity_relation": ">",
+    "old_single_stage_approved": false
+  },
+  "rejected_first_review_findings": ["Quoted sentence was not contained in the supplied name-only bbox", "Equal old curing payloads were incorrectly treated as acceptable without checking the stage meaning"],
+  "remaining": ["Validate complete identity-scope evidence, not only name tokens", "Repair source-stage extraction before accepting any merge", "Implement and validate review-driven migration or preservation of distinct source identities"],
+  "formal_values_written": 0,
+  "publication_allowed": false
+}

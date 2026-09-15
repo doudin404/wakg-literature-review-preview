@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_CALIBRATION_NOT_ACCEPTED",
+  "calibration_review_message_id": "p07-raster-calibration-v1",
+  "pdf_sha256": "7f610942ec2f61e2b0347d73e64210b23c0757ea3893d7d327912c3b1386397c",
+  "panels": [
+    {
+      "figure": "Fig. 1",
+      "panel_label": "whole",
+      "page": 3,
+      "image_xref": 42,
+      "native_size": [
+        951,
+        778
+      ],
+      "curve_type": "cumulative_finer",
+      "trace_mode": "uppermost_saturated_cumulative_stroke",
+      "plot_bbox_px": [
+        130,
+        17,
+        910,
+        662
+      ],
+      "exclude_boxes_px": [
+        [
+          160,
+          25,
+          375,
+          190
+        ]
+      ],
+      "pixel_uncertainty": 3,
+      "max_percentile_gap_px": 20,
+      "x_axis": {
+        "anchors": [
+          [
+            126,
+            0.1
+          ],
+          [
+            912,
+            1000
+          ]
+        ],
+        "anchor_pixel_intervals": [
+          [
+            125,
+            127
+          ],
+          [
+            911,
+            913
+          ]
+        ],
+        "unit": "um",
+        "scale": "log10"
+      },
+      "y_axis": {
+        "anchors": [
+          [
+            666,
+            0
+          ],
+          [
+            14,
+            100
+          ]
+        ],
+        "anchor_pixel_intervals": [
+          [
+            665,
+            667
+          ],
+          [
+            13,
+            15
+          ]
+        ],
+        "unit": "%",
+        "scale": "linear"
+      },
+      "series": [
+        {
+          "label": "fly ash",
+          "source_label": "FA",
+          "mat_key": "mat-7f610942ec2f-fly_ash",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "color_distance": 65,
+          "min_vertical_pixels": 2
+        },
+        {
+          "label": "GGBFS",
+          "source_label": "GGBFS",
+          "mat_key": "mat-7f610942ec2f-ggbfs",
+          "rgb": [
+            116,
+            116,
+            116
+          ],
+          "color_distance": 30,
+          "min_vertical_pixels": 2
+        },
+        {
+          "label": "RHA",
+          "source_label": "RHA",
+          "mat_key": "mat-9ef60aeb3a66-xrf",
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "color_distance": 55,
+          "min_vertical_pixels": 2
+        }
+      ]
+    }
+  ],
+  "calibration_uncertainties": [
+    "GGBFS gray dash-dot pixels can overlap antialiased black RHA edge colors; existing color-only tracer cannot prove identity through gaps. Overlay and stroke-style verification required before promotion.",
+    "FA and RHA overlap at lower passing fractions; no concealed segment reconstruction allowed.",
+    "Plot interior excludes axis strokes and exact zero/full-scale endpoints; no endpoint extrapolation.",
+    "FA source abbreviation is mapped to existing custom_material_id fly ash; source_label and mat_key are metadata, current enrich_candidates resolves label only.",
+    "Twenty-pixel maximum interpolation gap is a candidate ceiling, not verified extraction accuracy."
+  ]
+}
