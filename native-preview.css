@@ -40,6 +40,7 @@
 .point-table table{width:100%;border-collapse:collapse}
 .point-table td,.point-table th{padding:6px;border-bottom:1px solid #ddd;text-align:right}
 .curve-card .curve-detail{min-width:0;max-width:none;padding:0}
+.curve-card .curve-preview{width:min(100%,720px);height:auto;max-height:480px;min-width:0;object-fit:contain}
 .selected-field-details p{white-space:pre-line;font-size:13px}
 .observation-heading{padding:12px 16px;font-size:15px}
 .observation-table td,.observation-table th{padding:8px 12px;vertical-align:top}
